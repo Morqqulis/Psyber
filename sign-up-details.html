@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Business Details</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260220064929">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header header--sign-up" aria-labelledby="header">
+			<div class="header__container">
+				<a href="/" class="header__logo logo">
+					<img src="img/logo.svg" alt="Logo" width="162" height="41">
+				</a>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item header__item--done">
+							<span class="header__dot header__dot--done">
+								<svg class="header__check" width="16" height="16">
+									<use xlink:href="img/icons/icons.svg#svg-check"></use>
+								</svg>
+							</span>
+							<span class="header__text">Your plan</span>
+						</li>
+						<li class="header__dot-separator"></li>
+						<li class="header__item header__item--active">
+							<span class="header__dot header__dot--active"></span>
+							<span class="header__text">Details</span>
+						</li>
+						<li class="header__dot-separator"></li>
+						<li class="header__item">
+							<span class="header__text header__text--muted">Payment</span>
+						</li>
+						<li class="header__dot-separator"></li>
+						<li class="header__item">
+							<span class="header__text header__text--muted">Verify</span>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__actions">
+					<button class="header__action header__modal-trigger">
+						<svg class="header__modal-icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-close"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<section class="sign-up">
+				<div class="sign-up__container">
+					<div class="sign-up__content">
+						<div class="sign-up__top">
+							<h1 class="sign-up__title title">
+								Tell us about your <span>business?</span>
+							</h1>
+						</div>
+
+						<div class="sign-up__inner">
+							<form class="sign-up__form onboarding-form" action="sign-up-payment.html">
+								<div class="onboarding-form__item">
+									<label class="onboarding-form__label" for="business-input">
+										Business Name
+									</label>
+									<input class="onboarding-form__input input" type="text" id="business-input" name="business-input" placeholder="Enter your company name" required>
+								</div>
+
+								<div class="onboarding-form__item">
+									<label class="onboarding-form__label" for="business-industry">What's your industry?</label>
+									<div class="onboarding-form__select select">
+										<select name="business-industry" id="business-industry" required>
+											<option value="construction" selected>Construction</option>
+											<option value="education">Education</option>
+											<option value="finance">Finance</option>
+											<option value="healthcare">Healthcare</option>
+											<option value="technology">Technology</option>
+											<option value="other">Other</option>
+										</select>
+										<svg class="select__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+										</svg>
+									</div>
+									<div class="onboarding-form__desc">
+										<svg class="onboarding-form__info" width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-info"></use>
+										</svg>
+										<p>Make sure this is correct as it will be hard to change later!</p>
+									</div>
+								</div>
+
+								<div class="onboarding-form__item">
+									<label class="onboarding-form__label" for="business-sub-sector">Choose a sub-sector for your main industry?</label>
+									<div class="onboarding-form__select select">
+										<select name="business-sub-sector" id="business-sub-sector" required>
+											<option disabled selected value="">Select a sub-sector</option>
+											<option value="general-construction">General construction</option>
+											<option value="education">Education</option>
+											<option value="finance">Finance</option>
+											<option value="healthcare">Healthcare</option>
+											<option value="technology">Technology</option>
+											<option value="other">Other</option>
+										</select>
+										<svg class="select__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+										</svg>
+									</div>
+									<div class="onboarding-form__desc">
+										<svg class="onboarding-form__info" width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-info"></use>
+										</svg>
+										<p>This will help refine your course selection.</p>
+									</div>
+								</div>
+
+								<div class="onboarding-form__item">
+									<label class="onboarding-form__label" for="business-position">Position/Role</label>
+									<div class="onboarding-form__select select">
+										<select name="business-position" id="business-position" required>
+											<option disabled selected value="">Select your position or role</option>
+											<option value="ceo">CEO</option>
+											<option value="manager">Manager</option>
+											<option value="employee">Employee</option>
+											<option value="other">Other</option>
+										</select>
+										<svg class="select__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+										</svg>
+									</div>
+								</div>
+
+								<div class="onboarding-form__row">
+									<div class="onboarding-form__item">
+										<label class="onboarding-form__label" for="business-first-name">First name</label>
+										<input class="onboarding-form__input input" type="text" id="business-first-name" name="business-first-name" required placeholder="Your first name">
+									</div>
+									<div class="onboarding-form__item">
+										<label class="onboarding-form__label" for="business-last-name">Last name</label>
+										<input class="onboarding-form__input input" type="text" id="business-last-name" name="business-last-name" required placeholder="Your last name">
+									</div>
+								</div>
+
+								<div class="onboarding-form__row">
+									<div class="onboarding-form__item">
+										<label class="onboarding-form__label" for="business-contact-number">Contact number</label>
+										<input class="onboarding-form__input input" type="text" id="business-contact-number" name="business-contact-number" required placeholder="Your contact number...">
+									</div>
+									<div class="onboarding-form__item">
+										<label class="onboarding-form__label" for="business-email">Email</label>
+										<input class="onboarding-form__input input" type="email" id="business-email" name="business-email" required placeholder="Your email address...">
+									</div>
+								</div>
+
+								<button class="onboarding-form__btn btn btn--primary" type="submit">
+									go to payment
+									<svg class="btn__icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+									</svg>
+								</button>
+							</form>
+
+							<div class="sign-up__info plan-info">
+								<div class="plan-info__desc">
+									<span class="plan-info__heading sign-up-heading">Psyber Secure</span>
+									<div class="plan-info__body">
+										<span class="plan-info__price sign-up-price">$XX</span>
+										<p class="plan-info__text">per month / billed annually</p>
+									</div>
+									<a href="sign-up-plan.html" class="plan-info__btn btn btn--outline">
+										change plan
+										<svg class="btn__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
+								</div>
+								<span class="plan-info__separator"></span>
+								<div class="plan-info__list sign-up-list">
+									<h3 class="sign-up-list__title">What's included</h3>
+									<ul class="sign-up-list__menu">
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<p>Branding in the player</p>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<p>Review and collaboration tools</p>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<p>Feature security</p>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<p>Branding in the player</p>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<p>Review and collaboration tools</p>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<p>Feature security</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; 2024 New Project</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<div class="modal">
+		<div class="modal__content">
+			<div class="modal__header">
+				<h2 class="modal__title">Are you sure ?</h2>
+				<p class="modal__desc">You will be redirected to the home page and your process will be stopped</p>
+			</div>
+			<div class="modal__footer">
+				<button class="modal__btn modal__btn--close btn btn--primary" type="button">Yes</button>
+				<button class="modal__btn modal__btn--close btn btn--secondary" type="button">No</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/app.min.js?_v=20260220064929"></script>
+</body>
+
+</html>

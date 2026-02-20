@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Training</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260220064929">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header" aria-labelledby="header">
+			<div class="header__container">
+				<a href="/" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" width="162" height="41">
+				</a>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item">
+							<a href="#" class="header__link header__link--active">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-home"></use>
+								</svg>
+								Home
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="#" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+								</svg>
+								Healthcheck
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="#" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+								</svg>
+								Leaderboard
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="#" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
+								</svg>
+								Resources
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="#" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-chart"></use>
+								</svg>
+								Report
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__actions">
+					<button class="header__action header__search">
+						<svg class="header__icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-search"></use>
+						</svg>
+					</button>
+					<div class="header__profile">
+						<button class="header__action header__avatar" data-dropdown-trigger>
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" width="52" height="52"></picture>
+						</button>
+						<div class="header__dropdown" data-dropdown>
+							<div class="header__dropdown-header">
+								<span class="header__dropdown-name">Jessica H</span>
+								<span class="header__dropdown-email">jessicah@mail.com</span>
+							</div>
+							<nav class="header__dropdown-nav">
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-account-details"></use>
+									</svg>
+									Account Details
+								</a>
+								<a href="#" class="header__dropdown-link header__dropdown-link--active">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-manage-sprite"></use>
+									</svg>
+									Manage Staff
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-user-roles"></use>
+									</svg>
+									User Roles
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-invoices"></use>
+									</svg>
+									Invoices
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-settings"></use>
+									</svg>
+									Settings
+								</a>
+							</nav>
+							<div class="header__dropdown-footer">
+								<a href="#" class="header__dropdown-logout">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+									</svg>
+									Logout
+								</a>
+							</div>
+						</div>
+					</div>
+					<button class="header__action header__burger" data-burger>
+						<svg class="header__burger-icon" width="24" height="14">
+							<use xlink:href="img/icons/icons.svg#svg-burger"></use>
+						</svg>
+						<span class="header__burger-text">Menu</span>
+					</button>
+				</div>
+			</div>
+
+			<div class="mobile-menu" data-mobile-menu>
+				<div class="mobile-menu__overlay" data-mobile-menu-close></div>
+				<div class="mobile-menu__body">
+					<div class="mobile-menu__header">
+						<a href="/" class="mobile-menu__logo">
+							<img src="img/logo.svg" alt="Logo" width="110" height="28">
+						</a>
+						<button class="mobile-menu__close" data-mobile-menu-close>
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-close"></use>
+							</svg>
+						</button>
+					</div>
+					<nav class="mobile-menu__nav">
+						<a href="#" class="mobile-menu__link mobile-menu__link--active">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-home"></use>
+							</svg>
+							Home
+						</a>
+						<a href="#" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+							</svg>
+							Healthcheck
+						</a>
+						<a href="#" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+							</svg>
+							Leaderboard
+						</a>
+						<a href="#" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
+							</svg>
+							Resources
+						</a>
+						<a href="#" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-chart"></use>
+							</svg>
+							Report
+						</a>
+					</nav>
+					<div class="mobile-menu__footer">
+						<div class="mobile-menu__user">
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" class="mobile-menu__avatar" width="40" height="40"></picture>
+							<div class="mobile-menu__user-info">
+								<span class="mobile-menu__user-name">Jessica H</span>
+								<span class="mobile-menu__user-email">jessicah@mail.com</span>
+							</div>
+						</div>
+						<a href="#" class="mobile-menu__logout">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+							</svg>
+							Logout
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main class="page">
+			<div class="training">
+				<div class="training__container--small">
+					<!-- Aside -->
+					<aside class="training__aside aside">
+						<ul class="aside__list aside-list">
+							<li class="aside-list__item">
+								<a href="#" class="aside-list__link aside-list__link--active">
+									<svg class="aside-list__icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-dashboard"></use>
+									</svg>
+									Dashboard
+								</a>
+							</li>
+							<li class="aside-list__item">
+								<a href="#" class="aside-list__link">
+									<svg class="aside-list__icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-training"></use>
+									</svg>
+									Training Schedule
+								</a>
+							</li>
+							<li class="aside-list__item">
+								<a href="#" class="aside-list__link">
+									<svg class="aside-list__icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-manage"></use>
+									</svg>
+									Manage Learners
+								</a>
+							</li>
+							<li class="aside-list__item">
+								<a href="#" class="aside-list__link">
+									<svg class="aside-list__icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-subscription"></use>
+									</svg>
+									Subscription
+								</a>
+							</li>
+						</ul>
+						<button class="training__aside-btn btn btn--primary">
+							<svg width="20" height="20">
+								<use xlink:href="img/icons/icons.svg#svg-notification"></use>
+							</svg>
+							Activate Training
+						</button>
+
+						<div class="aside__footer">
+							<div class="aside__info">
+								<span class="aside__heading"></span>
+								<div class="aside__text">
+									<p></p>
+								</div>
+								<button class="aside__btn btn btn--secondary" type="button">Activate PsyberWatch</button>
+							</div>
+							<a href="#" class="aside__btn btn btn--outline">
+								<svg class="aside__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-dashboard"></use>
+								</svg>
+								Leave Feedback
+								<svg width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+								</svg>
+							</a>
+						</div>
+					</aside>
+
+
+					<section class="training__section training-section">
+						<div class="training-section__header">
+							<h1 class="training-section__title title">Training <span>Schedule</span></h1>
+							<div class="training-section__actions">
+
+
+
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; 2024 New Project</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+
+
+
+	<script src="js/app.min.js?_v=20260220064929"></script>
+</body>
+
+</html>

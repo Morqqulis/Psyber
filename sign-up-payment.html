@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Payment</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260220064929">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header header--sign-up" aria-labelledby="header">
+			<div class="header__container">
+				<a href="/" class="header__logo logo">
+					<img src="img/logo.svg" alt="Logo" width="162" height="41">
+				</a>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item header__item--done">
+							<span class="header__dot header__dot--done">
+								<svg class="header__check" width="16" height="16">
+									<use xlink:href="img/icons/icons.svg#svg-check"></use>
+								</svg>
+							</span>
+							<span class="header__text">Your plan</span>
+						</li>
+						<li class="header__dot-separator"></li>
+						<li class="header__item header__item--done">
+							<span class="header__dot header__dot--done">
+								<svg class="header__check" width="16" height="16">
+									<use xlink:href="img/icons/icons.svg#svg-check"></use>
+								</svg>
+							</span>
+							<span class="header__text">Details</span>
+						</li>
+						<li class="header__dot-separator"></li>
+						<li class="header__item header__item--active">
+							<span class="header__dot header__dot--active"></span>
+							<span class="header__text">Payment</span>
+						</li>
+						<li class="header__dot-separator"></li>
+						<li class="header__item">
+							<span class="header__text header__text--muted">Verify</span>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__actions">
+					<button class="header__action header__modal-trigger">
+						<svg class="header__modal-icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-close"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<section class="sign-up">
+				<div class="sign-up__container">
+					<div class="sign-up__content">
+						<div class="sign-up__top">
+							<h1 class="sign-up__title title">
+								Select a payment <span>method</span>
+							</h1>
+						</div>
+
+						<div class="sign-up__inner">
+							<div class="sign-up__payment">
+								<form class="sign-up__form payment-form" action="sign-up-verify.html">
+									<div class="payment-form__option payment-form__option--card">
+										<div class="payment-form__header">
+											<label class="radio">
+												<input class="radio__input" type="radio" name="payment" value="card" checked>
+												<span class="radio__label">Credit or debit Card</span>
+											</label>
+											<picture><source srcset="img/sign-up/payments.webp" type="image/webp"><img src="img/sign-up/payments.png" alt="Visa Mastercard" width="93" height="32"></picture>
+										</div>
+
+										<div class="payment-form__body">
+											<div class="payment-form__item">
+												<label class="payment-form__label" for="card-number">Card number</label>
+												<div class="payment-form__field">
+													<input class="payment-form__input input" type="text" id="card-number" name="card-number" placeholder="XXXX XXXX XXXX XXXX">
+													<svg class="payment-form__icon" width="20" height="20">
+														<use xlink:href="img/icons/icons.svg#svg-question"></use>
+													</svg>
+												</div>
+											</div>
+
+											<div class="payment-form__row">
+												<div class="payment-form__item">
+													<label class="payment-form__label" for="expiry">Expiry</label>
+													<div class="payment-form__field">
+														<input class="payment-form__input input" type="text" id="expiry" name="expiry" placeholder="MM / YY">
+														<svg class="payment-form__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-check"></use>
+														</svg>
+													</div>
+												</div>
+												<div class="payment-form__item">
+													<label class="payment-form__label" for="cvv">Security code</label>
+													<div class="payment-form__field">
+														<input class="payment-form__input input" type="text" id="cvv" name="cvv" placeholder="000">
+														<svg class="payment-form__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-question"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+											<div class="payment-form__item">
+												<label class="payment-form__label" for="hear">How did you hear about us?</label>
+												<div class="payment-form__select select">
+													<select name="hear" id="hear">
+														<option value="" disabled selected>Select</option>
+														<option value="search">Search</option>
+														<option value="social">Social media</option>
+														<option value="friend">Friend</option>
+														<option value="other">Other</option>
+													</select>
+													<svg class="select__icon" width="20" height="20">
+														<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+													</svg>
+												</div>
+											</div>
+										</div>
+
+										<div class="payment-form__footer">
+											<div class="payment-form__secure">
+												<svg class="payment-form__shield" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+												</svg>
+												<span>Safe & secure payment</span>
+											</div>
+											<button class="payment-form__btn btn btn--primary" type="submit">
+												make payment
+												<svg class="btn__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+												</svg>
+											</button>
+										</div>
+									</div>
+
+									<div class="payment-form__option payment-form__option--paypal">
+										<div class="payment-form__header">
+											<label class="radio">
+												<input class="radio__input" type="radio" name="payment" value="paypal">
+												<span class="radio__label">Paypal</span>
+											</label>
+											<picture><source srcset="img/sign-up/paypal.webp" type="image/webp"><img src="img/sign-up/paypal.png" alt="PayPal" width="40" height="39"></picture>
+										</div>
+									</div>
+								</form>
+							</div>
+
+							<div class="sign-up__sidebar">
+								<div class="sign-up__info plan-info">
+									<div class="plan-info__desc">
+										<span class="plan-info__heading sign-up-heading">Psyber Secure</span>
+										<div class="plan-info__body">
+											<span class="plan-info__price sign-up-price">$XX</span>
+											<p class="plan-info__text">per month / billed annually</p>
+										</div>
+										<a href="sign-up-plan.html" class="plan-info__btn btn btn--outline">
+											change plan
+											<svg class="btn__icon" width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+											</svg>
+										</a>
+									</div>
+									<span class="plan-info__separator"></span>
+									<div class="plan-info__list sign-up-list">
+										<h3 class="sign-up-list__title">What's included</h3>
+										<ul class="sign-up-list__menu">
+											<li class="sign-up-list__item">
+												<svg class="sign-up-list__check" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-check"></use>
+												</svg>
+												<p>Branding in the player</p>
+											</li>
+											<li class="sign-up-list__item">
+												<svg class="sign-up-list__check" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-check"></use>
+												</svg>
+												<p>Review and collaboration tools</p>
+											</li>
+											<li class="sign-up-list__item">
+												<svg class="sign-up-list__check" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-check"></use>
+												</svg>
+												<p>Feature security</p>
+											</li>
+											<li class="sign-up-list__item">
+												<svg class="sign-up-list__check" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-check"></use>
+												</svg>
+												<p>Branding in the player</p>
+											</li>
+											<li class="sign-up-list__item">
+												<svg class="sign-up-list__check" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-check"></use>
+												</svg>
+												<p>Review and collaboration tools</p>
+											</li>
+											<li class="sign-up-list__item">
+												<svg class="sign-up-list__check" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-check"></use>
+												</svg>
+												<p>Feature security</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+
+								<div class="sign-up__order order">
+									<div class="order__header">
+										<span class="order__title">Your Order</span>
+									</div>
+									<div class="order__body">
+										<p class="order__text">Medium Business (monthly)</p>
+										<span class="order__desc">Up to 50 Staff</span>
+									</div>
+									<span class="order__separator separator"></span>
+									<div class="order__footer">
+										<span class="order__label">First payment</span>
+										<span class="order__amount">$XX.XX</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; 2024 New Project</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<div class="modal">
+		<div class="modal__content">
+			<div class="modal__header">
+				<h2 class="modal__title">Are you sure ?</h2>
+				<p class="modal__desc">You will be redirected to the home page and your process will be stopped</p>
+			</div>
+			<div class="modal__footer">
+				<button class="modal__btn modal__btn--close btn btn--primary" type="button">Yes</button>
+				<button class="modal__btn modal__btn--close btn btn--secondary" type="button">No</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/app.min.js?_v=20260220064929"></script>
+</body>
+
+</html>

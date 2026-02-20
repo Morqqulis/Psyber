@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Login</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260220064929">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header" aria-labelledby="header">
+			<div class="header__container">
+				<a href="/" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" width="162" height="41">
+				</a>
+				<div class="header__actions">
+					<button class="header__action header__modal-trigger">
+						<svg class="header__modal-icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-close"></use>
+						</svg>
+					</button>
+
+				</div>
+			</div>
+		</header>
+
+
+		<main>
+			<section class="login-hero">
+				<div class="login-hero__container">
+					<div class="login-hero__content">
+						<div class="login-hero__header">
+							<h1 class="login-hero__title title">Log in to <span>Psyber</span></h1>
+							<p class="login-hero__subtitle">Don’t have a Psyber account? <a class="login-hero__link login-hero__link--langerine" href="#" aria-label="Sign up here">Sign up here</a></p>
+						</div>
+
+						<form class="login-hero__form" action="#" aria-labelledby="login-hero__form">
+							<label class="login-hero__label" for="login-hero__input">
+								Email
+								<input class="login-hero__input input" id="login-hero__input" name="email" type="email" required placeholder="user@email.com" aria-label="user@email.com">
+							</label>
+							<button class="login-hero__btn btn" type="submit" aria-label="Sign in with email">
+								Sign in with email
+								<svg class="login-hero__icon">
+									<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+								</svg>
+							</button>
+							<div class="login-hero__desc">
+								By creating an account, I agree to our
+								<div>
+									<a class="login-hero__link" href="#" aria-label="Terms and Conditions">Terms and Conditions</a> and <a class="login-hero__link" href="#" aria-label="Privacy policy">Privacy
+										policy.</a>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; 2024 New Project</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20260220064929"></script>
+</body>
+
+</html>

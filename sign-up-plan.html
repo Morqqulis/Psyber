@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Choose Your Plan</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260220064929">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header header--sign-up" aria-labelledby="header">
+			<div class="header__container">
+				<a href="/" class="header__logo logo">
+					<img src="img/logo.svg" alt="Logo" width="162" height="41">
+				</a>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item header__item--active">
+							<span class="header__dot header__dot--active"></span>
+							<span class="header__text">Your plan</span>
+						</li>
+						<li class="header__dot-separator"></li>
+						<li class="header__item">
+							<span class="header__text header__text--muted">Details</span>
+						</li>
+						<li class="header__dot-separator"></li>
+						<li class="header__item">
+							<span class="header__text header__text--muted">Payment</span>
+						</li>
+						<li class="header__dot-separator"></li>
+						<li class="header__item">
+							<span class="header__text header__text--muted">Verify</span>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__actions">
+					<button class="header__action header__modal-trigger">
+						<svg class="header__modal-icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-close"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<section class="sign-up">
+				<div class="sign-up__container">
+					<div class="sign-up__content">
+						<div class="sign-up__top">
+							<h1 class="sign-up__title title">
+								Welcome to <span>Psyber</span> <br />
+								What plan is right for you
+							</h1>
+							<div class="sign-up__desc">
+								<span>Monthly</span>
+								<div class="sign-up__switch switch">
+									<label class="switch__label" for="switch"></label>
+									<input class="switch__input" type="checkbox" id="switch" />
+								</div>
+								<span>Yearly (Save 20%)</span>
+							</div>
+						</div>
+
+						<div class="sign-up__cards">
+
+							<div class="sign-up__card plan-card">
+								<div class="plan-card__header">
+									<span class="plan-card__heading">Ignite</span>
+									<div class="plan-card__desc">
+										<span class="plan-card__price">$XX</span>
+										<p class="plan-card__text">per month / billed annually</p>
+									</div>
+									<div class="plan-card__select select select--rounded">
+										<select id="ignite-select">
+											<option value="1-10">1-10 users</option>
+											<option value="1-20">1-20 users</option>
+											<option value="1-30">1-30 users</option>
+											<option value="1-40" selected>1-40 users</option>
+											<option value="1-50">1-50 users</option>
+											<option value="1-60">1-60 users</option>
+										</select>
+										<svg class="select__icon">
+											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+										</svg>
+									</div>
+								</div>
+								<span class="plan-card__separator separator"></span>
+								<div class="plan-card__body sign-up-list">
+									<span class="sign-up-list__title">What's included</span>
+									<ul class="sign-up-list__menu">
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Branding in the player</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Review and collaboration tools</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Feature security</span>
+										</li>
+									</ul>
+									<a href="sign-up-details.html" class="plan-card__btn btn btn--primary">
+										Get started
+										<svg class="btn__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
+								</div>
+							</div>
+
+							<div class="sign-up__card plan-card">
+								<div class="plan-card__header">
+									<span class="plan-card__heading">Pulse</span>
+									<div class="plan-card__desc">
+										<span class="plan-card__price">$XX</span>
+										<p class="plan-card__text">per month / billed annually</p>
+									</div>
+									<div class="plan-card__select select select--rounded">
+										<select id="pulse-select">
+											<option value="1-70" selected>1-70 users</option>
+											<option value="1-80">1-80 users</option>
+											<option value="1-90">1-90 users</option>
+											<option value="1-100">1-100 users</option>
+										</select>
+										<svg class="select__icon">
+											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+										</svg>
+									</div>
+								</div>
+								<span class="plan-card__separator separator"></span>
+								<div class="plan-card__body sign-up-list">
+									<span class="sign-up-list__title">What's included</span>
+									<ul class="sign-up-list__menu">
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Branding in the player</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Review and collaboration tools</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Feature security</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Branding in the player</span>
+										</li>
+									</ul>
+									<a href="sign-up-details.html" class="plan-card__btn btn btn--primary">
+										Get started
+										<svg class="btn__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
+								</div>
+							</div>
+
+							<div class="sign-up__card plan-card">
+								<div class="plan-card__header">
+									<span class="plan-card__heading">Enterprise</span>
+									<div class="plan-card__desc">
+										<span class="plan-card__price">Need more?</span>
+										<a href="#" class="plan-card__link">Request Annual Plan</a>
+									</div>
+									<div class="plan-card__select select select--rounded">
+										<select id="enterprise-select">
+											<option value="1000+" selected>1000+ users</option>
+											<option value="1100+">1100+ users</option>
+											<option value="1200+">1200+ users</option>
+											<option value="1300+">1300+ users</option>
+											<option value="1400+">1400+ users</option>
+											<option value="1500+">1500+ users</option>
+										</select>
+										<svg class="select__icon">
+											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+										</svg>
+									</div>
+								</div>
+								<span class="plan-card__separator separator"></span>
+								<div class="plan-card__body sign-up-list">
+									<span class="sign-up-list__title">What's included</span>
+									<ul class="sign-up-list__menu">
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Branding in the player</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Review and collaboration tools</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Feature security</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Branding in the player</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Review and collaboration tools</span>
+										</li>
+										<li class="sign-up-list__item">
+											<svg class="sign-up-list__check" width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-check"></use>
+											</svg>
+											<span>Feature security</span>
+										</li>
+									</ul>
+									<button class="plan-card__btn btn btn--outline" type="button">
+										contact sales
+										<svg class="btn__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; 2024 New Project</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<div class="modal">
+		<div class="modal__content">
+			<div class="modal__header">
+				<h2 class="modal__title">Are you sure ?</h2>
+				<p class="modal__desc">You will be redirected to the home page and your process will be stopped</p>
+			</div>
+			<div class="modal__footer">
+				<button class="modal__btn modal__btn--close btn btn--primary" type="button">Yes</button>
+				<button class="modal__btn modal__btn--close btn btn--secondary" type="button">No</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/app.min.js?_v=20260220064929"></script>
+</body>
+
+</html>
