@@ -4436,6 +4436,26 @@
         const mobileMenuClose = target.closest("[data-mobile-menu-close]");
         const bannerClose = target.closest("[data-banner-close]");
         const banner = document.querySelector("[data-banner]");
+        const asideTrigger = target.closest("[data-aside-trigger]");
+        if (asideTrigger) {
+            const aside = asideTrigger.closest("[data-aside]");
+            const asideDropdown = aside.querySelector("[data-aside-dropdown]");
+            if (asideDropdown) {
+                asideTrigger.classList.toggle("is-active");
+                asideDropdown.classList.toggle("is-active");
+            }
+            return;
+        }
+        const tableTrigger = target.closest("[data-table-trigger]");
+        if (tableTrigger) {
+            const tableRow = tableTrigger.closest("[data-table-row]");
+            if (tableRow) tableRow.classList.toggle("is-active");
+            return;
+        }
+        const asideNode = target.closest("[data-aside]");
+        if (!asideNode) document.querySelectorAll(".aside__trigger.is-active, .aside__dropdown.is-active").forEach(el => {
+            el.classList.remove("is-active");
+        });
         if (dropdownTrigger && dropdown) {
             dropdown.classList.toggle("is-active");
             return;

@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260220064929">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260227071956">
 </head>
 
 <body>
@@ -39,7 +39,7 @@
 							</a>
 						</li>
 						<li class="header__item">
-							<a href="#" class="header__link">
+							<a href="/leaderboard.html" class="header__link">
 								<svg class="header__icon" width="24" height="24">
 									<use xlink:href="img/icons/icons.svg#svg-flag"></use>
 								</svg>
@@ -237,345 +237,500 @@
 				</div>
 			</div>
 		</div>
-		<main class="page dashboard">
-			<div class="dashboard__container">
-				<!-- Sidebar -->
-				<aside class="dashboard__aside aside">
-					<ul class="aside__list aside-list">
-						<li class="aside-list__item">
-							<a href="#" class="aside-list__link aside-list__link--active">
-								<svg class="aside-list__icon" width="24" height="24">
-									<use xlink:href="img/icons/icons.svg#svg-home"></use>
+		<main>
+			<div class="dashboard">
+				<div class="dashboard__container dashboard__container--small">
+					<!-- Sidebar -->
+					<aside class="dashboard__aside aside" data-aside>
+						<button class="aside__trigger" type="button" data-aside-trigger>
+							<span class="aside__trigger-text">
+								<svg class="aside__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-dashboard"></use>
 								</svg>
-								Home
-							</a>
-						</li>
-						<li class="aside-list__item">
-							<a href="#" class="aside-list__link">
-								<svg class="aside-list__icon" width="24" height="24">
-									<use xlink:href="img/icons/icons.svg#svg-shield"></use>
-								</svg>
-								Healthcheck
-							</a>
-						</li>
-						<li class="aside-list__item">
-							<a href="#" class="aside-list__link">
-								<svg class="aside-list__icon" width="24" height="24">
-									<use xlink:href="img/icons/icons.svg#svg-chart"></use>
-								</svg>
-								Leaderboard
-							</a>
-						</li>
-						<li class="aside-list__item">
-							<a href="#" class="aside-list__link">
-								<svg class="aside-list__icon" width="24" height="24">
-									<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
-								</svg>
-								Resources
-							</a>
-						</li>
-						<li class="aside-list__item">
-							<a href="#" class="aside-list__link">
-								<svg class="aside-list__icon" width="24" height="24">
-									<use xlink:href="img/icons/icons.svg#svg-invoices"></use>
-								</svg>
-								Report
-							</a>
-						</li>
-					</ul>
+								Dashboard
+							</span>
+							<svg class="aside__trigger-arrow" width="20" height="20">
+								<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+							</svg>
+						</button>
+						<div class="aside__dropdown" data-aside-dropdown>
+							<div class="aside__dropdown-inner">
+								<div class="aside__header">
+									<ul class="aside__list">
+										<li class="aside__item">
+											<a href="index.html" class="aside__link aside__link--active">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-dashboard"></use>
+												</svg>
+												Dashboard
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="training.html" class="aside__link">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-training"></use>
+												</svg>
+												Training Schedule
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#" class="aside__link">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-manage"></use>
+												</svg>
+												Manage Learners
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#" class="aside__link">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-subscription"></use>
+												</svg>
+												Subscription
+											</a>
+										</li>
+									</ul>
+									<button class="aside__btn btn btn--primary" type="button">
+										<svg class="aside__icon" width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-bell"></use>
+										</svg>
+										ACTIVATE TRAINING
+									</button>
+								</div>
 
-					<div class="aside__footer">
-						<div class="aside__info">
-							<span class="aside__heading">Has your data been breached?</span>
-							<div class="aside__text">
-								<p>Visibility is the first layer of defence. PsyberWatch alerts you when your email or credentials appear in a data breach.</p>
+
+								<div class="aside__footer">
+									<div class="aside__info">
+										<span class="aside__heading">Has your data been breached?</span>
+										<div class="aside__text">
+											<p>Visibility is the first layer of defence. PsyberWatch alerts you when your email or credentials appear in a data breach.</p>
+										</div>
+										<button class="aside__info-btn btn btn--secondary" type="button">ACTIVATE PSYBERWATCH</button>
+									</div>
+									<a href="#" class="aside__footer-btn btn btn--outline">
+										<svg class="aside__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-like"></use>
+										</svg>
+										Leave Feedback
+										<svg class="aside__icon" width="24" height="24" style="margin-left:auto">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
+								</div>
 							</div>
-							<button class="aside__btn btn btn--secondary" type="button">ACTIVATE PSYBERWATCH</button>
 						</div>
-						<a href="#" class="aside__btn btn btn--outline">
-							<svg class="aside__icon" width="24" height="24">
-								<use xlink:href="img/icons/icons.svg#svg-like"></use>
-							</svg>
-							Leave Feedback
-							<svg class="aside__icon" width="24" height="24" style="margin-left:auto">
-								<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
-							</svg>
-						</a>
+					</aside>
+
+					<!-- Center Content -->
+					<div class="dashboard__center">
+						<!-- Overview Section -->
+						<section class="dashboard__overview card">
+							<h2 class="dashboard__heading heading">Overview</h2>
+							<div class="dashboard__overview-content">
+								<!-- Card 1 -->
+								<div class="dashboard__overview-item">
+									<div class="dashboard__overview-left">
+										<div class="dashboard__overview-icon">
+											<img src="img/dashboard/overview/icon-1.svg" alt="Assigned Learners">
+										</div>
+										<span class="dashboard__overview-label">Assigned Learners</span>
+									</div>
+									<span class="dashboard__overview-value">32</span>
+								</div>
+								<!-- Card 2 -->
+								<div class="dashboard__overview-item">
+									<div class="dashboard__overview-left">
+										<div class="dashboard__overview-icon">
+											<img src="img/dashboard/overview/icon-2.svg" alt="Assigned Learners">
+										</div>
+										<span class="dashboard__overview-label">Pass Rate</span>
+									</div>
+									<span class="dashboard__overview-value">25%</span>
+								</div>
+								<!-- Card 3 -->
+								<div class="dashboard__overview-item">
+									<div class="dashboard__overview-left">
+										<div class="dashboard__overview-icon">
+											<img src="img/dashboard/overview/icon-3.svg" alt="Completion Rate">
+										</div>
+										<span class="dashboard__overview-label">Completion Rate</span>
+									</div>
+									<span class="dashboard__overview-value">71%</span>
+								</div>
+								<!-- Card 4 -->
+								<div class="dashboard__overview-item">
+									<div class="dashboard__overview-left">
+										<div class="dashboard__overview-icon">
+											<img src="img/dashboard/overview/icon-4.svg" alt="Assigned Learners">
+										</div>
+										<span class="dashboard__overview-label">Overdue</span>
+									</div>
+									<span class="dashboard__overview-value">28</span>
+								</div>
+							</div>
+						</section>
+
+						<!-- Active Training Section -->
+						<section class="dashboard__training card">
+							<div class="dashboard__training-header">
+								<h2 class="dashboard__title title">Active <span>Training</span></h2>
+								<div class="dashboard__stage stage">STAGE 1</div>
+							</div>
+							<span class="dashboard__separator separator"></span>
+							<div class="dashboard__training-cards">
+								<!-- Training Item 1 -->
+								<div class="dashboard__training-card">
+									<div class="dashboard__training-image">
+										<picture><source srcset="img/dashboard/training/training-1.webp" type="image/webp"><img src="img/dashboard/training/training-1.jpg" alt="Data Breaches" width="243" height="137"></picture>
+									</div>
+									<div class="dashboard__training-info">
+										<div class="dashboard__training-tags">
+											<span class="dashboard__training-tag tag">DATA BREACHES</span>
+											<span class="dashboard__training-tag tag">SECURITY</span>
+										</div>
+										<h3 class="dashboard__training-title">Data Breaches</h3>
+										<p class="dashboard__training-desc">
+											This lesson covers ransomware attacks affecting ...
+										</p>
+									</div>
+									<div class="dashboard__training-bottom">
+										<div class="dashboard__training-meta">
+											<div class="dashboard__training-progress">
+												<!-- Placeholder for Circle Progress -->
+												<svg class="dashboard__training-icon" width="40" height="40">
+													<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+												</svg>
+												<div class="dashboard__training-progress-info">
+													<span class="dashboard__training-progress-status">COMPLETED</span>
+													<span class="dashboard__training-progress-value">100%</span>
+												</div>
+												<div class="dashboard__training-date">
+													<svg width="12" height="12">
+														<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+													</svg>
+													Due Date. May 30, 2025
+												</div>
+											</div>
+										</div>
+										<button class="dashboard__training-btn btn btn--primary">
+											VIEW INSIGHTS
+											<svg width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+											</svg>
+										</button>
+									</div>
+								</div>
+
+								<span class="dashboard__separator separator"></span>
+								<!-- Training Item 2 -->
+								<div class="dashboard__training-card">
+									<div class="dashboard__training-image">
+										<picture><source srcset="img/dashboard/training/training-2.webp" type="image/webp"><img src="img/dashboard/training/training-2.jpg" alt="Data Breaches"></picture>
+									</div>
+									<div class="dashboard__training-info">
+										<div class="dashboard__training-tags">
+											<span class="dashboard__training-tag tag">DATA BREACHES</span>
+											<span class="dashboard__training-tag tag">SECURITY</span>
+										</div>
+										<h3 class="dashboard__training-title">Data Breaches</h3>
+										<p class="dashboard__training-desc">
+											This lesson covers ransomware attacks affecting ...
+										</p>
+									</div>
+									<div class="dashboard__training-bottom">
+										<div class="dashboard__training-meta">
+											<div class="dashboard__training-progress">
+												<!-- Placeholder for Circle Progress -->
+												<svg class="dashboard__training-icon" width="40" height="40">
+													<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+												</svg>
+												<div class="dashboard__training-progress-info">
+													<span class="dashboard__training-progress-status">COMPLETED</span>
+													<span class="dashboard__training-progress-value">100%</span>
+												</div>
+												<div class="dashboard__training-date">
+													<svg width="12" height="12">
+														<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+													</svg>
+													Due Date. May 30, 2025
+												</div>
+											</div>
+										</div>
+										<button class="dashboard__training-btn btn btn--primary">
+											VIEW INSIGHTS
+											<svg width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+											</svg>
+										</button>
+									</div>
+								</div>
+
+								<span class="dashboard__separator separator"></span>
+								<!-- Training Item 3 -->
+								<div class="dashboard__training-card">
+									<div class="dashboard__training-image">
+										<picture><source srcset="img/dashboard/training/training-3.webp" type="image/webp"><img src="img/dashboard/training/training-3.jpg" alt="Data Breaches"></picture>
+									</div>
+									<div class="dashboard__training-info">
+										<div class="dashboard__training-tags">
+											<span class="dashboard__training-tag tag">DATA BREACHES</span>
+											<span class="dashboard__training-tag tag">SECURITY</span>
+										</div>
+										<h3 class="dashboard__training-title">Data Breaches</h3>
+										<p class="dashboard__training-desc">
+											This lesson covers ransomware attacks affecting ...
+										</p>
+									</div>
+									<div class="dashboard__training-bottom">
+										<div class="dashboard__training-meta">
+											<div class="dashboard__training-progress">
+												<!-- Placeholder for Circle Progress -->
+												<svg class="dashboard__training-icon" width="40" height="40">
+													<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+												</svg>
+												<div class="dashboard__training-progress-info">
+													<span class="dashboard__training-progress-status">COMPLETED</span>
+													<span class="dashboard__training-progress-value">100%</span>
+												</div>
+												<div class="dashboard__training-date">
+													<svg width="12" height="12">
+														<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+													</svg>
+													Due Date. May 30, 2025
+												</div>
+											</div>
+										</div>
+										<button class="dashboard__training-btn btn btn--primary">
+											VIEW INSIGHTS
+											<svg width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+											</svg>
+										</button>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<!-- Department Rankings -->
+						<section class="dashboard__rankings card">
+							<div class="dashboard__rankings-header">
+								<h2 class="dashboard__heading heading">Department Rankings</h2>
+								<a href="#" class="dashboard__rankings-link">
+									GO TO LEADERBOARD
+									<svg width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-arrow-right"></use>
+									</svg>
+								</a>
+							</div>
+
+							<!-- Top 3 Cards -->
+							<div class="dashboard__rankings-top">
+								<div class="dashboard__rankings-card">
+									<div class="dashboard__rankings-icon">
+										<img src="img/dashboard/rankings/top-icon-1.svg" alt="Search">
+									</div>
+									<div class="dashboard__rankings-info">
+										<h3 class="dashboard__rankings-title">Human Resources</h3>
+										<p class="dashboard__rankings-desc">95% average point</p>
+									</div>
+									<span class="dashboard__rankings-place">1st</span>
+								</div>
+
+								<div class="dashboard__rankings-card">
+									<div class="dashboard__rankings-icon">
+										<img src="img/dashboard/rankings/top-icon-2.svg" alt="Search">
+									</div>
+									<div class="dashboard__rankings-info">
+										<h3 class="dashboard__rankings-title">Sales & Marketing</h3>
+										<p class="dashboard__rankings-desc">82% average point</p>
+									</div>
+									<span class="dashboard__rankings-place">2nd</span>
+								</div>
+
+								<div class="dashboard__rankings-card">
+									<div class="dashboard__rankings-icon">
+										<img src="img/dashboard/rankings/top-icon-3.svg" alt="Search">
+									</div>
+									<div class="dashboard__rankings-info">
+										<h3 class="dashboard__rankings-title">Finance</h3>
+										<p class="dashboard__rankings-desc">78% average point</p>
+									</div>
+									<span class="dashboard__rankings-place">3rd</span>
+								</div>
+							</div>
+
+							<!-- Table Placeholder -->
+							<div class="dashboard__rankings-table">
+								<div class="table">
+									<div class="table__head">
+										<div class="table__head-row">
+											<div class="table__th">Rank</div>
+											<div class="table__th">Department Name</div>
+											<div class="table__th">Courses Completed</div>
+											<div class="table__th">Quiz Pass Rate</div>
+											<div class="table__th">Avg. Attempts</div>
+										</div>
+									</div>
+									<div class="table__body">
+										<div class="table__row" data-table-row>
+											<div class="table__trigger" data-table-trigger>
+												<div class="table__cell table__cell--rank"><span class="rank-span">#1</span></div>
+												<div class="table__cell table__cell--name">Human Resources</div>
+												<svg class="table__arrow" width="20" height="20">
+													<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+												</svg>
+											</div>
+											<div class="table__dropdown">
+												<div class="table__dropdown-inner">
+													<div class="table__cell table__cell--stat" data-label="Courses Completed"><span class="table__value table__value--bold">90%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Quiz pass Rate"><span class="table__value table__value--bold">80%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Avg. Attempts"><span class="table__value table__value--bold">128</span></div>
+												</div>
+											</div>
+										</div>
+										<div class="table__row" data-table-row>
+											<div class="table__trigger" data-table-trigger>
+												<div class="table__cell table__cell--rank"><span class="rank-span">#2</span></div>
+												<div class="table__cell table__cell--name">Sales & Marketing</div>
+												<svg class="table__arrow" width="20" height="20">
+													<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+												</svg>
+											</div>
+											<div class="table__dropdown">
+												<div class="table__dropdown-inner">
+													<div class="table__cell table__cell--stat" data-label="Courses Completed"><span class="table__value table__value--bold">85%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Quiz pass Rate"><span class="table__value table__value--bold">40%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Avg. Attempts"><span class="table__value table__value--bold">4</span></div>
+												</div>
+											</div>
+										</div>
+										<div class="table__row" data-table-row>
+											<div class="table__trigger" data-table-trigger>
+												<div class="table__cell table__cell--rank"><span class="rank-span">#3</span></div>
+												<div class="table__cell table__cell--name">Finance</div>
+												<svg class="table__arrow" width="20" height="20">
+													<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+												</svg>
+											</div>
+											<div class="table__dropdown">
+												<div class="table__dropdown-inner">
+													<div class="table__cell table__cell--stat" data-label="Courses Completed"><span class="table__value table__value--bold">80%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Quiz pass Rate"><span class="table__value table__value--bold">75%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Avg. Attempts"><span class="table__value table__value--bold">2</span></div>
+												</div>
+											</div>
+										</div>
+										<div class="table__row" data-table-row>
+											<div class="table__trigger" data-table-trigger>
+												<div class="table__cell table__cell--rank"><span class="rank-span rank-span--transparent">#4</span></div>
+												<div class="table__cell table__cell--name">IT Support</div>
+												<svg class="table__arrow" width="20" height="20">
+													<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+												</svg>
+											</div>
+											<div class="table__dropdown">
+												<div class="table__dropdown-inner">
+													<div class="table__cell table__cell--stat" data-label="Courses Completed"><span class="table__value table__value--bold">73%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Quiz pass Rate"><span class="table__value table__value--bold">70%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Avg. Attempts"><span class="table__value table__value--bold">5</span></div>
+												</div>
+											</div>
+										</div>
+										<div class="table__row" data-table-row>
+											<div class="table__trigger" data-table-trigger>
+												<div class="table__cell table__cell--rank"><span class="rank-span rank-span--transparent">#5</span></div>
+												<div class="table__cell table__cell--name">Accounting</div>
+												<svg class="table__arrow" width="20" height="20">
+													<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+												</svg>
+											</div>
+											<div class="table__dropdown">
+												<div class="table__dropdown-inner">
+													<div class="table__cell table__cell--stat" data-label="Courses Completed"><span class="table__value table__value--bold">95%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Quiz pass Rate"><span class="table__value table__value--bold">65%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Avg. Attempts"><span class="table__value table__value--bold">8</span></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
 					</div>
-				</aside>
 
-				<!-- Center Content -->
-				<div class="dashboard__center">
-					<!-- Overview Section -->
-					<section class="overview-section">
-						<h2 class="dashboard__title">Overview</h2>
-						<div class="overview">
-							<!-- Card 1 -->
-							<div class="overview__card">
-								<div class="overview__left">
-									<div class="overview__icon overview__icon--orange">
-										<svg>
-											<use xlink:href="img/icons/icons.svg#svg-users"></use>
-										</svg>
-									</div>
-									<span class="overview__label">Assigned Learners</span>
-								</div>
-								<span class="overview__value">32</span>
-							</div>
-							<!-- Card 2 -->
-							<div class="overview__card">
-								<div class="overview__left">
-									<div class="overview__icon overview__icon--orange">
-										<svg>
-											<use xlink:href="img/icons/icons.svg#svg-check-circle"></use>
-										</svg>
-									</div>
-									<span class="overview__label">Pass Rate</span>
-								</div>
-								<span class="overview__value">25%</span>
-							</div>
-							<!-- Card 3 -->
-							<div class="overview__card">
-								<div class="overview__left">
-									<div class="overview__icon overview__icon--orange">
-										<svg>
-											<use xlink:href="img/icons/icons.svg#svg-chart-line"></use>
-										</svg>
-									</div>
-									<span class="overview__label">Completion Rate</span>
-								</div>
-								<span class="overview__value">71%</span>
-							</div>
-							<!-- Card 4 -->
-							<div class="overview__card">
-								<div class="overview__left">
-									<div class="overview__icon overview__icon--orange">
-										<svg>
-											<use xlink:href="img/icons/icons.svg#svg-clock"></use>
-										</svg>
-									</div>
-									<span class="overview__label">Overdue</span>
-								</div>
-								<span class="overview__value">28</span>
+					<!-- Right Sidebar -->
+					<div class="dashboard__right">
+						<!-- Human Risk Score -->
+						<div class="dashboard__risk card">
+							<h3 class="dashboard__risk-heading heading">Human Risk Score</h3>
+							<div class="dashboard__risk-body">
+								<div class="dashboard__risk-img"><img src="img/dashboard/risk.svg" alt="Risk"></div>
+
+
 							</div>
 						</div>
-					</section>
 
-					<!-- Active Training Section -->
-					<section class="training-section">
-						<h2 class="dashboard__title">Active <span>Training</span></h2>
-						<div class="dashboard__subtitle">STAGE 1</div>
+						<!-- Company Ranking -->
+						<div class="dashboard__company card">
 
-						<div class="training-list">
-							<!-- Training Item 1 -->
-							<div class="training-card card">
-								<div class="training-card__image">
-									<img src="img/dashboard/training-1.svg" alt="Data Breaches">
-								</div>
-								<div class="training-card__content">
-									<div class="training-card__tags">
-										<span class="training-card__tag">DATA BREACHES</span>
-										<span class="training-card__tag">SECURITY</span>
-									</div>
-									<h3 class="training-card__title">Data Breaches</h3>
-									<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
-								</div>
-								<div class="training-card__meta">
-									<div class="training-card__progress">
-										<!-- Placeholder for Circle Progress -->
-										<div style="width:40px;height:40px;border-radius:50%;border:4px solid #FBE7DA; border-top-color:#F56751;"></div>
-										<div>
-											<div style="font-size:10px;color:#aaa">COMPLETED</div>
-											<div style="font-weight:500">100%</div>
-										</div>
-									</div>
-									<button class="training-card__btn btn btn--primary">VIEW INSIGHTS</button>
-								</div>
-							</div>
-							<!-- Training Item 2 -->
-							<div class="training-card card">
-								<div class="training-card__image">
-									<img src="img/dashboard/training-2.svg" alt="Data Breaches">
-								</div>
-								<div class="training-card__content">
-									<div class="training-card__tags">
-										<span class="training-card__tag">DATA BREACHES</span>
-										<span class="training-card__tag">SECURITY</span>
-									</div>
-									<h3 class="training-card__title">Data Breaches</h3>
-									<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
-								</div>
-								<div class="training-card__meta">
-									<div class="training-card__progress">
-										<div style="width:40px;height:40px;border-radius:50%;border:4px solid #FBE7DA; border-top-color:#F56751;"></div>
-										<div>
-											<div style="font-size:10px;color:#aaa">PROGRESS</div>
-											<div style="font-weight:500">75%</div>
-										</div>
-									</div>
-									<button class="training-card__btn btn btn--primary">VIEW INSIGHTS</button>
-								</div>
-							</div>
-							<!-- Training Item 3 -->
-							<div class="training-card card">
-								<div class="training-card__image">
-									<img src="img/dashboard/training-3.svg" alt="Data Breaches">
-								</div>
-								<div class="training-card__content">
-									<div class="training-card__tags">
-										<span class="training-card__tag">DATA BREACHES</span>
-										<span class="training-card__tag">SECURITY</span>
-									</div>
-									<h3 class="training-card__title">Data Breaches</h3>
-									<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
-								</div>
-								<div class="training-card__meta">
-									<div class="training-card__progress">
-										<div style="width:40px;height:40px;border-radius:50%;border:4px solid #FBE7DA; border-top-color:#F56751;"></div>
-										<div>
-											<div style="font-size:10px;color:#aaa">PROGRESS</div>
-											<div style="font-weight:500">25%</div>
-										</div>
-									</div>
-									<button class="training-card__btn btn btn--primary">VIEW INSIGHTS</button>
-								</div>
-							</div>
-						</div>
-					</section>
+							<h3 class="dashboard__company-heading heading">Company Ranking</h3>
 
-					<!-- Department Rankings -->
-					<section class="rankings-section">
-						<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
-							<h2 class="dashboard__title">Department Rankings</h2>
-							<a href="#" style="font-size:12px;text-transform:uppercase;color:#1A1918;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:8px;">
+							<span class="dashboard__separator separator"></span>
+
+							<div class="dashboard__company-body">
+								<ul class="dashboard__company-list">
+									<li class="dashboard__company-item">
+										<span class="dashboard__company-rank rank-span">#1</span>
+										<picture><source srcset="img/dashboard/avatars/avatar-1.webp" type="image/webp"><img src="img/dashboard/avatars/avatar-1.jpg" alt="Avatar"></picture>
+										<div class="dashboard__company-info">
+											<h3 class="dashboard__company-name">Kristin Watson</h3>
+											<p class="dashboard__company-points">21 pts</p>
+										</div>
+									</li>
+									<li class="dashboard__company-item">
+										<span class="dashboard__company-rank rank-span">#2</span>
+										<picture><source srcset="img/dashboard/avatars/avatar-2.webp" type="image/webp"><img src="img/dashboard/avatars/avatar-2.jpg" alt="Avatar"></picture>
+										<div class="dashboard__company-info">
+											<h3 class="dashboard__company-name">Mason Ferry</h3>
+											<p class="dashboard__company-points">20 pts</p>
+										</div>
+									</li>
+									<li class="dashboard__company-item">
+										<span class="dashboard__company-rank rank-span">#3</span>
+										<picture><source srcset="img/dashboard/avatars/avatar-3.webp" type="image/webp"><img src="img/dashboard/avatars/avatar-3.jpg" alt="Avatar"></picture>
+										<div class="dashboard__company-info">
+											<h3 class="dashboard__company-name">Anna Nolan</h3>
+											<p class="dashboard__company-points">15 pts</p>
+										</div>
+									</li>
+									<li class="dashboard__company-item">
+										<span class="dashboard__company-rank rank-span rank-span--transparent">#4</span>
+										<picture><source srcset="img/dashboard/avatars/avatar-4.webp" type="image/webp"><img src="img/dashboard/avatars/avatar-4.jpg" alt="Avatar"></picture>
+										<div class="dashboard__company-info">
+											<h3 class="dashboard__company-name">David Brown</h3>
+											<p class="dashboard__company-points">10 pts</p>
+										</div>
+									</li>
+									<li class="dashboard__company-item">
+										<span class="dashboard__company-rank rank-span rank-span--transparent">#5</span>
+										<picture><source srcset="img/dashboard/avatars/avatar-5.webp" type="image/webp"><img src="img/dashboard/avatars/avatar-5.jpg" alt="Avatar"></picture>
+										<div class="dashboard__company-info">
+											<h3 class="dashboard__company-name">Emma Garcia</h3>
+											<p class="dashboard__company-points">7 pts</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<a href="#" class="dashboard__company-link">
 								GO TO LEADERBOARD
-								<svg width="16" height="16">
-									<use xlink:href="img/icons/icons.svg#svg-arrow-right"></use>
+								<svg width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
 								</svg>
 							</a>
 						</div>
-
-						<!-- Top 3 Cards -->
-						<div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px;">
-							<div class="card" style="padding:20px;display:flex;align-items:center;gap:16px;">
-								<div style="color:#F56751;font-weight:bold;font-size:24px;">1st</div>
-								<div>
-									<div style="font-weight:500">Human Resources</div>
-									<div style="font-size:12px;color:#aaa">95% AVERAGE POINT</div>
-								</div>
-							</div>
-							<div class="card" style="padding:20px;display:flex;align-items:center;gap:16px;">
-								<div style="color:#D4AF37;font-weight:bold;font-size:24px;">2nd</div>
-								<div>
-									<div style="font-weight:500">Sales & Marketing</div>
-									<div style="font-size:12px;color:#aaa">82% AVERAGE POINT</div>
-								</div>
-							</div>
-							<div class="card" style="padding:20px;display:flex;align-items:center;gap:16px;">
-								<div style="color:#C0C0C0;font-weight:bold;font-size:24px;">3rd</div>
-								<div>
-									<div style="font-weight:500">Finance</div>
-									<div style="font-size:12px;color:#aaa">78% AVERAGE POINT</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Table Placeholder -->
-						<div class="card" style="padding:24px;">
-							<table style="width:100%;border-collapse:collapse;text-align:left;">
-								<thead style="border-bottom:1px solid #eee;font-size:12px;color:#aaa;">
-									<tr>
-										<th style="padding:12px;">Rank</th>
-										<th style="padding:12px;">Department Name</th>
-										<th style="padding:12px;">Courses Completed</th>
-										<th style="padding:12px;">Quiz Pass Rate</th>
-										<th style="padding:12px;">Avg. Attempts</th>
-									</tr>
-								</thead>
-								<tbody style="font-size:14px;font-weight:500;">
-									<tr style="border-bottom:1px solid #eee;">
-										<td style="padding:16px 12px;"><span style="background:#F56751;color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:10px;">#1</span>
-										</td>
-										<td style="padding:16px 12px;">Human Resources</td>
-										<td style="padding:16px 12px;">90%</td>
-										<td style="padding:16px 12px;">80%</td>
-										<td style="padding:16px 12px;">128</td>
-									</tr>
-									<tr style="border-bottom:1px solid #eee;">
-										<td style="padding:16px 12px;"><span style="background:#F56751;color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:10px;">#2</span>
-										</td>
-										<td style="padding:16px 12px;">Sales & Marketing</td>
-										<td style="padding:16px 12px;">85%</td>
-										<td style="padding:16px 12px;">40%</td>
-										<td style="padding:16px 12px;">4</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-					</section>
-				</div>
-
-				<!-- Right Sidebar -->
-				<div class="dashboard__right">
-					<!-- Human Risk Score -->
-					<div class="widget">
-						<div class="widget__header">
-							<h3 class="widget__title">Human Risk Score</h3>
-						</div>
-						<div class="risk-score">
-							<div class="risk-score__chart">
-								<!-- Temporary Graphic Placeholder -->
-								<svg width="200" height="100" viewBox="0 0 200 100">
-									<path d="M10,100 A90,90 0 0,1 190,100" fill="none" stroke="#eee" stroke-width="20" stroke-linecap="round" />
-									<path d="M10,100 A90,90 0 0,1 50,29.3" fill="none" stroke="#F56751" stroke-width="20" stroke-linecap="round" />
-								</svg>
-								<div style="position:absolute;bottom:0;text-align:center;">
-									<strong>1.5</strong>
-									<div style="font-size:10px;color:#aaa">Low Risk</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Company Ranking -->
-					<div class="widget">
-						<div class="widget__header">
-							<h3 class="widget__title">Company Ranking</h3>
-						</div>
-						<div class="ranking">
-							<div class="ranking__item">
-								<div class="ranking__pos ranking__pos--top">#1</div>
-								<div class="ranking__avatar"><img src="img/avatars/1.svg" alt=""></div>
-								<div class="ranking__info">
-									<div class="ranking__name">Kristin Watson</div>
-									<div class="ranking__points">24 pts</div>
-								</div>
-							</div>
-							<div class="ranking__item">
-								<div class="ranking__pos ranking__pos--top">#2</div>
-								<div class="ranking__avatar"><img src="img/avatars/2.svg" alt=""></div>
-								<div class="ranking__info">
-									<div class="ranking__name">Mason Ferry</div>
-									<div class="ranking__points">20 pts</div>
-								</div>
-							</div>
-							<div class="ranking__item">
-								<div class="ranking__pos ranking__pos--top">#3</div>
-								<div class="ranking__avatar"><img src="img/avatars/3.svg" alt=""></div>
-								<div class="ranking__info">
-									<div class="ranking__name">Anna Nolan</div>
-									<div class="ranking__points">15 pts</div>
-								</div>
-							</div>
-						</div>
-						<a href="#" style="display:flex;justify-content:center;align-items:center;margin-top:20px;font-size:10px;font-weight:bold;text-decoration:none;color:#000;text-transform:uppercase;gap:5px;">
-							GO TO LEADERBOARD
-							<svg width="12" height="12">
-								<use xlink:href="img/icons/icons.svg#svg-arrow-right"></use>
-							</svg>
-						</a>
 					</div>
 				</div>
+
 			</div>
 
 		</main>
@@ -603,7 +758,7 @@
 		</footer>
 	</div>
 
-	<script src="js/app.min.js?_v=20260220064929"></script>
+	<script src="js/app.min.js?_v=20260227071956"></script>
 </body>
 
 </html>
