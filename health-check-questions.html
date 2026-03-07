@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Health Check</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260307090743">
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Top Bar -->
+		<header class="health-check-header">
+			<div class="health-check-header__container">
+				<nav class="health-check-header__nav">
+					<a href="/" class="health-check-header__logo">
+						<img src="img/logo.svg" alt="Logo">
+					</a>
+					<div class="health-check-header__progress-bar">
+						<span data-quiz-progress></span>
+						<span data-quiz-progress></span>
+						<span data-quiz-progress></span>
+						<span data-quiz-progress></span>
+						<span data-quiz-progress></span>
+						<span data-quiz-progress></span>
+					</div>
+					<a href="#" class="health-check-header__close">
+						<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M13 1L1 13M1 1L13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="page">
+			<section class="health-check" data-quiz>
+				<div class="health-check__container">
+					<div class="health-check__body">
+						<div class="health-check__image">
+							<img src="img/health/image.svg" alt="Illustration" data-quiz-image width="417" height="342">
+						</div>
+
+						<!-- Content -->
+						<div class="health-check__content">
+							<div class="health-check__info">
+								<div class="health-check__meta">
+									<span data-quiz-count>1/10</span>
+									<span data-quiz-category>CATEGORY</span>
+								</div>
+								<h1 class="health-check__title" data-quiz-question>Question loading...</h1>
+							</div>
+
+							<div class="health-check__options" data-quiz-options>
+								<!-- Options injected by JS -->
+							</div>
+
+							<div class="health-check__actions">
+								<button type="button" class="health-check__btn health-check__btn--back btn btn--outline" data-quiz-prev>
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+										<path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</button>
+								<button type="button" class="health-check__btn btn btn--primary" data-quiz-next>
+									Next Step
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Loading Screen (Initially Hidden) -->
+					<div class="health-check__loading">
+						<div class="health-check__loading-icon">
+							<img src="img/health/loading.svg" alt="Loading">
+						</div>
+						<h2 class="health-check__loading-title">Loading your score</h2>
+						<p class="health-check__loading-desc">Don’t refresh the page</p>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; Copyright 2025 Psyber</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/app.min.js?_v=20260307090743"></script>
+</body>
+
+</html>
