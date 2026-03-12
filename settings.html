@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Settings</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260312104632">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header" aria-labelledby="header">
+			<div class="header__container">
+				<a href="/" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" width="162" height="41">
+				</a>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item">
+							<a href="/" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-home"></use>
+								</svg>
+								Home
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/health-check-questions.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+								</svg>
+								Healthcheck
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/leaderboard.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+								</svg>
+								Leaderboard
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/resources.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
+								</svg>
+								Resources
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/report.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-chart"></use>
+								</svg>
+								Report
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__actions">
+					<button class="header__action header__search">
+						<svg class="header__icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-search"></use>
+						</svg>
+					</button>
+					<div class="header__profile">
+						<button class="header__action header__avatar" data-dropdown-trigger>
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" width="52" height="52"></picture>
+						</button>
+						<div class="header__dropdown" data-dropdown>
+							<div class="header__dropdown-header">
+								<span class="header__dropdown-name">Jessica H</span>
+								<span class="header__dropdown-email">jessicah@mail.com</span>
+							</div>
+							<nav class="header__dropdown-nav">
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-account-details"></use>
+									</svg>
+									Account Details
+								</a>
+								<a href="#" class="header__dropdown-link header__dropdown-link--active">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-manage-sprite"></use>
+									</svg>
+									Manage Staff
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-user-roles"></use>
+									</svg>
+									User Roles
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-invoices"></use>
+									</svg>
+									Invoices
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-settings"></use>
+									</svg>
+									Settings
+								</a>
+							</nav>
+							<div class="header__dropdown-footer">
+								<a href="#" class="header__dropdown-logout">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+									</svg>
+									Logout
+								</a>
+							</div>
+						</div>
+					</div>
+					<button class="header__action header__burger" data-burger>
+						<svg class="header__burger-icon" width="24" height="14">
+							<use xlink:href="img/icons/icons.svg#svg-burger"></use>
+						</svg>
+						<span class="header__burger-text">Menu</span>
+					</button>
+				</div>
+			</div>
+
+			<div class="mobile-menu" data-mobile-menu>
+				<div class="mobile-menu__overlay" data-mobile-menu-close></div>
+				<div class="mobile-menu__body">
+					<div class="mobile-menu__header">
+						<a href="/" class="mobile-menu__logo">
+							<img src="img/logo.svg" alt="Logo" width="110" height="28">
+						</a>
+						<button class="mobile-menu__close" data-mobile-menu-close>
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-close"></use>
+							</svg>
+						</button>
+					</div>
+					<nav class="mobile-menu__nav">
+						<a href="/" class="mobile-menu__link mobile-menu__link--active">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-home"></use>
+							</svg>
+							Home
+						</a>
+						<a href="/healthcheck.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+							</svg>
+							Healthcheck
+						</a>
+						<a href="/leaderboard.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+							</svg>
+							Leaderboard
+						</a>
+						<a href="/resources.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
+							</svg>
+							Resources
+						</a>
+						<a href="/report.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-chart"></use>
+							</svg>
+							Report
+						</a>
+					</nav>
+					<div class="mobile-menu__footer">
+						<div class="mobile-menu__user">
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" class="mobile-menu__avatar" width="40" height="40"></picture>
+							<div class="mobile-menu__user-info">
+								<span class="mobile-menu__user-name">Jessica H</span>
+								<span class="mobile-menu__user-email">jessicah@mail.com</span>
+							</div>
+						</div>
+						<a href="#" class="mobile-menu__logout">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+							</svg>
+							Logout
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="settings">
+				<div class="settings__container">
+					<!-- Sidebar -->
+					<aside class="settings__aside aside" data-aside>
+						<button class="aside__trigger" type="button" data-aside-trigger>
+							<span class="aside__trigger-text">
+								<svg class="aside__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-settings"></use>
+								</svg>
+								Settings
+							</span>
+							<svg class="aside__trigger-arrow" width="20" height="20">
+								<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+							</svg>
+						</button>
+						<div class="aside__dropdown" data-aside-dropdown>
+							<div class="aside__dropdown-inner">
+								<div class="aside__header">
+									<div class="aside__label">in this page</div>
+									<ul class="aside__list">
+										<li class="aside__item">
+											<a href="account-details.html" class="aside__link aside__link--pill">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-account-details"></use>
+												</svg>
+												Account Details
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="manage-staff.html" class="aside__link aside__link--pill">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-manage-sprite"></use>
+												</svg>
+												Manage Staff
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="user-roles.html" class="aside__link aside__link--pill">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-user-roles"></use>
+												</svg>
+												User Roles
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="account-invoices.html" class="aside__link aside__link--pill">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-invoices"></use>
+												</svg>
+												Invoices
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="settings.html" class="aside__link aside__link--pill aside__link--active">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-settings"></use>
+												</svg>
+												Settings
+											</a>
+										</li>
+									</ul>
+								</div>
+
+								<div class="aside__footer">
+									<div class="aside__info">
+										<span class="aside__head">Has your data been <br> breached?</span>
+										<div class="aside__text">
+											<p>Visibility is the first layer of defence. PsyberWatch alerts you when your email or credentials appear in a data breach.</p>
+										</div>
+										<button class="aside__info-btn btn btn--secondary" type="button">ACTIVATE PSYBERWATCH</button>
+									</div>
+									<a href="#" class="aside__footer-btn btn btn--outline">
+										<svg class="aside__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-like"></use>
+										</svg>
+										Leave Feedback
+										<svg class="aside__icon" width="24" height="24" style="margin-left:auto">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</aside>
+
+					<!-- Main Content -->
+					<div class="settings__main">
+						<h1 class="settings__title title">Settings</h1>
+
+						<!-- Tabs Navigation -->
+						<div class="settings-tabs" data-tabs>
+							<nav class="settings-tabs__nav" data-tabs-titles>
+								<button type="button" class="settings-tabs__btn tabs__title _tab-active">Training & Customisation</button>
+								<button type="button" class="settings-tabs__btn tabs__title">Email & Notifications</button>
+								<button type="button" class="settings-tabs__btn tabs__title">Progress & Reporting Preferences</button>
+								<button type="button" class="settings-tabs__btn tabs__title">Access Controls / Permissions</button>
+								<button type="button" class="settings-tabs__btn tabs__title">Support & Feedback</button>
+								<button type="button" class="settings-tabs__btn tabs__title">Security</button>
+							</nav>
+
+							<div data-tabs-body>
+								<!-- Tab 1: Training & Customisation -->
+								<div class="tabs__body">
+									<div class="settings__content">
+										<!-- Card: Time Zone -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Time Zone</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<div class="settings-card__checkbox-row">
+														<label class="checkbox">
+															<input type="checkbox" class="checkbox__input" checked>
+															<span class="checkbox__label">Set my time zone automatically</span>
+														</label>
+													</div>
+												</div>
+												<div class="settings-card__control settings-card__control--long">
+													<div class="select select--cream">
+														<select>
+															<option value="aest">Australian Eastern Standard Time (AEST; UTC+10:00</option>
+															<option value="gmt">GMT (UTC+00:00)</option>
+															<option value="est">Eastern Standard Time (EST; UTC-05:00)</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Card: Freeze dates -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Freeze dates</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">During holidays</span>
+													<span class="settings-card__desc">Lorem ipsum dolor sit amet consectetur adipiscing elit praesent dui felis.</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Company communication</span>
+													<span class="settings-card__desc">Lorem ipsum dolor sit amet consectetur adipiscing elit praesent dui felis.</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input">
+													<span class="switch__label"></span>
+												</label>
+											</div>
+										</div>
+
+										<!-- Card: Anonymise Leaderboard -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Anonymise Leaderboard</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Anonymise Leaderboard</span>
+													<span class="settings-card__desc">An optional privacy setting for companies that do not want to display real names on the leaderboard.</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input">
+													<span class="switch__label"></span>
+												</label>
+											</div>
+										</div>
+
+										<!-- Card: Training -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Training</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+											<!-- Adjust passing score -->
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Adjust passing score</span>
+													<span class="settings-card__desc">Mark complete after 100% pass in training</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+											<!-- Prevent skipping -->
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Prevent skipping</span>
+													<span class="settings-card__desc">Lorem ipsum dolor sit amet consectetur adipiscing elit praesent dui felis.</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input">
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+											<!-- Auto-assign role-based training -->
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Auto-assign role-based training</span>
+													<span class="settings-card__desc">Finance, HR packages auto-assigned</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input">
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+											<!-- Default training cadence -->
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Default training cadence</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="quarterly">Quarterly</option>
+															<option value="monthly">Monthly</option>
+															<option value="weekly">Weekly</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+											<span class="settings-card__separator"></span>
+											<!-- Recurring campaigns -->
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Recurring campaigns</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="4-videos">4 videos every quarter</option>
+															<option value="2-videos">2 videos every quarter</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+											<span class="settings-card__separator"></span>
+											<!-- Due date configuration -->
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Due date configuration</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="30">30 days after assignment</option>
+															<option value="14">14 days after assignment</option>
+															<option value="7">7 days after assignment</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Card: Customisation -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Customisation</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+											<!-- Row 1: Report Phishing via Phish Reporter -->
+											<div class="settings-card__custom-row">
+												<div class="settings-card__custom-left">
+													<span class="settings-card__name">Report Phishing via the Phish Reporter button in Outlook.</span>
+													<textarea class="settings-card__textarea input" placeholder="Company Instructions" rows="5"></textarea>
+												</div>
+												<div class="settings-card__custom-right">
+													<span class="settings-card__label">Display Location</span>
+													<div class="select">
+														<select>
+															<option value="" disabled selected>Select</option>
+															<option value="top">Top</option>
+															<option value="bottom">Bottom</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+											<span class="settings-card__separator"></span>
+											<!-- Row 2: Report Phishing to IT Service Provider -->
+											<div class="settings-card__custom-row">
+												<div class="settings-card__custom-left">
+													<span class="settings-card__name">Report Phishing to our IT Service Provider at __</span>
+													<textarea class="settings-card__textarea input" placeholder="Company Instructions" rows="5"></textarea>
+												</div>
+												<div class="settings-card__custom-right">
+													<span class="settings-card__label">Display Location</span>
+													<div class="select">
+														<select>
+															<option value="" disabled selected>Select</option>
+															<option value="top">Top</option>
+															<option value="bottom">Bottom</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+											<span class="settings-card__separator"></span>
+											<!-- Row 3: Call IT Service Desk -->
+											<div class="settings-card__custom-row">
+												<div class="settings-card__custom-left">
+													<span class="settings-card__name">Call the IT Service Desk in the event of an urgent incident</span>
+													<textarea class="settings-card__textarea input" placeholder="Company Instructions" rows="5"></textarea>
+												</div>
+												<div class="settings-card__custom-right">
+													<span class="settings-card__label">Display Location</span>
+													<div class="select">
+														<select>
+															<option value="" disabled selected>Select</option>
+															<option value="top">Top</option>
+															<option value="bottom">Bottom</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
+
+								<!-- Tab 2: Email & Notifications -->
+								<div class="tabs__body">
+									<div class="settings__content">
+
+										<!-- Card: Notifications Types -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Notifications Types</h2>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Onboarded</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">New Starter</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Training assigned</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Due date approaching</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Overdue training</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input">
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Training completed</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Cadence for remiders</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="fortnightly">Fortnightly</option>
+															<option value="weekly">Weekly</option>
+															<option value="monthly">Monthly</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Card: Edit message templates -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Edit message templates</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__edit-template">
+												<div class="settings-card__form-group">
+													<span class="settings-card__label">Edit subject</span>
+													<div class="settings-card__control settings-card__control--select">
+														<div class="select">
+															<select>
+																<option value="invitation">Invitation to join</option>
+															</select>
+															<svg class="select__icon" width="20" height="20">
+																<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+															</svg>
+														</div>
+													</div>
+												</div>
+
+												<div class="settings-card__form-group">
+													<div class="settings-editor">
+														<div class="settings-editor__toolbar" id="toolbar-container">
+															<div class="settings-editor__group">
+																<button class="settings-editor__btn ql-undo">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-undo"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-redo">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-redo"></use>
+																	</svg>
+																</button>
+															</div>
+															<select class="settings-editor__dropdown ql-header" style="width: 109px">
+																<option selected>Normal text</option>
+																<option value="1">Heading 1</option>
+																<option value="2">Heading 2</option>
+															</select>
+															<select class="settings-editor__dropdown settings-editor__dropdown--icon ql-align">
+																<option selected></option>
+																<option value="center"></option>
+																<option value="right"></option>
+																<option value="justify"></option>
+															</select>
+															<select class="settings-editor__dropdown settings-editor__dropdown--icon ql-color">
+																<option value="#000000"></option>
+																<option value="#F56751" selected></option>
+															</select>
+															<div class="settings-editor__group">
+																<button class="settings-editor__btn ql-bold">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-bold"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-italic">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-italic"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-underline">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-underline"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-strike">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-strikethrough"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-code">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-inline-code"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-clean">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-clear-format"></use>
+																	</svg>
+																</button>
+															</div>
+															<div class="settings-editor__group">
+																<button class="settings-editor__btn ql-list" value="bullet">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-list-bulleted"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-list" value="ordered">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-list-numbered"></use>
+																	</svg>
+																</button>
+															</div>
+															<div class="settings-editor__group">
+																<button class="settings-editor__btn ql-link">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-link"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-image">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-image"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-code-block">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-code"></use>
+																	</svg>
+																</button>
+																<button class="settings-editor__btn ql-blockquote">
+																	<svg width="20" height="20">
+																		<use xlink:href="img/icons/icons.svg#svg-editor-quotes"></use>
+																	</svg>
+																</button>
+															</div>
+														</div>
+														<div class="settings-editor__textarea" id="editor-container" data-placeholder="Body of email"></div>
+													</div>
+												</div>
+
+												<button type="button" class="settings-card__apply-btn btn btn--sm btn--primary">
+													APPLY CHANGES
+												</button>
+											</div>
+										</div>
+
+										<!-- Card: Mute notifications for below users -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<div class="settings-card__header-content">
+													<h2 class="settings-card__title heading">Mute notifications for below users</h2>
+													<p class="settings-card__subtitle">Insert email address to mute notifications for sensitive users</p>
+												</div>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__mute-users">
+												<div class="settings-card__form-group">
+													<span class="settings-card__label">Email address</span>
+													<div class="settings-card__tags-input">
+														<div class="settings-card__tag">
+															<span>nicolemoudaber@gmail.com</span>
+															<button type="button" class="settings-card__tag-remove">
+																<svg width="16" height="16">
+																	<use xlink:href="img/icons/icons.svg#svg-close"></use>
+																</svg>
+															</button>
+														</div>
+														<input type="text" class="settings-card__tag-input" placeholder="Add email...">
+													</div>
+													<div class="settings-card__hint">
+														<svg width="16" height="16">
+															<use xlink:href="img/icons/icons.svg#svg-info-red"></use>
+														</svg>
+														<span>If you have several addresses, separate them with a ",".</span>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+
+								<div class="tabs__body">
+									<div class="settings__content">
+
+										<div class="settings-card card">
+											<div class="settings-card__header settings-card__header--column">
+												<h2 class="settings-card__title heading">Progress & Reporting Preferences</h2>
+												<div class="settings-card__subtitle">Decide how progress is tracked and displayed.</div>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__label">Email reports</span>
+													<span class="settings-card__desc">Lorem ipsum dolor sit amet consectetur adipiscing elit praesent dui felis.</span>
+												</div>
+												<div class="settings-card__control">
+													<label class="switch">
+														<input type="checkbox" class="switch__input" checked>
+														<span class="switch__slider"></span>
+													</label>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__label">Automated reports</span>
+													<span class="settings-card__desc">Lorem ipsum dolor sit amet consectetur adipiscing elit praesent dui felis.</span>
+												</div>
+												<div class="settings-card__control">
+													<label class="switch">
+														<input type="checkbox" class="switch__input" checked>
+														<span class="switch__slider"></span>
+													</label>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__label">Set reporting frequency</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="monthly" selected>Monthly</option>
+															<option value="weekly">Weekly</option>
+															<option value="quarterly">Quarterly</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__label">Set automated report recipients</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="people" selected>People & Culture</option>
+															<option value="admin">Admin</option>
+															<option value="managers">Managers</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__label">Include/exclude incomplete users</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="exclude" selected>Exclude</option>
+															<option value="include">Include</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__label">Benchmark toggle</span>
+													<span class="settings-card__desc">Lorem ipsum dolor sit amet consectetur adipiscing elit praesent dui felis.</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="internal" selected>Show Internal</option>
+															<option value="external">Show External</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__label">Download training report</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="monthly" selected>Monthly</option>
+															<option value="weekly">Weekly</option>
+															<option value="quarterly">Quarterly</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__label">Download formats</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="svg" selected>SVG</option>
+															<option value="pdf">PDF</option>
+															<option value="csv">CSV</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+
+								<div class="tabs__body">
+									<div class="settings__content">
+
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Role-based permissions</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Admin</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="full" selected>Full access</option>
+															<option value="limited">Limited access</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Viewer</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="reports" selected>View reports only</option>
+															<option value="all">View all</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Group Owner</span>
+												</div>
+												<div class="settings-card__control settings-card__control--select">
+													<div class="select">
+														<select>
+															<option value="group" selected>Manage users in their group</option>
+															<option value="company">Manage company users</option>
+														</select>
+														<svg class="select__icon" width="20" height="20">
+															<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+
+										</div>
+
+									</div>
+								</div>
+
+
+								<!-- Tab 5: Support & Feedback -->
+								<div class="tabs__body">
+									<div class="settings__content">
+
+										<!-- Card: Support & Feedback -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Support & Feedback</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Submit a support ticket</span>
+												</div>
+												<div class="settings-card__control">
+													<textarea class="settings-card__textarea input" placeholder="Just want to say..." rows="4"></textarea>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Submit feedback</span>
+													<span class="settings-card__desc">Let us know how we can improve Psyber!</span>
+												</div>
+												<div class="settings-card__control">
+													<textarea class="settings-card__textarea input" placeholder="Just want to say..." rows="4"></textarea>
+												</div>
+											</div>
+										</div>
+
+										<!-- Card: Link to help -->
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Link to help</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info settings-card__info--row">
+													<svg class="settings-card__icon" width="24" height="24">
+														<use xlink:href="img/icons/icons.svg#svg-file-dock"></use>
+													</svg>
+													<span class="settings-card__name">Lorem ipsum report</span>
+												</div>
+												<div class="settings-card__control">
+													<a href="#" class="btn btn--outline btn--sm">read more</a>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info settings-card__info--row">
+													<svg class="settings-card__icon" width="24" height="24">
+														<use xlink:href="img/icons/icons.svg#svg-file-dock"></use>
+													</svg>
+													<span class="settings-card__name">Lorem ipsum guide</span>
+												</div>
+												<div class="settings-card__control">
+													<a href="#" class="btn btn--outline btn--sm">read more</a>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+
+								<!-- Tab 6: Security -->
+								<div class="tabs__body">
+									<div class="settings__content">
+
+										<div class="settings-card card">
+											<div class="settings-card__header">
+												<h2 class="settings-card__title heading">Security</h2>
+											</div>
+											<span class="settings-card__separator"></span>
+
+											<!-- Row: Password -->
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Password</span>
+												</div>
+												<div class="settings-card__control">
+													<a href="#" class="btn btn--outline btn--sm">change my password</a>
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<!-- Row: Enforce Password Change -->
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Enforce Password Change</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+
+											<!-- Row: Days Input -->
+											<div class="settings-card__row">
+												<div class="settings-card__form-group settings-card__form-group--days">
+													<span class="settings-card__label">Days</span>
+													<input type="text" class="input" value="180">
+												</div>
+											</div>
+
+											<span class="settings-card__separator"></span>
+
+											<!-- Row: Multi-Factor Authentication -->
+											<div class="settings-card__row settings-card__row--align_center">
+												<div class="settings-card__info">
+													<span class="settings-card__name">Multi-Factor Authentication</span>
+													<span class="settings-card__desc">If enabled this adds another layer of security to your login, you’ll need to verify yourself with MFA every time you sign in.</span>
+												</div>
+												<label class="switch switch--small">
+													<input type="checkbox" class="switch__input" checked>
+													<span class="switch__label"></span>
+												</label>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; Copyright 2025 Psyber</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/app.min.js?_v=20260312104632"></script>
+</body>
+
+</html>

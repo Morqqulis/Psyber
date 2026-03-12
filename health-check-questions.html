@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260307090743">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260312104632">
 </head>
 
 <body>
@@ -42,7 +42,83 @@
 		<main class="page">
 			<section class="health-check" data-quiz>
 				<div class="health-check__container">
-					<div class="health-check__body">
+					<!-- Start Screen -->
+					<div class="health-check__body health-check__body--start" data-quiz-start>
+						<!-- Intro (Loading part on the left) -->
+						<div class="health-check__intro">
+							<div class="health-check__intro-icon">
+								<img src="img/health/loading.svg" alt="Loading">
+							</div>
+							<h2 class="health-check__intro-title">Loading...</h2>
+							<div class="health-check__intro-text">
+								<p>Setting up your account</p>
+								<p>We’ve created a questionnaire to kick off.</p>
+							</div>
+						</div>
+
+						<!-- Intro Card (on the right) -->
+						<div class="health-check__content health-check__content--intro">
+							<div class="health-check__info health-check__info--intro">
+								<div class="health-check__meta health-check__meta--intro">
+									HUMAN DEFENCE BENCHMARK ™
+								</div>
+								<h1 class="health-check__title health-check__title--intro">
+									Measure how deeply cybersecurity awareness is embedded in your <span>organisation’s culture.</span>
+								</h1>
+							</div>
+
+							<span class="health-check__separator"></span>
+
+							<ul class="health-check__list">
+								<li class="health-check__item">
+									<div class="health-check__item-icon">
+										<svg width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+										</svg>
+									</div>
+									<p class="health-check__item-text">The Human Defence Health Check gives you a clear, data-driven view of where your organisation stands today — and what steps will move you
+										closer to a strong, resilient security culture.</p>
+								</li>
+								<li class="health-check__item">
+									<div class="health-check__item-icon">
+										<svg width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+										</svg>
+									</div>
+									<p class="health-check__item-text">Answer each question honestly and based on your current reality, not where you’d like to be.</p>
+								</li>
+								<li class="health-check__item">
+									<div class="health-check__item-icon">
+										<svg width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+										</svg>
+									</div>
+									<p class="health-check__item-text">The more accurate your responses, the more meaningful your results will be.</p>
+								</li>
+								<li class="health-check__item">
+									<div class="health-check__item-icon">
+										<svg width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+										</svg>
+									</div>
+									<p class="health-check__item-text">Your answers directly inform your organisation’s overall maturity level and generate tailored recommendations for next steps.</p>
+								</li>
+							</ul>
+
+							<div class="health-check__actions health-check__actions--intro">
+								<button type="button" class="health-check__skip" data-quiz-skip>SKIP FOR NOW</button>
+								<button type="button" class="health-check__btn btn btn--primary" data-quiz-begin>
+									LET’S BEGIN!
+									<svg width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Quiz Screen (Hidden by default) -->
+					<div class="health-check__body health-check__body--quiz" data-quiz-main style="display: none;">
 						<div class="health-check__image">
 							<img src="img/health/image.svg" alt="Illustration" data-quiz-image width="417" height="342">
 						</div>
@@ -113,7 +189,7 @@
 		</footer>
 	</div>
 
-	<script src="js/app.min.js?_v=20260307090743"></script>
+	<script src="js/app.min.js?_v=20260312104632"></script>
 </body>
 
 </html>

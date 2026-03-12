@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Business Questions</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260312104632">
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Top Bar -->
+		<header class="business-header">
+			<div class="business-header__container">
+				<nav class="business-header__nav">
+					<a href="/" class="business-header__logo">
+						<img src="img/logo.svg" alt="Logo">
+					</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="page">
+			<section class="business-quiz" data-quiz="business">
+				<div class="business-quiz__container">
+					<!-- Questions Screen -->
+					<div class="business-quiz__body business-quiz__body--quiz" data-quiz-main>
+						<!-- Left Side (Intro placeholder) -->
+						<div class="business-quiz__intro">
+							<div class="business-quiz__intro-icon">
+								<img src="img/loading-2.svg" alt="Loading">
+							</div>
+							<h2 class="business-quiz__intro-title">Loading...</h2>
+							<div class="business-quiz__subtitle">
+								<p>This will take a few minutes.</p>
+								<p>We’ve created a short survey to kick off.</p>
+							</div>
+							<div class="business-quiz__intro-text">
+								<p>Your answers help us tailor your learning experience. Be honest — this isn’t a test. It’s your starting point.</p>
+							</div>
+						</div>
+
+						<!-- Content -->
+						<div class="business-quiz__content">
+							<div class="business-quiz__info">
+								<div class="business-quiz__meta">
+									<span data-quiz-count>1/6</span>
+									<span data-quiz-category>CATEGORY</span>
+								</div>
+								<h1 class="business-quiz__title" data-quiz-question>Question loading...</h1>
+								<p class="business-quiz__subtitle" data-quiz-subtitle>Subtitle loading...</p>
+							</div>
+
+							<div class="business-quiz__options" data-quiz-options>
+								<!-- Options injected by JS -->
+							</div>
+
+							<div class="business-quiz__actions">
+								<button type="button" class="business-quiz__btn business-quiz__btn--back btn btn--outline" data-quiz-prev>
+									<svg width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-arrow-alt-left"></use>
+									</svg>
+								</button>
+								<button type="button" class="business-quiz__btn btn btn--primary" data-quiz-next>
+									Continue
+									<svg width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<!-- Loading Screen (Initially Hidden) -->
+					<div class="business-quiz__loading">
+						<div class="business-quiz__loading-icon">
+							<img src="img/health/loading.svg" alt="Loading">
+						</div>
+						<h2 class="business-quiz__loading-title">Calculating your results</h2>
+						<p class="business-quiz__loading-desc">Don’t refresh the page</p>
+					</div>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; Copyright 2025 Psyber</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/app.min.js?_v=20260312104632"></script>
+</body>
+
+</html>
