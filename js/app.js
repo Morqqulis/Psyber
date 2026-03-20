@@ -25980,6 +25980,25 @@
                 const mobileMenuClose = target.closest("[data-mobile-menu-close]");
                 const bannerClose = target.closest("[data-banner-close]");
                 const banner = document.querySelector("[data-banner]");
+                const drawerTrigger = target.closest("[data-drawer-trigger]");
+                if (drawerTrigger) {
+                    const drawerSelector = drawerTrigger.dataset.drawerTrigger;
+                    const drawer = document.querySelector(drawerSelector);
+                    if (drawer) {
+                        handleAddClass(drawer, "drawer--open");
+                        handleAddClass(document.documentElement, "lock");
+                    }
+                    return;
+                }
+                const drawerClose = target.closest("[data-drawer-close]");
+                if (drawerClose) {
+                    const drawer = drawerClose.closest(".drawer");
+                    if (drawer) {
+                        handleRemoveClass(drawer, "drawer--open");
+                        handleRemoveClass(document.documentElement, "lock");
+                    }
+                    return;
+                }
                 const asideTrigger = target.closest("[data-aside-trigger]");
                 if (asideTrigger) {
                     const aside = asideTrigger.closest("[data-aside]");
@@ -26007,12 +26026,12 @@
                 if (dropdown && !target.closest("[data-dropdown]")) handleRemoveClass(dropdown, "is-active");
                 if (burgerTrigger && mobileMenu) {
                     handleAddClass(mobileMenu, "is-active");
-                    handleAddClass(document.body, "lock");
+                    handleAddClass(document.documentElement, "lock");
                     return;
                 }
                 if (mobileMenuClose && mobileMenu) {
                     handleRemoveClass(mobileMenu, "is-active");
-                    handleRemoveClass(document.body, "lock");
+                    handleRemoveClass(document.documentElement, "lock");
                 }
                 if (bannerClose && banner) handleRemoveClass(banner, "is-active");
             });
@@ -26030,6 +26049,30 @@
                         if (titleTarget) titleTarget.textContent = tabTrigger.textContent.trim();
                     }
                 }
+            });
+        };
+        const initAvatarOnboarding = () => {
+            const avatarInput = document.querySelector("#avatar-upload-input");
+            const chooseBtn = document.querySelector("[data-avatar-choose]");
+            const deleteBtn = document.querySelector("[data-avatar-delete]");
+            const previewImg = document.querySelector("[data-avatar-preview]");
+            const defaultAvatar = previewImg ? previewImg.src : "@img/avatars/1.svg";
+            if (chooseBtn && avatarInput) chooseBtn.addEventListener("click", () => {
+                avatarInput.click();
+            });
+            if (avatarInput) avatarInput.addEventListener("change", e => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader;
+                    reader.onload = event => {
+                        if (previewImg) previewImg.src = event.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            if (deleteBtn) deleteBtn.addEventListener("click", () => {
+                if (avatarInput) avatarInput.value = "";
+                if (previewImg) previewImg.src = defaultAvatar;
             });
         };
         function initHealthCheck() {
@@ -26475,7 +26518,7 @@
                 updateProgress(0);
             });
             if (skipBtn) skipBtn.addEventListener("click", () => {
-                console.log("User skipped the health check");
+                window.location.href = "health.html";
             });
             els.nextBtn.addEventListener("click", () => {
                 const q = questions[state.currentStep];
@@ -26488,6 +26531,9 @@
                     updateProgress(questions.length);
                     if (progressContainer) progressContainer.style.opacity = "0";
                     if (quizContainer) quizContainer.classList.add("is-loading");
+                    setTimeout(() => {
+                        window.location.href = "health-overview.html";
+                    }, 2e3);
                     console.log("Finished", state.answers);
                 }
             });
@@ -26817,6 +26863,7 @@
             initHeaderActiveLink();
             initEditor();
             initTags();
+            initAvatarOnboarding();
         });
         window["FLS"] = true;
         isWebp();

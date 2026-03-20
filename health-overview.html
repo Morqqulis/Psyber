@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Business HealthCheck Overview</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260320191350">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header" aria-labelledby="header">
+			<div class="header__container">
+				<a href="/" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" width="162" height="41">
+				</a>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item">
+							<a href="/" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-home"></use>
+								</svg>
+								Home
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/health-check-questions.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+								</svg>
+								Healthcheck
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/leaderboard.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+								</svg>
+								Leaderboard
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/resources.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
+								</svg>
+								Resources
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/report.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-chart"></use>
+								</svg>
+								Report
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__actions">
+					<button class="header__action header__search">
+						<svg class="header__icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-search"></use>
+						</svg>
+					</button>
+					<div class="header__profile">
+						<button class="header__action header__avatar" data-dropdown-trigger>
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" width="52" height="52"></picture>
+						</button>
+						<div class="header__dropdown" data-dropdown>
+							<div class="header__dropdown-header">
+								<span class="header__dropdown-name">Jessica H</span>
+								<span class="header__dropdown-email">jessicah@mail.com</span>
+							</div>
+							<nav class="header__dropdown-nav">
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-account-details"></use>
+									</svg>
+									Account Details
+								</a>
+								<a href="#" class="header__dropdown-link header__dropdown-link--active">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-manage-sprite"></use>
+									</svg>
+									Manage Staff
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-user-roles"></use>
+									</svg>
+									User Roles
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-invoices"></use>
+									</svg>
+									Invoices
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-settings"></use>
+									</svg>
+									Settings
+								</a>
+							</nav>
+							<div class="header__dropdown-footer">
+								<a href="#" class="header__dropdown-logout">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+									</svg>
+									Logout
+								</a>
+							</div>
+						</div>
+					</div>
+					<button class="header__action header__burger" data-burger>
+						<svg class="header__burger-icon" width="24" height="14">
+							<use xlink:href="img/icons/icons.svg#svg-burger"></use>
+						</svg>
+						<span class="header__burger-text">Menu</span>
+					</button>
+				</div>
+			</div>
+
+			<div class="mobile-menu" data-mobile-menu>
+				<div class="mobile-menu__overlay" data-mobile-menu-close></div>
+				<div class="mobile-menu__body">
+					<div class="mobile-menu__header">
+						<a href="/" class="mobile-menu__logo">
+							<img src="img/logo.svg" alt="Logo" width="110" height="28">
+						</a>
+						<button class="mobile-menu__close" data-mobile-menu-close>
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-close"></use>
+							</svg>
+						</button>
+					</div>
+					<nav class="mobile-menu__nav">
+						<a href="/" class="mobile-menu__link mobile-menu__link--active">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-home"></use>
+							</svg>
+							Home
+						</a>
+						<a href="/healthcheck.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+							</svg>
+							Healthcheck
+						</a>
+						<a href="/leaderboard.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+							</svg>
+							Leaderboard
+						</a>
+						<a href="/resources.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
+							</svg>
+							Resources
+						</a>
+						<a href="/report.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-chart"></use>
+							</svg>
+							Report
+						</a>
+					</nav>
+					<div class="mobile-menu__footer">
+						<div class="mobile-menu__user">
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" class="mobile-menu__avatar" width="40" height="40"></picture>
+							<div class="mobile-menu__user-info">
+								<span class="mobile-menu__user-name">Jessica H</span>
+								<span class="mobile-menu__user-email">jessicah@mail.com</span>
+							</div>
+						</div>
+						<a href="#" class="mobile-menu__logout">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+							</svg>
+							Logout
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="health">
+				<div class="health__container">
+					<!-- Sidebar -->
+					<aside class="health__aside aside" data-aside>
+						<button class="aside__trigger" type="button" data-aside-trigger>
+							<span class="aside__trigger-text">
+								In this page
+							</span>
+							<svg class="aside__trigger-arrow" width="20" height="20">
+								<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+							</svg>
+						</button>
+						<div class="aside__dropdown" data-aside-dropdown>
+							<div class="aside__dropdown-inner">
+								<div class="aside__header">
+									<span class="aside__heading">In this page</span>
+									<ul class="aside__list">
+										<li class="aside__item">
+											<a href="#overview" class="aside__link aside__link--active">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-speed"></use>
+												</svg>
+												Overview
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#actions" class="aside__link">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-check-rounded"></use>
+												</svg>
+												Actions To-Dos
+											</a>
+										</li>
+									</ul>
+								</div>
+
+								<div class="aside__footer">
+									<div class="aside__info">
+										<span class="aside__head">Has your data been <br> breached?</span>
+										<div class="aside__text">
+											<p>Visibility is the first layer of defence. PsyberWatch alerts you when your email or credentials appear in a data breach.</p>
+										</div>
+										<button class="aside__info-btn btn btn--outline btn--outline-dark" type="button">ACTIVATE PSYBERWATCH</button>
+									</div>
+									<a href="#" class="aside__footer-btn btn btn--outline">
+										<svg class="aside__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-like"></use>
+										</svg>
+										Leave Feedback
+										<svg class="aside__icon" width="24" height="24" style="margin-left:auto">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</aside>
+
+					<div class="health__body">
+						<header class="health__header">
+							<h1 class="title">Business <span>HealthCheck</span></h1>
+							<div class="health__time-period">Time period: May 29, 2025 - Jul 4, 2025</div>
+						</header>
+
+						<div class="health__grid">
+							<!-- Left Column -->
+							<div class="health__left">
+								<!-- Benchmark Card -->
+								<section class="benchmark-card card" id="overview">
+									<header class="benchmark-card__header">
+										<div class="benchmark-card__title-box">
+											<span class="benchmark-card__label">PSYBER STAGES</span>
+											<h2 class="benchmark-card__title">
+												Human Defence Benchmark
+												<svg width="20" height="20">
+													<use xlink:href="img/icons/icons.svg#svg-info"></use>
+												</svg>
+											</h2>
+										</div>
+										<div class="benchmark-card__legend">
+											<span class="benchmark-card__legend-item benchmark-card__legend-item--low">Low</span>
+											<span class="benchmark-card__legend-item benchmark-card__legend-item--medium">Medium</span>
+											<span class="benchmark-card__legend-item benchmark-card__legend-item--high">High</span>
+										</div>
+									</header>
+									<hr class="separator">
+									<div class="benchmark-card__list">
+										<div class="benchmark-card__item">
+											<span class="benchmark-card__item-name">Program Governance</span>
+											<div class="benchmark-card__progress">
+												<div class="benchmark-card__progress-fill benchmark-card__progress-fill--medium" style="width: 38%;"></div>
+											</div>
+										</div>
+										<div class="benchmark-card__item">
+											<span class="benchmark-card__item-name">Leadership and Culture</span>
+											<div class="benchmark-card__progress">
+												<div class="benchmark-card__progress-fill benchmark-card__progress-fill--high" style="width: 85%;"></div>
+											</div>
+										</div>
+										<div class="benchmark-card__item">
+											<span class="benchmark-card__item-name">Training and Engagement</span>
+											<div class="benchmark-card__progress">
+												<div class="benchmark-card__progress-fill benchmark-card__progress-fill--low" style="width: 15%;"></div>
+											</div>
+										</div>
+										<div class="benchmark-card__item">
+											<span class="benchmark-card__item-name">Behavioural Reinforcement</span>
+											<div class="benchmark-card__progress">
+												<div class="benchmark-card__progress-fill benchmark-card__progress-fill--medium" style="width: 60%;"></div>
+											</div>
+										</div>
+										<div class="benchmark-card__item">
+											<span class="benchmark-card__item-name">Comminucation and Visibility</span>
+											<div class="benchmark-card__progress">
+												<div class="benchmark-card__progress-fill benchmark-card__progress-fill--low" style="width: 30%;"></div>
+											</div>
+										</div>
+										<div class="benchmark-card__item">
+											<span class="benchmark-card__item-name">Measurement and Improvement</span>
+											<div class="benchmark-card__progress">
+												<div class="benchmark-card__progress-fill benchmark-card__progress-fill--high" style="width: 95%;"></div>
+											</div>
+										</div>
+									</div>
+								</section>
+
+								<!-- Actions Card -->
+								<section class="actions-card card" id="actions" style="margin-top: 32px;">
+									<header class="actions-card__header">
+										<div class="benchmark-card__title-box">
+											<span class="benchmark-card__label">ACTIONS/TO-DOS</span>
+											<h2 class="benchmark-card__title">
+												Your actions for Level 2 - Compliant
+												<svg width="20" height="20">
+													<use xlink:href="img/icons/icons.svg#svg-info"></use>
+												</svg>
+											</h2>
+										</div>
+										<div class="actions-card__progress-box">
+											<div class="actions-card__progress-bar">
+												<div class="actions-card__progress-fill" style="width: 45%;"></div>
+											</div>
+											<span class="actions-card__progress-text">45% complete</span>
+										</div>
+									</header>
+									<hr class="separator">
+									<ul class="actions-card__list">
+										<li class="actions-card__item">
+											<div class="actions-card__item-icon">
+												<svg width="24" height="24" style="color: #f56751">
+													<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+												</svg>
+											</div>
+											<p class="actions-card__item-text">Adjust passing score</p>
+										</li>
+										<li class="actions-card__item">
+											<div class="actions-card__item-icon">
+												<svg width="24" height="24" style="color: #f56751">
+													<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+												</svg>
+											</div>
+											<p class="actions-card__item-text">Run a baseline assessment</p>
+										</li>
+										<li class="actions-card__item">
+											<div class="actions-card__item-icon">
+												<svg width="24" height="24" style="color: #f56751">
+													<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+												</svg>
+											</div>
+											<p class="actions-card__item-text">Identify compliance and regulatory requirements</p>
+										</li>
+										<li class="actions-card__item">
+											<div class="actions-card__item-icon actions-card__item-icon--pending"></div>
+											<p class="actions-card__item-text">Secure leadership buy-in</p>
+										</li>
+										<li class="actions-card__item">
+											<div class="actions-card__item-icon actions-card__item-icon--pending"></div>
+											<p class="actions-card__item-text">Communicate early wins</p>
+										</li>
+										<li class="actions-card__item">
+											<div class="actions-card__item-icon actions-card__item-icon--pending"></div>
+											<p class="actions-card__item-text">Create a starter plan</p>
+										</li>
+										<li class="actions-card__item">
+											<div class="actions-card__item-icon actions-card__item-icon--pending"></div>
+											<p class="actions-card__item-text">Assign a program owner</p>
+										</li>
+									</ul>
+								</section>
+							</div>
+
+							<!-- Right Column -->
+							<div class="health__right">
+								<section class="score-card card">
+									<h2 class="score-card__title">Overall Score</h2>
+									<div class="score-card__image">
+										<img src="img/dashboard/risk.svg" alt="Risk">
+									</div>
+									<hr class="separator">
+									<div class="score-card__info">
+										<div class="score-card__level">
+											<span class="score-card__level-label">LEVEL 1</span>
+											<h3 class="score-card__level-name">Unaware</h3>
+											<div class="score-card__level-indicator">
+												<span class="is-active"></span>
+												<span></span>
+												<span></span>
+												<span></span>
+											</div>
+										</div>
+										<div class="score-card__description">
+											<strong>Awareness is non-existent.</strong>
+											<p>Cybersecurity awareness isn’t on the radar. There’s no training, no ownership, and no understanding that people are part of the organisation’s defence.</p>
+											<p>“We don’t train.”</p>
+										</div>
+									</div>
+									<button class="score-card__learn-btn btn btn--outline" type="button" data-drawer-trigger="#psyber-stages-drawer">
+										LEARN ABOUT THE PSYBER STAGES
+										<svg width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</button>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</main>
+
+
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; Copyright 2025 Psyber</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+
+		<div class="drawer" id="psyber-stages-drawer">
+			<div class="drawer__overlay" data-drawer-close></div>
+			<div class="drawer__content">
+				<div class="drawer__header">
+					<h2 class="drawer__title">The Psyber Stages</h2>
+					<button class="drawer__close btn-close" type="button" aria-label="Close drawer" data-drawer-close>
+						<svg width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-close"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="drawer__body" data-spollers data-one-spoller>
+					<!-- Stage 1 -->
+					<div class="stage-accordion">
+						<button class="stage-accordion__title" type="button" data-spoller>
+							<div class="stage-accordion__label">
+								<span class="stage-accordion__level">STAGE 1</span>
+								<span class="stage-accordion__name">Non-Existent / Oblivious</span>
+							</div>
+							<svg width="20" height="20" class="stage-accordion__arrow">
+								<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+							</svg>
+						</button>
+						<div class="stage-accordion__body">
+							<p>Cybersecurity awareness isn’t on the radar. There’s no training, no ownership, and no understanding that people are part of the organisation’s defence.</p>
+							<blockquote class="stage-accordion__quote">“We don’t train.”</blockquote>
+						</div>
+					</div>
+					<!-- Stage 2 -->
+					<div class="stage-accordion">
+						<button class="stage-accordion__title" type="button" data-spoller>
+							<div class="stage-accordion__label">
+								<span class="stage-accordion__level">STAGE 2</span>
+								<span class="stage-accordion__name">Informal / Ad-hoc</span>
+							</div>
+							<svg width="20" height="20" class="stage-accordion__arrow">
+								<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+							</svg>
+						</button>
+						<div class="stage-accordion__body">
+							<p>Training happens occasionally, often just to check a box. There’s no consistency, and no long-term plan for awareness.</p>
+							<blockquote class="stage-accordion__quote">“We do it when we have time.”</blockquote>
+						</div>
+					</div>
+					<!-- Stage 3 -->
+					<div class="stage-accordion">
+						<button class="stage-accordion__title" type="button" data-spoller>
+							<div class="stage-accordion__label">
+								<span class="stage-accordion__level">STAGE 3</span>
+								<span class="stage-accordion__name">Defined / Guided</span>
+							</div>
+							<svg width="20" height="20" class="stage-accordion__arrow">
+								<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+							</svg>
+						</button>
+						<div class="stage-accordion__body">
+							<p>A formal awareness program is in place. Roles are defined, and basic training is consistent across the organisation.</p>
+							<blockquote class="stage-accordion__quote">“We have a plan.”</blockquote>
+						</div>
+					</div>
+					<!-- Stage 4 -->
+					<div class="stage-accordion">
+						<button class="stage-accordion__title" type="button" data-spoller>
+							<div class="stage-accordion__label">
+								<span class="stage-accordion__level">STAGE 4</span>
+								<span class="stage-accordion__name">Strategic / Influential</span>
+							</div>
+							<svg width="20" height="20" class="stage-accordion__arrow">
+								<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+							</svg>
+						</button>
+						<div class="stage-accordion__body">
+							<p>Awareness is integrated into the business strategy. Metrics drive improvements, and security is seen as a business enabler.</p>
+							<blockquote class="stage-accordion__quote">“We manage security risk.”</blockquote>
+						</div>
+					</div>
+					<!-- Stage 5 -->
+					<div class="stage-accordion">
+						<button class="stage-accordion__title" type="button" data-spoller>
+							<div class="stage-accordion__label">
+								<span class="stage-accordion__level">STAGE 5</span>
+								<span class="stage-accordion__name">Systemic / Autonomous</span>
+							</div>
+							<svg width="20" height="20" class="stage-accordion__arrow">
+								<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+							</svg>
+						</button>
+						<div class="stage-accordion__body">
+							<p>Security is second nature. Everyone takes ownership, and the culture itself provides a powerful layer of defence.</p>
+							<blockquote class="stage-accordion__quote">“It’s just how we work.”</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/app.min.js?_v=20260320191350"></script>
+</body>
+
+</html>

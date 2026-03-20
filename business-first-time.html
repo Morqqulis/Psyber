@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Business First Time</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260320191350">
+</head>
+
+<body>
+	<div class="wrapper">
+		<!-- Top Bar -->
+		<header class="business-header">
+			<div class="business-header__container">
+				<nav class="business-header__nav">
+					<a href="/" class="business-header__logo">
+						<img src="img/logo.svg" alt="Logo">
+					</a>
+					<a href="dashboard.html" class="business-header__close">
+						<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="page">
+			<section class="onboarding-avatar">
+				<div class="onboarding-avatar__container" data-tabs>
+					<h1 class="onboarding-avatar__title title">Choose an <span>avatar</span></h1>
+
+					<div class="onboarding-avatar__tabs avatar-tabs" data-tabs-titles>
+						<button class="avatar-tabs__btn _tab-active">Upload Photo</button>
+						<button class="avatar-tabs__btn">Use Avatar</button>
+					</div>
+
+					<div class="onboarding-avatar__body" data-tabs-body>
+						<!-- Upload Photo Tab -->
+						<div class="onboarding-avatar__tab-content">
+							<div class="onboarding-avatar__main avatar-upload">
+								<div class="avatar-upload__preview">
+									<div class="avatar-upload__img">
+										<picture><source srcset="img/avatar-placeholder.webp" type="image/webp"><img src="img/avatar-placeholder.png" alt="Avatar Preview" data-avatar-preview></picture>
+									</div>
+									<button class="avatar-upload__delete" type="button" aria-label="Delete photo" data-avatar-delete>
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-del-alt"></use>
+										</svg>
+									</button>
+								</div>
+
+								<div class="avatar-upload__actions">
+									<input type="file" id="avatar-upload-input" accept="image/*" hidden>
+									<button class="avatar-upload__btn-choose btn btn--outline" type="button" data-avatar-choose>Choose</button>
+									<p class="avatar-upload__hint">JPG, PNG, 1 MB Max</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Use Avatar Tab -->
+						<div class="onboarding-avatar__tab-content" hidden>
+							<div class="onboarding-avatar__grid">
+								<!-- Grid of predefined avatars can go here -->
+								<p style="text-align: center; opacity: 0.7;">Predefined avatars coming soon...</p>
+							</div>
+						</div>
+					</div>
+
+					<a href="/" class="onboarding-avatar__submit btn btn--primary">
+						Take me to dashboard
+						<svg class="btn__icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+						</svg>
+					</a>
+				</div>
+			</section>
+
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; Copyright 2025 Psyber</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/app.min.js?_v=20260320191350"></script>
+</body>
+
+</html>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Psyber - Account Invoices</title>
+	<title>Business Staff - Leaderboard</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <meta http-equiv="Content-Security-Policy"
@@ -193,18 +193,14 @@
 				</div>
 			</div>
 		</header>
-
 		<main>
-			<div class="account-invoices">
-				<div class="account-invoices__container container">
+			<section class="bs-leaderboard">
+				<div class="bs-leaderboard__container">
 					<!-- Sidebar -->
-					<aside class="account-invoices__aside aside" data-aside>
+					<aside class="bs-leaderboard__aside aside" data-aside>
 						<button class="aside__trigger" type="button" data-aside-trigger>
 							<span class="aside__trigger-text">
-								<svg class="aside__icon" width="24" height="24">
-									<use xlink:href="img/icons/icons.svg#svg-invoices"></use>
-								</svg>
-								Invoices
+								In this page
 							</span>
 							<svg class="aside__trigger-arrow" width="20" height="20">
 								<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
@@ -213,46 +209,46 @@
 						<div class="aside__dropdown" data-aside-dropdown>
 							<div class="aside__dropdown-inner">
 								<div class="aside__header">
-									<div class="aside__label">in this page</div>
+									<span class="aside__heading">In this page</span>
 									<ul class="aside__list">
 										<li class="aside__item">
-											<a href="account-details.html" class="aside__link">
-												<svg class="aside__icon" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-account-details"></use>
+											<a href="#" class="aside__link aside__link--active">
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-line-up"></use>
 												</svg>
-												Account Details
-											</a>
-										</li>
-										<li class="aside__item">
-											<a href="manage-staff.html" class="aside__link">
-												<svg class="aside__icon" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-manage-sprite"></use>
-												</svg>
-												Manage Staff
-											</a>
-										</li>
-										<li class="aside__item">
-											<a href="user-roles.html" class="aside__link">
-												<svg class="aside__icon" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-user-roles"></use>
-												</svg>
-												User Roles
-											</a>
-										</li>
-										<li class="aside__item">
-											<a href="account-invoices.html" class="aside__link aside__link--active aside__link--pill">
-												<svg class="aside__icon" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-invoices"></use>
-												</svg>
-												Invoices
+												Overall Ranking
 											</a>
 										</li>
 										<li class="aside__item">
 											<a href="#" class="aside__link">
-												<svg class="aside__icon" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-settings"></use>
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-roll-alt"></use>
 												</svg>
-												Settings
+												Last 7 days
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#" class="aside__link">
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-calendar"></use>
+												</svg>
+												Last Month (30 days)
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#" class="aside__link">
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-calendar"></use>
+												</svg>
+												Last 6 Months
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#" class="aside__link">
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-roll-alt"></use>
+												</svg>
+												Last Year
 											</a>
 										</li>
 									</ul>
@@ -264,7 +260,7 @@
 										<div class="aside__text">
 											<p>Visibility is the first layer of defence. PsyberWatch alerts you when your email or credentials appear in a data breach.</p>
 										</div>
-										<button class="aside__info-btn btn btn--secondary" type="button">ACTIVATE PSYBERWATCH</button>
+										<button class="aside__info-btn btn btn--outline btn--outline-dark" type="button">ACTIVATE PSYBERWATCH</button>
 									</div>
 									<a href="#" class="aside__footer-btn btn btn--outline">
 										<svg class="aside__icon" width="24" height="24">
@@ -280,74 +276,88 @@
 						</div>
 					</aside>
 
-					<!-- Main content -->
-					<div class="account-invoices__main">
-						<h1 class="account-invoices__title title">
-							Invoices
-						</h1>
+					<!-- Main Content -->
+					<div class="bs-leaderboard__main">
+						<h1 class="bs-leaderboard__title title">Leaderboard</h1>
 
-						<!-- Top cards row -->
-						<div class="account-invoices__cards">
-							<!-- Payment Method -->
-							<div class="account-invoices__card card">
-								<div class="account-invoices__card-header">
-									<h2 class="account-invoices__card-title heading">Payment Method</h2>
-									<p class="account-invoices__card-desc">Here's the billing card we currently have for your subscription</p>
-								</div>
-								<div class="account-invoices__payment">
-									<div class="account-invoices__payment-info">
-										<div class="account-invoices__visa-badge">
-											<span class="account-invoices__visa-text">VISA</span>
-										</div>
-										<span class="account-invoices__card-number">_ _ _ _ _ _ _ _ _ 5820</span>
-									</div>
-									<button class="btn btn--outline btn--sm account-invoices__update-btn" type="button">
-										UPDATE
-										<svg width="20" height="20">
-											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+						<div class="bs-leaderboard__card card">
+							<div class="bs-leaderboard__card-head">
+								<h2 class="bs-leaderboard__card-title heading">Official Psyber Ranking</h2>
+								<a class="bs-leaderboard__export btn btn--outline btn--sm" href="#" download>
+									<svg width="20" height="20">
+										<use xlink:href="img/icons/icons.svg#svg-download-2"></use>
+									</svg>
+									EXPORT
+								</a>
+							</div>
+
+							<div class="bs-leaderboard__stats">
+								<div class="bs-leaderboard__stats-card">
+									<div class="bs-leaderboard__stats-icon">
+										<svg width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-chart-search"></use>
 										</svg>
-									</button>
+									</div>
+									<div class="bs-leaderboard__stats-info">
+										<h3 class="bs-leaderboard__stats-name">Overall Ranking</h3>
+										<p class="bs-leaderboard__stats-desc">YOU’RE RANKED 7TH AT {BUSINESS NAME}</p>
+									</div>
+									<span class="bs-leaderboard__stats-place">7st</span>
+								</div>
+
+								<div class="bs-leaderboard__stats-card">
+									<div class="bs-leaderboard__stats-icon">
+										<svg width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-target"></use>
+										</svg>
+									</div>
+									<div class="bs-leaderboard__stats-info">
+										<h3 class="bs-leaderboard__stats-name">Depatment Ranking</h3>
+										<p class="bs-leaderboard__stats-desc">YOU’RE RANKED 2ND IN HUMAN RESOURCES</p>
+									</div>
+									<span class="bs-leaderboard__stats-place">2nd</span>
+								</div>
+
+								<div class="bs-leaderboard__stats-card">
+									<div class="bs-leaderboard__stats-icon">
+										<svg width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-diamond"></use>
+										</svg>
+									</div>
+									<div class="bs-leaderboard__stats-info">
+										<h3 class="bs-leaderboard__stats-name">This Month’s Rank</h3>
+										<p class="bs-leaderboard__stats-desc">YOU’RE COMING 1ST THIS MONTH</p>
+									</div>
+									<span class="bs-leaderboard__stats-place">1rd</span>
 								</div>
 							</div>
 
-							<!-- Cancel Subscription -->
-							<div class="account-invoices__card card">
-								<div class="account-invoices__card-header">
-									<h2 class="account-invoices__card-title heading">Cancel Subscription</h2>
-									<p class="account-invoices__card-desc">If you wish to discontinue your subscription, you can cancel at anytime.</p>
-								</div>
-								<div class="account-invoices__cancel">
-									<button class="btn account-invoices__cancel-btn" type="button">
-										CANCEL
-									</button>
-								</div>
-							</div>
-						</div>
-
-						<!-- Invoices table -->
-						<section class="account-invoices__section">
-							<div class="account-invoices__table-card card">
-								<h2 class="account-invoices__section-title heading">Invoices</h2>
-
-								<div class="table account-invoices-table">
+							<div class="table-container">
+								<div class="table">
 									<div class="table__head">
 										<div class="table__head-row">
-											<div class="table__th">Date</div>
-											<div class="table__th">Number</div>
-											<div class="table__th">Status</div>
-											<div class="table__th">Amount</div>
-											<div class="table__th">Actions</div>
+											<div class="table__th">Rank</div>
+											<div class="table__th">Name</div>
+											<div class="table__th">Badges</div>
+											<div class="table__th">Courses Completed</div>
+											<div class="table__th">Quiz Pass Rate</div>
+											<div class="table__th">Avg. Attempts</div>
+											<div class="table__th">Days to Complete</div>
 										</div>
 									</div>
 									<div class="table__body">
-										<!-- Invoice row 1 -->
+										<!-- Row 1 -->
 										<div class="table__row" data-table-row>
 											<div class="table__trigger" data-table-trigger>
+												<div class="table__cell table__cell--rank"><span class="rank-span">#1</span></div>
 												<div class="table__cell table__cell--name">
-													<span class="account-invoices-table__value">23/12/2025</span>
-												</div>
-												<div class="table__cell table__cell--stat desktop-only">
-													<span class="account-invoices-table__value">INV02312</span>
+													<div class="user-block">
+														<picture><source srcset="img/common/avatars/avatar-1.webp" type="image/webp"><img src="img/common/avatars/avatar-1.jpg" alt="" class="user-block__avatar"></picture>
+														<div class="user-block__info">
+															<span class="user-block__name">Kristin Watson</span>
+															<span class="user-block__dept">Finance</span>
+														</div>
+													</div>
 												</div>
 												<svg class="table__arrow" width="20" height="20">
 													<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
@@ -355,34 +365,39 @@
 											</div>
 											<div class="table__dropdown">
 												<div class="table__dropdown-inner">
-													<div class="table__cell table__cell--stat mobile-only" data-label="Number">
-														<span class="account-invoices-table__value">INV02312</span>
+													<div class="table__cell" data-label="Badges">
+														<div class="badges-group">
+															<div class="badge-icon badge-icon--orange">
+																<img src="img/leadersboard/badges/badge-1.svg" alt="Badge">
+															</div>
+															<div class="badge-icon badge-icon--red">
+																<img src="img/leadersboard/badges/badge-2.svg" alt="Badge">
+															</div>
+															<div class="badge-icon badge-icon--green">
+																<img src="img/leadersboard/badges/badge-3.svg" alt="Badge">
+															</div>
+															<div class="badge-icon badge-icon--transparent">+3</div>
+														</div>
 													</div>
-													<div class="table__cell table__cell--stat" data-label="Status">
-														<span class="account-invoices-table__value">Paid</span>
-													</div>
-													<div class="table__cell table__cell--stat" data-label="Amount">
-														<span class="account-invoices-table__value">$00.0</span>
-													</div>
-													<div class="table__cell table__cell--stat" data-label="Actions">
-														<button class="btn btn--outline account-invoices-table__dots-btn" type="button">
-															<svg width="20" height="20">
-																<use xlink:href="img/icons/icons.svg#svg-dots"></use>
-															</svg>
-														</button>
-													</div>
+													<div class="table__cell table__cell--stat" data-label="Courses Completed"><span class="table__value table__value--bold">75%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Quiz pass Rate"><span class="table__value table__value--bold">80%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Avg. Attempts"><span class="table__value table__value--bold">3</span></div>
+													<div class="table__cell table__cell--stat" data-label="Days to Complete"><span class="table__value table__value--bold">1</span></div>
 												</div>
 											</div>
 										</div>
-
-										<!-- Invoice row 2 -->
+										<!-- Row 2 -->
 										<div class="table__row" data-table-row>
 											<div class="table__trigger" data-table-trigger>
+												<div class="table__cell table__cell--rank"><span class="rank-span">#2</span></div>
 												<div class="table__cell table__cell--name">
-													<span class="account-invoices-table__value">23/12/2024</span>
-												</div>
-												<div class="table__cell table__cell--stat desktop-only">
-													<span class="account-invoices-table__value">INV02312</span>
+													<div class="user-block">
+														<picture><source srcset="img/common/avatars/avatar-2.webp" type="image/webp"><img src="img/common/avatars/avatar-2.jpg" alt="" class="user-block__avatar"></picture>
+														<div class="user-block__info">
+															<span class="user-block__name">Mason Ferry</span>
+															<span class="user-block__dept">Human Resources</span>
+														</div>
+													</div>
 												</div>
 												<svg class="table__arrow" width="20" height="20">
 													<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
@@ -390,34 +405,39 @@
 											</div>
 											<div class="table__dropdown">
 												<div class="table__dropdown-inner">
-													<div class="table__cell table__cell--stat mobile-only" data-label="Number">
-														<span class="account-invoices-table__value">INV02312</span>
+													<div class="table__cell" data-label="Badges">
+														<div class="badges-group">
+															<div class="badge-icon badge-icon--orange">
+																<img src="img/leadersboard/badges/badge-1.svg" alt="Badge">
+															</div>
+															<div class="badge-icon badge-icon--red">
+																<img src="img/leadersboard/badges/badge-2.svg" alt="Badge">
+															</div>
+															<div class="badge-icon badge-icon--green">
+																<img src="img/leadersboard/badges/badge-3.svg" alt="Badge">
+															</div>
+															<div class="badge-icon badge-icon--transparent">+1</div>
+														</div>
 													</div>
-													<div class="table__cell table__cell--stat" data-label="Status">
-														<span class="account-invoices-table__value">Paid</span>
-													</div>
-													<div class="table__cell table__cell--stat" data-label="Amount">
-														<span class="account-invoices-table__value">$00.0</span>
-													</div>
-													<div class="table__cell table__cell--stat" data-label="Actions">
-														<button class="btn btn--outline account-invoices-table__dots-btn" type="button">
-															<svg width="20" height="20">
-																<use xlink:href="img/icons/icons.svg#svg-dots"></use>
-															</svg>
-														</button>
-													</div>
+													<div class="table__cell table__cell--stat" data-label="Courses Completed"><span class="table__value table__value--bold">85%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Quiz pass Rate"><span class="table__value table__value--bold">80%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Avg. Attempts"><span class="table__value table__value--bold">4</span></div>
+													<div class="table__cell table__cell--stat" data-label="Days to Complete"><span class="table__value table__value--bold">3</span></div>
 												</div>
 											</div>
 										</div>
-
-										<!-- Invoice row 3 -->
-										<div class="table__row" data-table-row>
+										<!-- Row 3 (YOU) -->
+										<div class="table__row table__row--highlight" data-table-row>
 											<div class="table__trigger" data-table-trigger>
+												<div class="table__cell table__cell--rank"><span class="rank-span">#3</span></div>
 												<div class="table__cell table__cell--name">
-													<span class="account-invoices-table__value">23/12/2023</span>
-												</div>
-												<div class="table__cell table__cell--stat desktop-only">
-													<span class="account-invoices-table__value">INV02312</span>
+													<div class="user-block">
+														<picture><source srcset="img/common/avatars/avatar-3.webp" type="image/webp"><img src="img/common/avatars/avatar-3.jpg" alt="" class="user-block__avatar"></picture>
+														<div class="user-block__info">
+															<span class="user-block__name">Jessica <span class="tag tag--orange">You</span></span>
+															<span class="user-block__dept">Sales & Marketing</span>
+														</div>
+													</div>
 												</div>
 												<svg class="table__arrow" width="20" height="20">
 													<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
@@ -425,35 +445,65 @@
 											</div>
 											<div class="table__dropdown">
 												<div class="table__dropdown-inner">
-													<div class="table__cell table__cell--stat mobile-only" data-label="Number">
-														<span class="account-invoices-table__value">INV02312</span>
+													<div class="table__cell" data-label="Badges">
+														<div class="badges-group">
+															<div class="badge-icon badge-icon--orange">
+																<img src="img/leadersboard/badges/badge-1.svg" alt="Badge">
+															</div>
+															<div class="badge-icon badge-icon--green">
+																<img src="img/leadersboard/badges/badge-3.svg" alt="Badge">
+															</div>
+														</div>
 													</div>
-													<div class="table__cell table__cell--stat" data-label="Status">
-														<span class="account-invoices-table__value">Paid</span>
+													<div class="table__cell table__cell--stat" data-label="Courses Completed"><span class="table__value table__value--bold">40%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Quiz pass Rate"><span class="table__value table__value--bold">82%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Avg. Attempts"><span class="table__value table__value--bold">5</span></div>
+													<div class="table__cell table__cell--stat" data-label="Days to Complete"><span class="table__value table__value--bold">6</span></div>
+												</div>
+											</div>
+										</div>
+										<!-- More Rows ... -->
+										<div class="table__row" data-table-row>
+											<div class="table__trigger" data-table-trigger>
+												<div class="table__cell table__cell--rank"><span class="rank-span rank-span--transparent">#4</span></div>
+												<div class="table__cell table__cell--name">
+													<div class="user-block">
+														<picture><source srcset="img/common/avatars/avatar-4.webp" type="image/webp"><img src="img/common/avatars/avatar-4.jpg" alt="" class="user-block__avatar"></picture>
+														<div class="user-block__info">
+															<span class="user-block__name">Jake O’Connell</span>
+															<span class="user-block__dept">Finance</span>
+														</div>
 													</div>
-													<div class="table__cell table__cell--stat" data-label="Amount">
-														<span class="account-invoices-table__value">$00.0</span>
+												</div>
+												<svg class="table__arrow" width="20" height="20">
+													<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+												</svg>
+											</div>
+											<div class="table__dropdown">
+												<div class="table__dropdown-inner">
+													<div class="table__cell" data-label="Badges">
+														<div class="badges-group">
+															<div class="badge-icon badge-icon--red">
+																<img src="img/leadersboard/badges/badge-2.svg" alt="Badge">
+															</div>
+														</div>
 													</div>
-													<div class="table__cell table__cell--stat" data-label="Actions">
-														<button class="btn btn--outline account-invoices-table__dots-btn" type="button">
-															<svg width="20" height="20">
-																<use xlink:href="img/icons/icons.svg#svg-dots"></use>
-															</svg>
-														</button>
-													</div>
+													<div class="table__cell table__cell--stat" data-label="Courses Completed"><span class="table__value table__value--bold">75%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Quiz pass Rate"><span class="table__value table__value--bold">70%</span></div>
+													<div class="table__cell table__cell--stat" data-label="Avg. Attempts"><span class="table__value table__value--bold">2</span></div>
+													<div class="table__cell table__cell--stat" data-label="Days to Complete"><span class="table__value table__value--bold">3</span></div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</section>
+						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 
 		</main>
-
 		<footer class="footer">
 			<div class="footer__container">
 				<div class="footer__copyright">
@@ -476,7 +526,6 @@
 			</div>
 		</footer>
 	</div>
-
 	<script src="js/app.min.js?_v=20260320191350"></script>
 </body>
 

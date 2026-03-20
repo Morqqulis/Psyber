@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Psyber - Business Home</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260320191350">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header" aria-labelledby="header">
+			<div class="header__container">
+				<a href="/" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" width="162" height="41">
+				</a>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item">
+							<a href="/business-home.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-home"></use>
+								</svg>
+								Home
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/training.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-book-alt"></use>
+								</svg>
+								Training Courses
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/leaderboard.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+								</svg>
+								Leaderboard
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/report.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-roll-alt"></use>
+								</svg>
+								Certificates
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__actions">
+					<button class="header__action header__search">
+						<svg class="header__icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-search"></use>
+						</svg>
+					</button>
+					<div class="header__profile">
+						<button class="header__action header__avatar" data-dropdown-trigger>
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" width="52" height="52"></picture>
+						</button>
+						<div class="header__dropdown" data-dropdown>
+							<div class="header__dropdown-header">
+								<span class="header__dropdown-name">Jessica H</span>
+								<span class="header__dropdown-email">jessicah@mail.com</span>
+							</div>
+							<nav class="header__dropdown-nav">
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-account-details"></use>
+									</svg>
+									Account Details
+								</a>
+								<a href="#" class="header__dropdown-link header__dropdown-link--active">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-manage-sprite"></use>
+									</svg>
+									Manage Staff
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-user-roles"></use>
+									</svg>
+									User Roles
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-invoices"></use>
+									</svg>
+									Invoices
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-settings"></use>
+									</svg>
+									Settings
+								</a>
+							</nav>
+							<div class="header__dropdown-footer">
+								<a href="#" class="header__dropdown-logout">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+									</svg>
+									Logout
+								</a>
+							</div>
+						</div>
+					</div>
+					<button class="header__action header__burger" data-burger>
+						<svg class="header__burger-icon" width="24" height="14">
+							<use xlink:href="img/icons/icons.svg#svg-burger"></use>
+						</svg>
+						<span class="header__burger-text">Menu</span>
+					</button>
+				</div>
+			</div>
+
+			<div class="mobile-menu" data-mobile-menu>
+				<div class="mobile-menu__overlay" data-mobile-menu-close></div>
+				<div class="mobile-menu__body">
+					<div class="mobile-menu__header">
+						<a href="/" class="mobile-menu__logo">
+							<img src="img/logo.svg" alt="Logo" width="110" height="28">
+						</a>
+						<button class="mobile-menu__close" data-mobile-menu-close>
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-close"></use>
+							</svg>
+						</button>
+					</div>
+					<nav class="mobile-menu__nav">
+						<a href="/" class="mobile-menu__link mobile-menu__link--active">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-home"></use>
+							</svg>
+							Home
+						</a>
+						<a href="/healthcheck.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+							</svg>
+							Healthcheck
+						</a>
+						<a href="/leaderboard.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+							</svg>
+							Leaderboard
+						</a>
+						<a href="/resources.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
+							</svg>
+							Resources
+						</a>
+						<a href="/report.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-chart"></use>
+							</svg>
+							Report
+						</a>
+					</nav>
+					<div class="mobile-menu__footer">
+						<div class="mobile-menu__user">
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" class="mobile-menu__avatar" width="40" height="40"></picture>
+							<div class="mobile-menu__user-info">
+								<span class="mobile-menu__user-name">Jessica H</span>
+								<span class="mobile-menu__user-email">jessicah@mail.com</span>
+							</div>
+						</div>
+						<a href="#" class="mobile-menu__logout">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+							</svg>
+							Logout
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="banner is-active" data-banner>
+			<div class="banner__container banner__container--small">
+				<div class="banner__slider swiper">
+					<div class="banner__wrapper swiper-wrapper">
+						<div class="banner__slide swiper-slide">
+							<div class="banner__content">
+								<span class="banner__badge">Hey there!</span>
+								<p class="banner__text">
+									You haven’t added any learning staff to your business account.
+									<a href="#" class="banner__link">
+										Add/Invite them now
+										<svg width="16" height="16">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
+								</p>
+							</div>
+						</div>
+						<div class="banner__slide swiper-slide">
+							<div class="banner__content">
+								<span class="banner__badge">Hey there!</span>
+								<p class="banner__text">
+									You haven’t added any learning staff to your business account.
+									<a href="#" class="banner__link">
+										Add/Invite them now
+										<svg width="16" height="16">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="banner__actions">
+					<div class="banner__pagination" data-da=".banner__slider, 566.98"></div>
+					<button class="banner__close" type="button" data-banner-close data-da=".banner__slider, 566.98">
+						<svg class="banner__close-icon" width="16" height="16">
+							<use xlink:href="img/icons/icons.svg#svg-close-small"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<main class="page business-home">
+			<div class="business-home__container">
+				<div class="business-home__inner">
+					<div class="business-home__content">
+						<section class="business-home__hero welcome-hero">
+							<div class="business-home__avatar">
+								<picture><source srcset="img/business-home/avatar.webp" type="image/webp"><img src="img/business-home/avatar.png" alt="Jessica" width="100" height="100"></picture>
+							</div>
+							<div class="business-home__welcome-text">
+								<h1 class="business-home__title">Good morning, <span>Jessica</span></h1>
+								<p class="business-home__subtitle">Welcome to Psyber, check your progress</p>
+							</div>
+						</section>
+
+						<section class="business-home__overview overview-dashboard box-style">
+							<h2 class="business-home__section-title">Overview</h2>
+							<div class="business-home__overview-grid">
+								<div class="business-home__overview-card">
+									<div class="business-home__overview-info">
+										<div class="business-home__overview-icon">
+											<img src="img/business-home/overview/book-check.svg" alt="Icon" width="24" height="24">
+										</div>
+										<div class="business-home__overview-details">
+											<span class="business-home__overview-label">Courses Completed</span>
+											<span class="business-home__overview-sub">5 OF 10</span>
+										</div>
+									</div>
+									<span class="business-home__overview-percent">0%</span>
+								</div>
+								<div class="business-home__overview-card">
+									<div class="business-home__overview-info">
+										<div class="business-home__overview-icon">
+											<img src="img/business-home/overview/check-ring.svg" alt="Icon" width="24" height="24">
+										</div>
+										<div class="business-home__overview-details">
+											<span class="business-home__overview-label">Pass Rate</span>
+											<span class="business-home__overview-sub">YOU’VE MAINTAINED</span>
+										</div>
+									</div>
+									<span class="business-home__overview-percent">0%</span>
+								</div>
+								<div class="business-home__overview-card">
+									<div class="business-home__overview-info">
+										<div class="business-home__overview-icon">
+											<img src="img/business-home/overview/timer.svg" alt="Icon" width="24" height="24">
+										</div>
+										<div class="business-home__overview-details">
+											<span class="business-home__overview-label">By Due Date</span>
+											<span class="business-home__overview-sub">COURSES COMPLETED</span>
+										</div>
+									</div>
+									<span class="business-home__overview-percent">0%</span>
+								</div>
+							</div>
+						</section>
+
+						<section class="business-home__training box-style">
+							<header class="business-home__section-header">
+								<div class="business-home__section-title-group">
+									<span class="business-home__overview-sub">Stage 1</span>
+									<h2 class="business-home__section-title">Current Courses</h2>
+								</div>
+								<div class="business-home__overall-progress">
+									<div class="business-home__overall-progress-bar">
+										<div class="business-home__overall-progress-fill" style="width: 0%"></div>
+									</div>
+									<span class="business-home__overall-progress-value">0%</span>
+								</div>
+							</header>
+							<div class="business-home__training-list">
+								<article class="dashboard__training-card dashboard__training-card--horizontal">
+									<div class="dashboard__training-image">
+										<picture><source srcset="img/training/course-3.webp" type="image/webp"><img src="img/training/course-3.jpg" alt="Phishing Attacks"></picture>
+									</div>
+									<div class="dashboard__training-info">
+										<div class="dashboard__training-tags">
+											<span class="dashboard__training-tag tag">EMAILS</span>
+											<span class="dashboard__training-tag tag">PHISHING</span>
+										</div>
+										<h3 class="dashboard__training-title">Phishing Attacks</h3>
+										<p class="dashboard__training-desc">This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.</p>
+									</div>
+									<div class="dashboard__training-progress">
+										<svg class="dashboard__training-icon" width="40" height="40">
+											<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+										</svg>
+										<div class="dashboard__training-progress-info">
+											<span class="dashboard__training-progress-status">PROGRESS</span>
+											<span class="dashboard__training-progress-value">0%</span>
+										</div>
+									</div>
+									<a href="#" class="dashboard__training-btn btn btn--sm">
+										START
+										<svg width="12" height="8">
+											<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+										</svg>
+									</a>
+								</article>
+
+								<article class="dashboard__training-card dashboard__training-card--horizontal">
+									<div class="dashboard__training-image">
+										<picture><source srcset="img/training/course-2.webp" type="image/webp"><img src="img/training/course-2.jpg" alt="Ransomware Incidents"></picture>
+									</div>
+									<div class="dashboard__training-info">
+										<div class="dashboard__training-tags">
+											<span class="dashboard__training-tag tag">RANSOMWARE</span>
+										</div>
+										<h3 class="dashboard__training-title">Ransomware Incidents</h3>
+										<p class="dashboard__training-desc">This lesson covers ransomware attacks affecting critical infrastructure and importance of incident response strategies.</p>
+									</div>
+									<div class="dashboard__training-progress">
+										<svg class="dashboard__training-icon" width="40" height="40">
+											<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+										</svg>
+										<div class="dashboard__training-progress-info">
+											<span class="dashboard__training-progress-status">PROGRESS</span>
+											<span class="dashboard__training-progress-value">0%</span>
+										</div>
+									</div>
+									<a href="#" class="dashboard__training-btn btn btn--sm">
+										START
+										<svg width="12" height="8">
+											<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+										</svg>
+									</a>
+								</article>
+
+								<article class="dashboard__training-card dashboard__training-card--horizontal">
+									<div class="dashboard__training-image">
+										<picture><source srcset="img/training/course-1.webp" type="image/webp"><img src="img/training/course-1.jpg" alt="Data Breaches"></picture>
+									</div>
+									<div class="dashboard__training-info">
+										<div class="dashboard__training-tags">
+											<span class="dashboard__training-tag tag">DATA BRECHES</span>
+											<span class="dashboard__training-tag tag">SECURITY</span>
+										</div>
+										<h3 class="dashboard__training-title">Data Breaches</h3>
+										<p class="dashboard__training-desc">This lesson covers ransomware attacks affecting critical infrastructure and importance of incident response strategies.</p>
+									</div>
+									<div class="dashboard__training-progress">
+										<svg class="dashboard__training-icon" width="40" height="40">
+											<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+										</svg>
+										<div class="dashboard__training-progress-info">
+											<span class="dashboard__training-progress-status">PROGRESS</span>
+											<span class="dashboard__training-progress-value">0%</span>
+										</div>
+									</div>
+									<a href="#" class="dashboard__training-btn btn btn--sm">
+										START
+										<svg width="12" height="8">
+											<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+										</svg>
+									</a>
+								</article>
+							</div>
+						</section>
+
+						<section class="business-home__recommended">
+							<header class="recommended-header">
+								<h2 class="business-home__section-title">PSR Recommended Courses</h2>
+								<span class="recommended-header__subtitle">(Based on your Personal Risk Score)</span>
+							</header>
+							<div class="business-home__recommended-grid">
+								<article class="recommended-card box-style">
+									<div class="recommended-card__image">
+										<picture><source srcset="img/training/course-4.webp" type="image/webp"><img src="img/training/course-4.jpg" alt="Phishing Attacks"></picture>
+										<button class="recommended-card__play">
+											<svg width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-play"></use>
+											</svg>
+										</button>
+									</div>
+									<div class="recommended-card__body">
+										<div class="recommended-card__tags">
+											<span class="tag">EMAILS</span>
+											<span class="tag">PHISHING</span>
+										</div>
+										<h3 class="recommended-card__title">Phishing Attacks</h3>
+										<p class="recommended-card__desc">This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.</p>
+										<div class="recommended-card__meta">
+											<svg width="12" height="12">
+												<use xlink:href="img/icons/icons.svg#svg-clock"></use>
+											</svg>
+											Due Date. May 30, 2025
+										</div>
+									</div>
+								</article>
+
+								<article class="recommended-card box-style">
+									<div class="recommended-card__image">
+										<picture><source srcset="img/training/course-5.webp" type="image/webp"><img src="img/training/course-5.jpg" alt="Ransomware Incidents"></picture>
+										<button class="recommended-card__play">
+											<svg width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-play"></use>
+											</svg>
+										</button>
+									</div>
+									<div class="recommended-card__body">
+										<div class="recommended-card__tags">
+											<span class="tag">RANSOMWARE</span>
+										</div>
+										<h3 class="recommended-card__title">Ransomware Incidents</h3>
+										<p class="recommended-card__desc">This lesson covers ransomware attacks affecting critical infrastructure and importance of incident response strategies.</p>
+										<div class="recommended-card__meta">
+											<svg width="12" height="12">
+												<use xlink:href="img/icons/icons.svg#svg-clock"></use>
+											</svg>
+											Due Date. May 30, 2025
+										</div>
+									</div>
+								</article>
+
+								<article class="recommended-card box-style">
+									<div class="recommended-card__image">
+										<picture><source srcset="img/training/course-6.webp" type="image/webp"><img src="img/training/course-6.jpg" alt="Data Breaches"></picture>
+										<button class="recommended-card__play">
+											<svg width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-play"></use>
+											</svg>
+										</button>
+									</div>
+									<div class="recommended-card__body">
+										<div class="recommended-card__tags">
+											<span class="tag">DATA BREACHES</span>
+											<span class="tag">SECURITY</span>
+										</div>
+										<h3 class="recommended-card__title">Data Breaches</h3>
+										<p class="recommended-card__desc">This lesson focuses on financial implications of data breaches and key strategies to mitigate risks associated with sensitive data.</p>
+										<div class="recommended-card__meta">
+											<svg width="12" height="12">
+												<use xlink:href="img/icons/icons.svg#svg-clock"></use>
+											</svg>
+											Due Date. May 30, 2025
+										</div>
+									</div>
+								</article>
+							</div>
+						</section>
+					</div>
+
+					<aside class="business-home__sidebar">
+						<section class="risk-card box-style">
+							<h2 class="business-home__section-title">Personal Risk Score</h2>
+							<div class="risk-card__chart">
+								<img src="img/business-home/risk-score.svg" alt="Risk Score" width="305" height="145">
+							</div>
+							<div class="risk-card__actions actions-list">
+								<h3 class="actions-list__title">Your Top 3 Actions to Reduce Risk</h3>
+								<div class="actions-list__items">
+									<label class="actions-list__item">
+										<span class="actions-list__num">1</span>
+										<div class="actions-list__icon">
+											<svg width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-target"></use>
+											</svg>
+										</div>
+										<span class="actions-list__text">Adjust passing score</span>
+										<input type="radio" class="radio__input" name="action-1">
+									</label>
+									<label class="actions-list__item">
+										<span class="actions-list__num">2</span>
+										<div class="actions-list__icon">
+											<svg width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-key"></use>
+											</svg>
+										</div>
+										<span class="actions-list__text">Run a baseline assessment</span>
+										<input type="radio" class="radio__input" name="action-2">
+									</label>
+									<label class="actions-list__item">
+										<span class="actions-list__num">3</span>
+										<div class="actions-list__icon">
+											<svg width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-chart-search"></use>
+											</svg>
+										</div>
+										<span class="actions-list__text">Identify compliance and regulatory requirements</span>
+										<input type="radio" class="radio__input" name="action-3">
+									</label>
+								</div>
+							</div>
+						</section>
+
+						<section class="badges-card box-style">
+							<h2 class="business-home__section-title">Badges</h2>
+							<div class="badges-card__grid">
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<img src="img/business-home/badges/bug.svg" alt="Badge">
+										<div class="badges-card__lock">
+											<svg width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-lock"></use>
+											</svg>
+										</div>
+									</div>
+								</div>
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<img src="img/business-home/badges/cyber-security.svg" alt="Badge">
+										<div class="badges-card__lock">
+											<svg width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-lock"></use>
+											</svg>
+										</div>
+									</div>
+								</div>
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<img src="img/business-home/badges/fishing.svg" alt="Badge">
+										<div class="badges-card__lock">
+											<svg width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-lock"></use>
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section class="leaderboard-unlock box-style">
+							<div class="leaderboard-unlock__header">
+								<h2 class="leaderboard-unlock__title">Unlock Leaderboard</h2>
+								<p class="leaderboard-unlock__desc">Complete the courses to start competing</p>
+							</div>
+							<div class="leaderboard-unlock__placeholder">
+								<div class="leaderboard-unlock__item">
+									<div class="leaderboard-unlock__rank"></div>
+									<div class="leaderboard-unlock__avatar"></div>
+									<div class="leaderboard-unlock__info">
+										<div class="leaderboard-unlock__name"></div>
+										<div class="leaderboard-unlock__score"></div>
+									</div>
+								</div>
+								<div class="leaderboard-unlock__item">
+									<div class="leaderboard-unlock__rank"></div>
+									<div class="leaderboard-unlock__avatar"></div>
+									<div class="leaderboard-unlock__info">
+										<div class="leaderboard-unlock__name"></div>
+										<div class="leaderboard-unlock__score"></div>
+									</div>
+								</div>
+								<div class="leaderboard-unlock__item">
+									<div class="leaderboard-unlock__rank"></div>
+									<div class="leaderboard-unlock__avatar"></div>
+									<div class="leaderboard-unlock__info">
+										<div class="leaderboard-unlock__name"></div>
+										<div class="leaderboard-unlock__score"></div>
+									</div>
+								</div>
+								<div class="leaderboard-unlock__item">
+									<div class="leaderboard-unlock__rank"></div>
+									<div class="leaderboard-unlock__avatar"></div>
+									<div class="leaderboard-unlock__info">
+										<div class="leaderboard-unlock__name"></div>
+										<div class="leaderboard-unlock__score"></div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</aside>
+				</div>
+			</div>
+
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; Copyright 2025 Psyber</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/app.min.js?_v=20260320191350"></script>
+</body>
+
+</html>
