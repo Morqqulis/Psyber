@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Business Staff - Training Courses</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <meta http-equiv="Content-Security-Policy"
+         content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260331200847">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header" aria-labelledby="header">
+			<div class="header__container">
+				<a href="/" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" width="162" height="41">
+				</a>
+				<nav class="header__nav">
+					<ul class="header__list">
+						<li class="header__item">
+							<a href="/" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-home"></use>
+								</svg>
+								Home
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/health-check-questions.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+								</svg>
+								Healthcheck
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/leaderboard.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+								</svg>
+								Leaderboard
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/resources.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
+								</svg>
+								Resources
+							</a>
+						</li>
+						<li class="header__item">
+							<a href="/report.html" class="header__link">
+								<svg class="header__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-chart"></use>
+								</svg>
+								Report
+							</a>
+						</li>
+					</ul>
+				</nav>
+				<div class="header__actions">
+					<button class="header__action header__search">
+						<svg class="header__icon" width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-search"></use>
+						</svg>
+					</button>
+					<div class="header__profile">
+						<button class="header__action header__avatar" data-dropdown-trigger>
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" width="52" height="52"></picture>
+						</button>
+						<div class="header__dropdown" data-dropdown>
+							<div class="header__dropdown-header">
+								<span class="header__dropdown-name">Jessica H</span>
+								<span class="header__dropdown-email">jessicah@mail.com</span>
+							</div>
+							<nav class="header__dropdown-nav">
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-account-details"></use>
+									</svg>
+									Account Details
+								</a>
+								<a href="#" class="header__dropdown-link header__dropdown-link--active">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-manage-sprite"></use>
+									</svg>
+									Manage Staff
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-user-roles"></use>
+									</svg>
+									User Roles
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-invoices"></use>
+									</svg>
+									Invoices
+								</a>
+								<a href="#" class="header__dropdown-link">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-settings"></use>
+									</svg>
+									Settings
+								</a>
+							</nav>
+							<div class="header__dropdown-footer">
+								<a href="#" class="header__dropdown-logout">
+									<svg class="header__dropdown-icon" width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+									</svg>
+									Logout
+								</a>
+							</div>
+						</div>
+					</div>
+					<button class="header__action header__burger" data-burger>
+						<svg class="header__burger-icon" width="24" height="14">
+							<use xlink:href="img/icons/icons.svg#svg-burger"></use>
+						</svg>
+						<span class="header__burger-text">Menu</span>
+					</button>
+				</div>
+			</div>
+
+			<div class="mobile-menu" data-mobile-menu>
+				<div class="mobile-menu__overlay" data-mobile-menu-close></div>
+				<div class="mobile-menu__body">
+					<div class="mobile-menu__header">
+						<a href="/" class="mobile-menu__logo">
+							<img src="img/logo.svg" alt="Logo" width="110" height="28">
+						</a>
+						<button class="mobile-menu__close" data-mobile-menu-close>
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-close"></use>
+							</svg>
+						</button>
+					</div>
+					<nav class="mobile-menu__nav">
+						<a href="/" class="mobile-menu__link mobile-menu__link--active">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-home"></use>
+							</svg>
+							Home
+						</a>
+						<a href="/healthcheck.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-shield"></use>
+							</svg>
+							Healthcheck
+						</a>
+						<a href="/leaderboard.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-flag"></use>
+							</svg>
+							Leaderboard
+						</a>
+						<a href="/resources.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-bookmark"></use>
+							</svg>
+							Resources
+						</a>
+						<a href="/report.html" class="mobile-menu__link">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-chart"></use>
+							</svg>
+							Report
+						</a>
+					</nav>
+					<div class="mobile-menu__footer">
+						<div class="mobile-menu__user">
+							<picture><source srcset="img/common/avatar.webp" type="image/webp"><img src="img/common/avatar.png" alt="Avatar" class="mobile-menu__avatar" width="40" height="40"></picture>
+							<div class="mobile-menu__user-info">
+								<span class="mobile-menu__user-name">Jessica H</span>
+								<span class="mobile-menu__user-email">jessicah@mail.com</span>
+							</div>
+						</div>
+						<a href="#" class="mobile-menu__logout">
+							<svg class="mobile-menu__icon" width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-logout"></use>
+							</svg>
+							Logout
+						</a>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main>
+			<div class="bs-profile">
+				<div class="bs-profile__container bs-profile__container--small">
+					<!-- Sidebar -->
+					<aside class="bs-profile__aside aside" data-aside>
+						<button class="aside__trigger" type="button" data-aside-trigger>
+							<span class="aside__trigger-text">
+								In this page
+							</span>
+							<svg class="aside__trigger-arrow" width="20" height="20">
+								<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
+							</svg>
+						</button>
+						<div class="aside__dropdown" data-aside-dropdown>
+							<div class="aside__dropdown-inner">
+								<div class="aside__header">
+									<span class="aside__heading">In this page</span>
+									<ul class="aside__list">
+										<li class="aside__item">
+											<a href="#" class="aside__link aside__link--active">
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-line-up"></use>
+												</svg>
+												Overall Ranking
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#" class="aside__link">
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-roll-alt"></use>
+												</svg>
+												Last 7 days
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#" class="aside__link">
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-calendar"></use>
+												</svg>
+												Last Month (30 days)
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#" class="aside__link">
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-calendar"></use>
+												</svg>
+												Last 6 Months
+											</a>
+										</li>
+										<li class="aside__item">
+											<a href="#" class="aside__link">
+												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-roll-alt"></use>
+												</svg>
+												Last Year
+											</a>
+										</li>
+									</ul>
+								</div>
+
+								<div class="aside__footer">
+									<div class="aside__info">
+										<span class="aside__head">Has your data been <br> breached?</span>
+										<div class="aside__text">
+											<p>Visibility is the first layer of defence. PsyberWatch alerts you when your email or credentials appear in a data breach.</p>
+										</div>
+										<button class="aside__info-btn btn btn--outline btn--outline-dark" type="button">ACTIVATE PSYBERWATCH</button>
+									</div>
+									<a href="#" class="aside__footer-btn btn btn--outline">
+										<svg class="aside__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-like"></use>
+										</svg>
+										Leave Feedback
+										<svg class="aside__icon" width="24" height="24" style="margin-left:auto">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</aside>
+
+					<!-- Main -->
+					<section class="bs-profile__main">
+						<h1 class="bs-profile__title title">Profile</h1>
+						<div class="bs-profile__content">
+							<div class="bs-profile__left card">
+								<h2 class="bs-profile__subtitle heading">Your Photo Profile</h2>
+								<div class="bs-profile__user">
+									<div class="bs-profile__avatar-wrapper">
+										<picture><source srcset="img/bs-profile/avatar.webp" type="image/webp"><img src="img/bs-profile/avatar.png" alt="Jessica Robinson" class="bs-profile__avatar" data-profile-avatar></picture>
+									</div>
+									<div class="bs-profile__user-info">
+										<h3 class="bs-profile__name">Jessica Robinson</h3>
+										<p class="bs-profile__dept">Human Resources</p>
+									</div>
+									<div class="bs-profile__actions">
+										<button class="bs-profile__btn btn btn--secondary btn--sm" type="button" data-profile-edit-photo-btn>
+											<svg width="20" height="20">
+												<use xlink:href="img/icons/icons.svg#svg-edit"></use>
+											</svg>
+											EDIT PHOTO
+										</button>
+										<button class="bs-profile__btn btn btn--outline btn--sm" style="opacity: 0.7;" type="button" data-profile-delete-photo-btn>DELETE</button>
+										<input type="file" id="profile-photo-input" accept="image/*" style="display: none;">
+									</div>
+								</div>
+							</div>
+
+							<div class="bs-profile__right card">
+								<h2 class="bs-profile__subtitle heading">Your Details</h2>
+								<div class="bs-profile__details">
+									<div class="bs-profile__row" data-profile-row>
+										<div class="bs-profile__item">
+											<span class="bs-profile__label">First name</span>
+											<div class="bs-profile__value-wrapper">
+												<span class="bs-profile__value" data-profile-value>Jessica</span>
+												<input type="text" class="bs-profile__input" data-profile-input>
+											</div>
+										</div>
+										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
+									</div>
+									<div class="separator"></div>
+									<div class="bs-profile__row" data-profile-row>
+										<div class="bs-profile__item">
+											<span class="bs-profile__label">Last name</span>
+											<div class="bs-profile__value-wrapper">
+												<span class="bs-profile__value" data-profile-value>Jessica</span>
+												<input type="text" class="bs-profile__input" data-profile-input>
+											</div>
+										</div>
+										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
+									</div>
+									<div class="separator"></div>
+									<div class="bs-profile__row" data-profile-row>
+										<div class="bs-profile__item">
+											<span class="bs-profile__label">Department</span>
+											<div class="bs-profile__value-wrapper">
+												<span class="bs-profile__value" data-profile-value>Human Resources</span>
+												<input type="text" class="bs-profile__input" data-profile-input>
+											</div>
+										</div>
+										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
+									</div>
+									<div class="separator"></div>
+									<div class="bs-profile__row" data-profile-row>
+										<div class="bs-profile__item">
+											<span class="bs-profile__label">Role</span>
+											<div class="bs-profile__value-wrapper">
+												<span class="bs-profile__value" data-profile-value>Analyst</span>
+												<input type="text" class="bs-profile__input" data-profile-input>
+											</div>
+										</div>
+										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
+									</div>
+									<div class="separator"></div>
+									<div class="bs-profile__row" data-profile-row>
+										<div class="bs-profile__item">
+											<span class="bs-profile__label">Contact number</span>
+											<div class="bs-profile__value-wrapper">
+												<span class="bs-profile__value" data-profile-value>+61455 555 555</span>
+												<input type="tel" class="bs-profile__input" data-profile-input>
+											</div>
+										</div>
+										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
+									</div>
+									<div class="separator"></div>
+									<div class="bs-profile__row" data-profile-row>
+										<div class="bs-profile__item">
+											<span class="bs-profile__label">Email</span>
+											<div class="bs-profile__value-wrapper">
+												<span class="bs-profile__value" data-profile-value>john.citizen@email.com</span>
+												<input type="email" class="bs-profile__input" data-profile-input>
+											</div>
+										</div>
+										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</section>
+				</div>
+			</div>
+
+		</main>
+
+		<footer class="footer">
+			<div class="footer__container">
+				<div class="footer__copyright">
+					<img src="img/logo-icon.svg" alt="Logo" width="20" height="20">
+					<p>&copy; Copyright 2025 Psyber</p>
+				</div>
+
+				<ul class="footer__list">
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Privacy Policy
+						</a>
+					</li>
+					<li class="footer__item">
+						<a class="footer__link" href="#">
+							Terms & Conditions
+						</a>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/app.min.js?_v=20260331200847"></script>
+</body>
+
+</html>

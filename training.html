@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260320191350">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260331200847">
 </head>
 
 <body>
@@ -289,7 +289,7 @@
 											<use xlink:href="img/icons/icons.svg#svg-search"></use>
 										</svg>
 									</button>
-									<input type="text" class="search-form__input input input--rounded" placeholder="Search Courses">
+									<input type="text" class="search-form__input" placeholder="Search Courses">
 								</div>
 
 								<span class="training-section__line"></span>
@@ -325,22 +325,21 @@
 							<div class="course-stage card">
 								<div class="course-stage__header">
 									<div class="course-stage__info">
-										<span class="course-stage__label">STAGE 1</span>
-										<h2 class="course-stage__title heading">Current Courses</h2>
+										<div class="course-stage__label">STAGE 1</div>
+										<h2 class="course-stage__title">Current Courses</h2>
 									</div>
-
-									<div class="course-stage__meta">
-										<div class="course-stage__progress progress-bar">
-											<div class="progress-bar__track">
-												<div class="progress-bar__fill" style="width: 90%;"></div>
+									<div class="course-stage__stats">
+										<div class="course-stage__progress">
+											<div class="course-stage__progress-bar">
+												<div class="course-stage__progress-fill" style="width: 45%;"></div>
 											</div>
-											<span class="progress-bar__value">90%</span>
+											<span class="course-stage__progress-value">45%</span>
 										</div>
-										<div class="course-stage__time text-muted">
+										<div class="course-stage__time">
 											<svg width="16" height="16">
-												<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+												<use xlink:href="img/icons/icons.svg#svg-time"></use>
 											</svg>
-											6 hours left
+											<span>6 hours left</span>
 										</div>
 									</div>
 								</div>
@@ -350,48 +349,45 @@
 								<div class="course-stage__list">
 
 									<!-- Course Card 1 -->
-									<article class="course-card">
-										<div class="course-card__picture">
-											<picture><source srcset="img/training/course-1.webp" type="image/webp"><img src="img/training/course-1.jpg" alt="Phishing Attacks" class="course-card__image"></picture>
+									<article class="training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-1.webp" type="image/webp"><img src="img/training/course-1.jpg" alt="Phishing Attacks"></picture>
 										</div>
 
-										<div class="course-card__body">
-											<div class="course-card__tags">
-												<span class="course-card__tag tag">EMAILS</span>
-												<span class="course-card__tag tag">PHISHING</span>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">EMAILS</span>
+												<span class="tag">PHISHING</span>
 											</div>
-											<h3 class="course-card__title">Phishing Attacks</h3>
-											<p class="course-card__text">
+											<h3 class="training-card__title">Phishing Attacks</h3>
+											<p class="training-card__desc">
 												This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
 											</p>
 										</div>
 
-										<div class="course-card__stats">
-											<div class="course-card__status course-card__status--progress">
-												<div class="course-card__chart">
-													<svg width="40" height="40" viewBox="0 0 40 40" class="course-chart">
-														<circle class="course-chart__bg" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" />
-														<circle class="course-chart__fill" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" stroke-dasharray="100" stroke-dashoffset="25" />
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon training-card__icon--red" width="40" height="40">
+														<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
 													</svg>
-												</div>
-												<div class="course-card__status-info">
-													<span class="course-card__status-label">PROGRESS</span>
-													<span class="course-card__status-value">75%</span>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">PROGRESS</span>
+														<span class="training-card__progress-value">75%</span>
+													</div>
+													<div class="training-card__date text-muted">
+														<svg width="12" height="12">
+															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+														</svg>
+														Due Date. May 30, 2025
+													</div>
 												</div>
 											</div>
-											<div class="course-card__due text-muted">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-												</svg>
-												Due Date. May 30, 2025
-											</div>
-										</div>
 
-										<div class="course-card__action">
-											<button class="course-card__btn btn btn--primary" type="button">
+											<button class="training-card__btn btn btn--primary btn--sm" type="button">
 												VIEW INSIGHTS
 												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</button>
 										</div>
@@ -399,48 +395,38 @@
 
 									<span class="separator"></span>
 
-									<article class="course-card">
-										<div class="course-card__picture">
-											<picture><source srcset="img/training/course-2.webp" type="image/webp"><img src="img/training/course-2.jpg" alt="Phishing Attacks" class="course-card__image"></picture>
+									<article class="training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-2.webp" type="image/webp"><img src="img/training/course-2.jpg" alt="Ransomware Incidents"></picture>
 										</div>
 
-										<div class="course-card__body">
-											<div class="course-card__tags">
-												<span class="course-card__tag tag">EMAILS</span>
-												<span class="course-card__tag tag">PHISHING</span>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">RANSOMWARE</span>
 											</div>
-											<h3 class="course-card__title">Phishing Attacks</h3>
-											<p class="course-card__text">
-												This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
+											<h3 class="training-card__title">Ransomware Incidents</h3>
+											<p class="training-card__desc">
+												This lesson covers ransomware attacks affecting critical infrastructure and importance of incident response strategies.
 											</p>
 										</div>
 
-										<div class="course-card__stats">
-											<div class="course-card__status course-card__status--progress">
-												<div class="course-card__chart">
-													<svg width="40" height="40" viewBox="0 0 40 40" class="course-chart">
-														<circle class="course-chart__bg" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" />
-														<circle class="course-chart__fill" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" stroke-dasharray="100" stroke-dashoffset="25" />
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon training-card__icon--green" width="40" height="40">
+														<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
 													</svg>
-												</div>
-												<div class="course-card__status-info">
-													<span class="course-card__status-label">PROGRESS</span>
-													<span class="course-card__status-value">75%</span>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">COMPLETED</span>
+														<span class="training-card__progress-value">100%</span>
+													</div>
 												</div>
 											</div>
-											<div class="course-card__due text-muted">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-												</svg>
-												Due Date. May 30, 2025
-											</div>
-										</div>
 
-										<div class="course-card__action">
-											<button class="course-card__btn btn btn--primary" type="button">
-												VIEW INSIGHTS
+											<button class="training-card__btn btn btn--accent btn--sm" type="button">
+												START QUIZ
 												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</button>
 										</div>
@@ -448,48 +434,39 @@
 
 									<span class="separator"></span>
 
-									<article class="course-card">
-										<div class="course-card__picture">
-											<picture><source srcset="img/training/course-3.webp" type="image/webp"><img src="img/training/course-3.jpg" alt="Phishing Attacks" class="course-card__image"></picture>
+									<article class="training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-3.webp" type="image/webp"><img src="img/training/course-3.jpg" alt="Data Breaches"></picture>
 										</div>
 
-										<div class="course-card__body">
-											<div class="course-card__tags">
-												<span class="course-card__tag tag">EMAILS</span>
-												<span class="course-card__tag tag">PHISHING</span>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">DATA BREACHES</span>
+												<span class="tag">SECURITY</span>
 											</div>
-											<h3 class="course-card__title">Phishing Attacks</h3>
-											<p class="course-card__text">
-												This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
+											<h3 class="training-card__title">Data Breaches</h3>
+											<p class="training-card__desc">
+												This lesson covers the largest data breaches of the 21st century and how they could have been prevented.
 											</p>
 										</div>
 
-										<div class="course-card__stats">
-											<div class="course-card__status course-card__status--progress">
-												<div class="course-card__chart">
-													<svg width="40" height="40" viewBox="0 0 40 40" class="course-chart">
-														<circle class="course-chart__bg" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" />
-														<circle class="course-chart__fill" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" stroke-dasharray="100" stroke-dashoffset="25" />
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon training-card__icon--green" width="40" height="40">
+														<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
 													</svg>
-												</div>
-												<div class="course-card__status-info">
-													<span class="course-card__status-label">PROGRESS</span>
-													<span class="course-card__status-value">75%</span>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">COMPLETED</span>
+														<span class="training-card__progress-value">100%</span>
+													</div>
 												</div>
 											</div>
-											<div class="course-card__due text-muted">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-												</svg>
-												Due Date. May 30, 2025
-											</div>
-										</div>
 
-										<div class="course-card__action">
-											<button class="course-card__btn btn btn--primary" type="button">
-												VIEW INSIGHTS
+											<button class="training-card__btn btn btn--accent btn--sm" type="button">
+												START QUIZ
 												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</button>
 										</div>
@@ -501,165 +478,159 @@
 							<div class="course-stage card">
 								<div class="course-stage__header">
 									<div class="course-stage__info">
-										<span class="course-stage__label">STAGE 2</span>
-										<h2 class="course-stage__title heading">Current Courses</h2>
+										<div class="course-stage__label">STAGE 2</div>
+										<h2 class="course-stage__title">Current Courses</h2>
 									</div>
-
-									<div class="course-stage__meta">
-										<div class="course-stage__progress progress-bar">
-											<div class="progress-bar__track">
-												<div class="progress-bar__fill" style="width: 90%;"></div>
+									<div class="course-stage__stats">
+										<div class="course-stage__progress">
+											<div class="course-stage__progress-bar">
+												<div class="course-stage__progress-fill" style="width: 75%;"></div>
 											</div>
-											<span class="progress-bar__value">90%</span>
+											<span class="course-stage__progress-value">75%</span>
 										</div>
-										<div class="course-stage__time text-muted">
+										<div class="course-stage__time">
 											<svg width="16" height="16">
-												<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+												<use xlink:href="img/icons/icons.svg#svg-time"></use>
 											</svg>
-											6 hours left
+											<span>2 hours left</span>
 										</div>
 									</div>
 								</div>
 
 								<div class="course-stage__list">
 
-									<!-- Course Card 2 -->
-									<article class="course-card card">
-										<div class="course-card__picture">
-											<picture><source srcset="img/training/course-4.webp" type="image/webp"><img src="img/training/course-4.jpg" alt="Phishing Attacks" class="course-card__image"></picture>
+									<!-- Course Card 4 -->
+									<article class="training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-4.webp" type="image/webp"><img src="img/training/course-4.jpg" alt="Phishing Attacks"></picture>
 										</div>
 
-										<div class="course-card__body">
-											<div class="course-card__tags">
-												<span class="course-card__tag tag">EMAILS</span>
-												<span class="course-card__tag tag">PHISHING</span>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">EMAILS</span>
+												<span class="tag">PHISHING</span>
 											</div>
-											<h3 class="course-card__title">Phishing Attacks</h3>
-											<p class="course-card__text">
+											<h3 class="training-card__title">Phishing Attacks</h3>
+											<p class="training-card__desc">
 												This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
 											</p>
 										</div>
 
-										<div class="course-card__stats">
-											<div class="course-card__status course-card__status--progress">
-												<div class="course-card__chart">
-													<svg width="40" height="40" viewBox="0 0 40 40" class="course-chart">
-														<circle class="course-chart__bg" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" />
-														<circle class="course-chart__fill" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" stroke-dasharray="100" stroke-dashoffset="25" />
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon training-card__icon--red" width="40" height="40">
+														<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
 													</svg>
-												</div>
-												<div class="course-card__status-info">
-													<span class="course-card__status-label">PROGRESS</span>
-													<span class="course-card__status-value">75%</span>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">PROGRESS</span>
+														<span class="training-card__progress-value">75%</span>
+													</div>
+													<div class="training-card__date text-muted">
+														<svg width="12" height="12">
+															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+														</svg>
+														Due Date. May 30, 2025
+													</div>
 												</div>
 											</div>
-											<div class="course-card__due text-muted">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-												</svg>
-												Due Date. May 30, 2025
-											</div>
-										</div>
 
-										<div class="course-card__action">
-											<button class="course-card__btn btn btn--primary" type="button">
+											<button class="training-card__btn btn btn--primary btn--sm" type="button">
 												VIEW INSIGHTS
 												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</button>
 										</div>
 									</article>
 
-									<article class="course-card card">
-										<div class="course-card__picture">
-											<picture><source srcset="img/training/course-5.webp" type="image/webp"><img src="img/training/course-5.jpg" alt="Phishing Attacks" class="course-card__image"></picture>
+									<span class="separator"></span>
+
+									<article class="training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-5.webp" type="image/webp"><img src="img/training/course-5.jpg" alt="Phishing Attacks"></picture>
 										</div>
 
-										<div class="course-card__body">
-											<div class="course-card__tags">
-												<span class="course-card__tag tag">EMAILS</span>
-												<span class="course-card__tag tag">PHISHING</span>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">EMAILS</span>
+												<span class="tag">PHISHING</span>
 											</div>
-											<h3 class="course-card__title">Phishing Attacks</h3>
-											<p class="course-card__text">
+											<h3 class="training-card__title">Phishing Attacks</h3>
+											<p class="training-card__desc">
 												This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
 											</p>
 										</div>
 
-										<div class="course-card__stats">
-											<div class="course-card__status course-card__status--progress">
-												<div class="course-card__chart">
-													<svg width="40" height="40" viewBox="0 0 40 40" class="course-chart">
-														<circle class="course-chart__bg" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" />
-														<circle class="course-chart__fill" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" stroke-dasharray="100" stroke-dashoffset="25" />
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon training-card__icon--red" width="40" height="40">
+														<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
 													</svg>
-												</div>
-												<div class="course-card__status-info">
-													<span class="course-card__status-label">PROGRESS</span>
-													<span class="course-card__status-value">75%</span>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">PROGRESS</span>
+														<span class="training-card__progress-value">75%</span>
+													</div>
+													<div class="training-card__date text-muted">
+														<svg width="12" height="12">
+															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+														</svg>
+														Due Date. May 30, 2025
+													</div>
 												</div>
 											</div>
-											<div class="course-card__due text-muted">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-												</svg>
-												Due Date. May 30, 2025
-											</div>
-										</div>
 
-										<div class="course-card__action">
-											<button class="course-card__btn btn btn--primary" type="button">
+											<button class="training-card__btn btn btn--primary btn--sm" type="button">
 												VIEW INSIGHTS
 												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</button>
 										</div>
 									</article>
 
-									<article class="course-card card">
-										<div class="course-card__picture">
-											<picture><source srcset="img/training/course-6.webp" type="image/webp"><img src="img/training/course-6.jpg" alt="Phishing Attacks" class="course-card__image"></picture>
+									<span class="separator"></span>
+
+									<article class="training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-6.webp" type="image/webp"><img src="img/training/course-6.jpg" alt="Phishing Attacks"></picture>
 										</div>
 
-										<div class="course-card__body">
-											<div class="course-card__tags">
-												<span class="course-card__tag tag">EMAILS</span>
-												<span class="course-card__tag tag">PHISHING</span>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">EMAILS</span>
+												<span class="tag">PHISHING</span>
 											</div>
-											<h3 class="course-card__title">Phishing Attacks</h3>
-											<p class="course-card__text">
+											<h3 class="training-card__title">Phishing Attacks</h3>
+											<p class="training-card__desc">
 												This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
 											</p>
 										</div>
 
-										<div class="course-card__stats">
-											<div class="course-card__status course-card__status--progress">
-												<div class="course-card__chart">
-													<svg width="40" height="40" viewBox="0 0 40 40" class="course-chart">
-														<circle class="course-chart__bg" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" />
-														<circle class="course-chart__fill" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" stroke-dasharray="100" stroke-dashoffset="25" />
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon training-card__icon--red" width="40" height="40">
+														<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
 													</svg>
-												</div>
-												<div class="course-card__status-info">
-													<span class="course-card__status-label">PROGRESS</span>
-													<span class="course-card__status-value">75%</span>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">PROGRESS</span>
+														<span class="training-card__progress-value">75%</span>
+													</div>
+													<div class="training-card__date text-muted">
+														<svg width="12" height="12">
+															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+														</svg>
+														Due Date. May 30, 2025
+													</div>
 												</div>
 											</div>
-											<div class="course-card__due text-muted">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-												</svg>
-												Due Date. May 30, 2025
-											</div>
-										</div>
 
-										<div class="course-card__action">
-											<button class="course-card__btn btn btn--primary" type="button">
+											<button class="training-card__btn btn btn--primary btn--sm" type="button">
 												VIEW INSIGHTS
 												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</button>
 										</div>
@@ -671,165 +642,159 @@
 							<div class="course-stage card">
 								<div class="course-stage__header">
 									<div class="course-stage__info">
-										<span class="course-stage__label">STAGE 3</span>
-										<h2 class="course-stage__title heading">Current Courses</h2>
+										<div class="course-stage__label">STAGE 3</div>
+										<h2 class="course-stage__title">Current Courses</h2>
 									</div>
-
-									<div class="course-stage__meta">
-										<div class="course-stage__progress progress-bar">
-											<div class="progress-bar__track">
-												<div class="progress-bar__fill" style="width: 90%;"></div>
+									<div class="course-stage__stats">
+										<div class="course-stage__progress">
+											<div class="course-stage__progress-bar">
+												<div class="course-stage__progress-fill course-stage__progress-fill--azure" style="width: 100%;"></div>
 											</div>
-											<span class="progress-bar__value">90%</span>
+											<span class="course-stage__progress-value">100%</span>
 										</div>
-										<div class="course-stage__time text-muted">
+										<div class="course-stage__time">
 											<svg width="16" height="16">
-												<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+												<use xlink:href="img/icons/icons.svg#svg-time"></use>
 											</svg>
-											6 hours left
+											<span>Completed</span>
 										</div>
 									</div>
 								</div>
 
 								<div class="course-stage__list">
 
-									<!-- Course Card 3 -->
-									<article class="course-card card">
-										<div class="course-card__picture">
-											<picture><source srcset="img/training/course-7.webp" type="image/webp"><img src="img/training/course-7.jpg" alt="Phishing Attacks" class="course-card__image"></picture>
+									<!-- Course Card 7 -->
+									<article class="training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-7.webp" type="image/webp"><img src="img/training/course-7.jpg" alt="Phishing Attacks"></picture>
 										</div>
 
-										<div class="course-card__body">
-											<div class="course-card__tags">
-												<span class="course-card__tag tag">EMAILS</span>
-												<span class="course-card__tag tag">PHISHING</span>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">EMAILS</span>
+												<span class="tag">PHISHING</span>
 											</div>
-											<h3 class="course-card__title">Phishing Attacks</h3>
-											<p class="course-card__text">
+											<h3 class="training-card__title">Phishing Attacks</h3>
+											<p class="training-card__desc">
 												This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
 											</p>
 										</div>
 
-										<div class="course-card__stats">
-											<div class="course-card__status course-card__status--progress">
-												<div class="course-card__chart">
-													<svg width="40" height="40" viewBox="0 0 40 40" class="course-chart">
-														<circle class="course-chart__bg" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" />
-														<circle class="course-chart__fill" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" stroke-dasharray="100" stroke-dashoffset="25" />
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon training-card__icon--red" width="40" height="40">
+														<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
 													</svg>
-												</div>
-												<div class="course-card__status-info">
-													<span class="course-card__status-label">PROGRESS</span>
-													<span class="course-card__status-value">75%</span>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">PROGRESS</span>
+														<span class="training-card__progress-value">75%</span>
+													</div>
+													<div class="training-card__date text-muted">
+														<svg width="12" height="12">
+															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+														</svg>
+														Due Date. May 30, 2025
+													</div>
 												</div>
 											</div>
-											<div class="course-card__due text-muted">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-												</svg>
-												Due Date. May 30, 2025
-											</div>
-										</div>
 
-										<div class="course-card__action">
-											<button class="course-card__btn btn btn--primary" type="button">
+											<button class="training-card__btn btn btn--primary btn--sm" type="button">
 												VIEW INSIGHTS
 												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</button>
 										</div>
 									</article>
 
-									<article class="course-card card">
-										<div class="course-card__picture">
-											<picture><source srcset="img/training/course-8.webp" type="image/webp"><img src="img/training/course-8.jpg" alt="Phishing Attacks" class="course-card__image"></picture>
+									<span class="separator"></span>
+
+									<article class="training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-8.webp" type="image/webp"><img src="img/training/course-8.jpg" alt="Phishing Attacks"></picture>
 										</div>
 
-										<div class="course-card__body">
-											<div class="course-card__tags">
-												<span class="course-card__tag tag">EMAILS</span>
-												<span class="course-card__tag tag">PHISHING</span>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">EMAILS</span>
+												<span class="tag">PHISHING</span>
 											</div>
-											<h3 class="course-card__title">Phishing Attacks</h3>
-											<p class="course-card__text">
+											<h3 class="training-card__title">Phishing Attacks</h3>
+											<p class="training-card__desc">
 												This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
 											</p>
 										</div>
 
-										<div class="course-card__stats">
-											<div class="course-card__status course-card__status--progress">
-												<div class="course-card__chart">
-													<svg width="40" height="40" viewBox="0 0 40 40" class="course-chart">
-														<circle class="course-chart__bg" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" />
-														<circle class="course-chart__fill" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" stroke-dasharray="100" stroke-dashoffset="25" />
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon training-card__icon--red" width="40" height="40">
+														<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
 													</svg>
-												</div>
-												<div class="course-card__status-info">
-													<span class="course-card__status-label">PROGRESS</span>
-													<span class="course-card__status-value">75%</span>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">PROGRESS</span>
+														<span class="training-card__progress-value">75%</span>
+													</div>
+													<div class="training-card__date text-muted">
+														<svg width="12" height="12">
+															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+														</svg>
+														Due Date. May 30, 2025
+													</div>
 												</div>
 											</div>
-											<div class="course-card__due text-muted">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-												</svg>
-												Due Date. May 30, 2025
-											</div>
-										</div>
 
-										<div class="course-card__action">
-											<button class="course-card__btn btn btn--primary" type="button">
+											<button class="training-card__btn btn btn--primary btn--sm" type="button">
 												VIEW INSIGHTS
 												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</button>
 										</div>
 									</article>
 
-									<article class="course-card card">
-										<div class="course-card__picture">
-											<picture><source srcset="img/training/course-9.webp" type="image/webp"><img src="img/training/course-9.jpg" alt="Phishing Attacks" class="course-card__image"></picture>
+									<span class="separator"></span>
+
+									<article class="training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-9.webp" type="image/webp"><img src="img/training/course-9.jpg" alt="Phishing Attacks"></picture>
 										</div>
 
-										<div class="course-card__body">
-											<div class="course-card__tags">
-												<span class="course-card__tag tag">EMAILS</span>
-												<span class="course-card__tag tag">PHISHING</span>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">EMAILS</span>
+												<span class="tag">PHISHING</span>
 											</div>
-											<h3 class="course-card__title">Phishing Attacks</h3>
-											<p class="course-card__text">
+											<h3 class="training-card__title">Phishing Attacks</h3>
+											<p class="training-card__desc">
 												This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
 											</p>
 										</div>
 
-										<div class="course-card__stats">
-											<div class="course-card__status course-card__status--progress">
-												<div class="course-card__chart">
-													<svg width="40" height="40" viewBox="0 0 40 40" class="course-chart">
-														<circle class="course-chart__bg" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" />
-														<circle class="course-chart__fill" stroke-width="6" fill="transparent" r="16" cx="20" cy="20" stroke-dasharray="100" stroke-dashoffset="25" />
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon training-card__icon--red" width="40" height="40">
+														<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
 													</svg>
-												</div>
-												<div class="course-card__status-info">
-													<span class="course-card__status-label">PROGRESS</span>
-													<span class="course-card__status-value">75%</span>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">PROGRESS</span>
+														<span class="training-card__progress-value">75%</span>
+													</div>
+													<div class="training-card__date text-muted">
+														<svg width="12" height="12">
+															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+														</svg>
+														Due Date. May 30, 2025
+													</div>
 												</div>
 											</div>
-											<div class="course-card__due text-muted">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-												</svg>
-												Due Date. May 30, 2025
-											</div>
-										</div>
 
-										<div class="course-card__action">
-											<button class="course-card__btn btn btn--primary" type="button">
+											<button class="training-card__btn btn btn--primary btn--sm" type="button">
 												VIEW INSIGHTS
 												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</button>
 										</div>
@@ -870,7 +835,7 @@
 
 
 
-	<script src="js/app.min.js?_v=20260320191350"></script>
+	<script src="js/app.min.js?_v=20260331200847"></script>
 </body>
 
 </html>

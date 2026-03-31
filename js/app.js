@@ -26803,7 +26803,21 @@
                     state.currentStep++;
                     renderStep(state.currentStep);
                 } else {
-                    if (quizContainer) quizContainer.classList.add("is-loading");
+                    if (quizContainer) {
+                        quizContainer.classList.add("is-loading");
+                        setTimeout(() => {
+                            quizContainer.classList.remove("is-loading");
+                            quizContainer.classList.add("is-result");
+                            const headBtn = document.querySelector("[data-header-dashboard]");
+                            if (headBtn) {
+                                headBtn.classList.remove("hidden");
+                                setTimeout(() => {
+                                    headBtn.style.opacity = "1";
+                                    headBtn.style.pointerEvents = "all";
+                                }, 50);
+                            }
+                        }, 500);
+                    }
                     console.log("Business Finished", state.answers);
                 }
             });
@@ -26839,7 +26853,7 @@
                     els.prevBtn.style.opacity = "1";
                     els.prevBtn.style.pointerEvents = "all";
                 }
-                const nextIcon = `\n           <svg width="24" height="24">\n              <use xlink:href="@img/icons/icons.svg#svg-arrow-alt-right"></use>\n           </svg>\n        `;
+                const nextIcon = `\n           <svg width="24" height="24">\n              <use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>\n           </svg>\n        `;
                 if (state.currentStep !== questions.length - 1) els.nextBtn.innerHTML = "Continue " + nextIcon; else els.nextBtn.innerHTML = "VIEW SCORE";
                 const q = questions[state.currentStep];
                 if (state.answers[q.id] === void 0) {
@@ -26853,6 +26867,183 @@
                 }
             }
         }
+        const initBsProfile = () => {
+            const profileContainer = document.querySelector(".bs-profile");
+            if (!profileContainer) return;
+            const editPhotoBtn = profileContainer.querySelector("[data-profile-edit-photo-btn]");
+            const deletePhotoBtn = profileContainer.querySelector("[data-profile-delete-photo-btn]");
+            const photoInput = profileContainer.querySelector("#profile-photo-input");
+            const avatarImg = profileContainer.querySelector("[data-profile-avatar]");
+            if (editPhotoBtn && photoInput) {
+                editPhotoBtn.addEventListener("click", () => {
+                    photoInput.click();
+                });
+                photoInput.addEventListener("change", e => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader;
+                        reader.onload = event => {
+                            if (avatarImg) avatarImg.src = event.target.result;
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            }
+            if (deletePhotoBtn && avatarImg) deletePhotoBtn.addEventListener("click", () => {
+                if (confirm("Delete photo?")) avatarImg.src = "img/avatar-placeholder.png";
+            });
+            const rows = profileContainer.querySelectorAll("[data-profile-row]");
+            rows.forEach(row => {
+                const editBtn = row.querySelector("[data-profile-edit-btn]");
+                const valueSpan = row.querySelector("[data-profile-value]");
+                const inputField = row.querySelector("[data-profile-input]");
+                if (editBtn && valueSpan && inputField) {
+                    editBtn.addEventListener("click", () => {
+                        const isEditing = row.classList.contains("bs-profile__row--editing");
+                        if (!isEditing) {
+                            inputField.value = valueSpan.textContent.trim();
+                            row.classList.add("bs-profile__row--editing");
+                            editBtn.textContent = "SAVE";
+                            inputField.focus();
+                        } else {
+                            valueSpan.textContent = inputField.value;
+                            row.classList.remove("bs-profile__row--editing");
+                            editBtn.textContent = "EDIT";
+                        }
+                    });
+                    inputField.addEventListener("keydown", e => {
+                        if (e.key === "Enter") editBtn.click();
+                        if (e.key === "Escape") {
+                            row.classList.remove("bs-profile__row--editing");
+                            editBtn.textContent = "EDIT";
+                        }
+                    });
+                }
+            });
+        };
+        const INACTIVE_COLOR = "#E7E6E4";
+        const TOTAL_SEGMENTS = 22;
+        const SVG_INDEX_TO_POSITION = [ 16, 17, 18, 19, 20, 21, 10, 11, 12, 13, 14, 15, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ];
+        const SEGMENT_COLORS = generateGradient([ {
+            pos: 0,
+            r: 207,
+            g: 73,
+            b: 67
+        }, {
+            pos: .3,
+            r: 228,
+            g: 134,
+            b: 62
+        }, {
+            pos: .55,
+            r: 238,
+            g: 194,
+            b: 93
+        }, {
+            pos: .8,
+            r: 134,
+            g: 194,
+            b: 112
+        }, {
+            pos: 1,
+            r: 80,
+            g: 165,
+            b: 168
+        } ], TOTAL_SEGMENTS);
+        const LEVEL_MAP = [ {
+            max: 2,
+            level: 1,
+            name: "Unaware"
+        }, {
+            max: 3,
+            level: 2,
+            name: "Compliant"
+        }, {
+            max: 4,
+            level: 3,
+            name: "Interested"
+        }, {
+            max: 5,
+            level: 4,
+            name: "Resilient"
+        } ];
+        function generateGradient(stops, count) {
+            const colors = [];
+            for (let i = 0; i < count; i++) {
+                const t = i / (count - 1);
+                let lower = stops[0];
+                let upper = stops[stops.length - 1];
+                for (let s = 0; s < stops.length - 1; s++) if (t >= stops[s].pos && t <= stops[s + 1].pos) {
+                    lower = stops[s];
+                    upper = stops[s + 1];
+                    break;
+                }
+                const range = upper.pos - lower.pos;
+                const localT = range === 0 ? 0 : (t - lower.pos) / range;
+                const r = Math.round(lower.r + (upper.r - lower.r) * localT);
+                const g = Math.round(lower.g + (upper.g - lower.g) * localT);
+                const b = Math.round(lower.b + (upper.b - lower.b) * localT);
+                colors.push(`#${toHex(r)}${toHex(g)}${toHex(b)}`);
+            }
+            return colors;
+        }
+        function toHex(n) {
+            return n.toString(16).padStart(2, "0");
+        }
+        function getLevelByScore(value) {
+            for (const entry of LEVEL_MAP) if (value <= entry.max) return entry;
+            return LEVEL_MAP[LEVEL_MAP.length - 1];
+        }
+        class RiskScore {
+            constructor(root) {
+                this.root = root;
+                this.paths = Array.from(root.querySelectorAll(".risk-score__semicircle path"));
+                this.valueEl = root.querySelector(".risk-score__value");
+                this.badgeEl = root.querySelector(".risk-score__badge");
+                const scoreCard = root.closest(".score-card") || root.closest("[data-risk-card]");
+                if (scoreCard) {
+                    this.levelLabelEl = scoreCard.querySelector("[data-risk-level-label]");
+                    this.levelNameEl = scoreCard.querySelector("[data-risk-level-name]");
+                    this.levelIndicatorEl = scoreCard.querySelector("[data-risk-level-indicator]");
+                }
+                const value = parseFloat(root.dataset.riskValue ?? "0");
+                const total = parseFloat(root.dataset.riskTotal ?? "5");
+                this.total = total;
+                this.setValue(value);
+            }
+            setValue(value) {
+                this.value = Math.max(0, Math.min(value, this.total));
+                const ratio = this.value / this.total;
+                const activeCount = Math.round(ratio * TOTAL_SEGMENTS);
+                this.paths.forEach((path, svgIndex) => {
+                    const position = SVG_INDEX_TO_POSITION[svgIndex];
+                    if (position < activeCount) path.setAttribute("fill", SEGMENT_COLORS[position]); else path.setAttribute("fill", INACTIVE_COLOR);
+                });
+                if (this.valueEl) this.valueEl.textContent = this.value % 1 === 0 ? this.value.toString() : this.value.toFixed(1);
+                this.root.dataset.riskValue = String(this.value);
+                const levelInfo = getLevelByScore(this.value);
+                this.setLevel(levelInfo.level, levelInfo.name);
+            }
+            setLevel(levelNumber, levelName) {
+                const badgeText = `Level ${levelNumber} – ${levelName}`;
+                if (this.badgeEl) this.badgeEl.textContent = badgeText;
+                if (this.levelLabelEl) this.levelLabelEl.textContent = `LEVEL ${levelNumber}`;
+                if (this.levelNameEl) this.levelNameEl.textContent = levelName;
+                if (this.levelIndicatorEl) {
+                    const indicators = this.levelIndicatorEl.querySelectorAll("span");
+                    indicators.forEach((span, index) => {
+                        if (index < levelNumber) span.classList.add("is-active"); else span.classList.remove("is-active");
+                    });
+                }
+            }
+        }
+        function initRiskScores() {
+            const instances = new Map;
+            document.querySelectorAll("[data-risk-score]").forEach(el => {
+                instances.set(el, new RiskScore(el));
+            });
+            return instances;
+        }
         document.addEventListener("DOMContentLoaded", () => {
             initHealthCheck();
             initBusinessQuestions();
@@ -26864,6 +27055,8 @@
             initEditor();
             initTags();
             initAvatarOnboarding();
+            initBsProfile();
+            initRiskScores();
         });
         window["FLS"] = true;
         isWebp();
