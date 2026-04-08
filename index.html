@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260331200847">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260408072340">
 </head>
 
 <body>
@@ -290,7 +290,7 @@
 											</a>
 										</li>
 									</ul>
-									<button class="aside__btn btn btn--primary" type="button">
+									<button class="aside__btn btn btn--primary" type="button" data-activate-popup-open>
 										<svg class="aside__icon" width="20" height="20">
 											<use xlink:href="img/icons/icons.svg#svg-on"></use>
 										</svg>
@@ -396,9 +396,9 @@
 									<div class="dashboard__training-bottom training-card__bottom">
 										<div class="dashboard__training-meta training-card__meta">
 											<div class="dashboard__training-progress training-card__progress">
-												<!-- Placeholder for Circle Progress -->
-												<svg class="dashboard__training-icon training-card__icon training-card__icon--green" width="40" height="40">
-													<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+												<svg class="dashboard__training-icon training-card__icon" data-progress-circle data-progress="100" width="40" height="40" viewBox="0 0 40 40">
+													<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+													<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
 												</svg>
 												<div class="dashboard__training-progress-info training-card__progress-info">
 													<span class="dashboard__training-progress-status training-card__progress-status">COMPLETED</span>
@@ -440,9 +440,9 @@
 									<div class="dashboard__training-bottom training-card__bottom">
 										<div class="dashboard__training-meta training-card__meta">
 											<div class="dashboard__training-progress training-card__progress">
-												<!-- Placeholder for Circle Progress -->
-												<svg class="dashboard__training-icon training-card__icon training-card__icon--green" width="40" height="40">
-													<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+												<svg class="dashboard__training-icon training-card__icon" data-progress-circle data-progress="100" width="40" height="40" viewBox="0 0 40 40">
+													<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+													<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
 												</svg>
 												<div class="dashboard__training-progress-info training-card__progress-info">
 													<span class="dashboard__training-progress-status training-card__progress-status">COMPLETED</span>
@@ -484,9 +484,9 @@
 									<div class="dashboard__training-bottom training-card__bottom">
 										<div class="dashboard__training-meta training-card__meta">
 											<div class="dashboard__training-progress training-card__progress">
-												<!-- Placeholder for Circle Progress -->
-												<svg class="dashboard__training-icon training-card__icon training-card__icon--green" width="40" height="40">
-													<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+												<svg class="dashboard__training-icon training-card__icon" data-progress-circle data-progress="100" width="40" height="40" viewBox="0 0 40 40">
+													<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+													<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
 												</svg>
 												<div class="dashboard__training-progress-info training-card__progress-info">
 													<span class="dashboard__training-progress-status training-card__progress-status">COMPLETED</span>
@@ -664,7 +664,7 @@
 						<div class="dashboard__risk card">
 							<h3 class="dashboard__risk-heading heading">Human Risk Score</h3>
 							<div class="dashboard__risk-body">
-								<div class="risk-score" data-risk-score data-risk-value="3.5" data-risk-total="5">
+								<div class="risk-score" data-risk-score data-risk-server-rendered data-risk-value="3.5" data-risk-total="5">
 									<div class="risk-score__gauge">
 										<svg class="risk-score__semicircle" width="290" height="145" viewBox="0 0 290 145" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M247.089 53.5402C250.368 50.6067 250.663 45.5549 247.553 42.4432C244.446 39.3347 239.395 39.6201 236.459 42.8902L210.781 71.4854C208.881 73.6014 209.069 76.8481 211.079 78.8597C213.087 80.8691 216.329 81.0593 218.446 79.1651L247.089 53.5402Z" fill="#E7E6E4" />
@@ -789,9 +789,368 @@
 				</ul>
 			</div>
 		</footer>
+
+		<!-- Activate Training Popup -->
+		<div class="activate-popup" data-activate-popup>
+			<div class="activate-popup__overlay" data-activate-popup-close></div>
+			<div class="activate-popup__card">
+				<div class="activate-popup__header">
+					<div class="activate-popup__title-row">
+						<h2 class="activate-popup__title">Activate Training Courses</h2>
+						<button class="activate-popup__x" type="button" data-activate-popup-close aria-label="Close popup">
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-close"></use>
+							</svg>
+						</button>
+					</div>
+					<p class="activate-popup__desc">This will send out an email to all your added staff to get them started on their Psyber Training journey.</p>
+					<div class="activate-popup__actions">
+						<button class="activate-popup__schedule-btn" type="button" data-training-popup-open data-activate-popup-close>
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-calendar"></use>
+							</svg>
+							<span>SCHEDULE START</span>
+						</button>
+						<button class="activate-popup__start-btn" type="button">
+							<span>START NOW</span>
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+							</svg>
+						</button>
+					</div>
+				</div>
+				<button class="activate-popup__later" type="button" data-activate-popup-close>
+					<span>DO THIS LATER</span>
+				</button>
+			</div>
+		</div>
+
+		<!-- Training Schedule Popup -->
+		<div class="training-popup" data-training-popup>
+			<div class="training-popup__overlay" data-training-popup-close></div>
+			<div class="training-popup__card">
+				<div class="training-popup__header">
+					<div class="training-popup__title-row">
+						<h2 class="training-popup__title">Edit Training <span>Schedule</span></h2>
+						<button class="training-popup__x" type="button" data-training-popup-close aria-label="Close popup">
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-close"></use>
+							</svg>
+						</button>
+					</div>
+					<div class="training-popup__toolbar">
+						<div class="training-popup__search">
+							<svg width="24" height="24">
+								<use xlink:href="img/icons/icons.svg#svg-search"></use>
+							</svg>
+							<input type="text" class="training-popup__search-input" placeholder="Search for courses...">
+						</div>
+						<div class="training-popup__toolbar-actions">
+							<button class="training-popup__filter-btn" type="button">
+								<svg width="20" height="20">
+									<use xlink:href="img/icons/icons.svg#svg-filters"></use>
+								</svg>
+								<span>Filters</span>
+							</button>
+							<div class="training-popup__select">
+								<span>All categories</span>
+								<svg width="20" height="20">
+									<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+								</svg>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="training-popup__body">
+					<div class="training-popup__left">
+						<div class="training-popup__tags">
+							<span class="training-popup__tag">
+								Human Resources
+								<svg width="20" height="20">
+									<use xlink:href="img/icons/icons.svg#svg-close-small"></use>
+								</svg>
+							</span>
+						</div>
+
+						<div class="training-popup__grid">
+							<!-- Card 1 — ADDED -->
+							<div class="training-popup__course">
+								<div class="training-popup__course-top">
+									<div class="training-popup__course-head">
+										<div class="training-popup__course-tags">
+											<span class="tag">EMAILS</span>
+											<span class="tag">PHISHING</span>
+										</div>
+										<svg class="training-popup__course-info" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-info"></use>
+										</svg>
+									</div>
+									<h4 class="training-popup__course-title">Phishing Attacks</h4>
+									<p class="training-popup__course-desc">This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide...</p>
+								</div>
+								<div class="training-popup__course-bottom">
+									<button class="training-popup__course-btn is-added" type="button" data-course-toggle>
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-check"></use>
+										</svg>
+										<span>ADDED</span>
+									</button>
+								</div>
+							</div>
+							<!-- Card 2 -->
+							<div class="training-popup__course">
+								<div class="training-popup__course-top">
+									<div class="training-popup__course-head">
+										<div class="training-popup__course-tags">
+											<span class="tag">EMAILS</span>
+											<span class="tag">PHISHING</span>
+										</div>
+										<svg class="training-popup__course-info" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-info"></use>
+										</svg>
+									</div>
+									<h4 class="training-popup__course-title">Ransomware Threats</h4>
+									<p class="training-popup__course-desc">Exploring the impact of ransomware attacks on organizations, focusing on the...</p>
+								</div>
+								<div class="training-popup__course-bottom">
+									<button class="training-popup__course-btn" type="button" data-course-toggle>
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-plus"></use>
+										</svg>
+										<span>ADD COURSE</span>
+									</button>
+								</div>
+							</div>
+							<!-- Card 3 -->
+							<div class="training-popup__course">
+								<div class="training-popup__course-top">
+									<div class="training-popup__course-head">
+										<div class="training-popup__course-tags">
+											<span class="tag">EMAILS</span>
+											<span class="tag">PHISHING</span>
+										</div>
+										<svg class="training-popup__course-info" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-info"></use>
+										</svg>
+									</div>
+									<h4 class="training-popup__course-title">Cybersecurity Fundamentals</h4>
+									<p class="training-popup__course-desc">An introductory course covering essential cybersecurity principles, threats, and protective measures...</p>
+								</div>
+								<div class="training-popup__course-bottom">
+									<button class="training-popup__course-btn" type="button" data-course-toggle>
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-plus"></use>
+										</svg>
+										<span>ADD COURSE</span>
+									</button>
+								</div>
+							</div>
+							<!-- Card 4 -->
+							<div class="training-popup__course">
+								<div class="training-popup__course-top">
+									<div class="training-popup__course-head">
+										<div class="training-popup__course-tags">
+											<span class="tag">EMAILS</span>
+											<span class="tag">PHISHING</span>
+										</div>
+										<svg class="training-popup__course-info" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-info"></use>
+										</svg>
+									</div>
+									<h4 class="training-popup__course-title">Phishing Awareness Training</h4>
+									<p class="training-popup__course-desc">Educate employees on recognizing phishing attempts and implementing steps to avoid...</p>
+								</div>
+								<div class="training-popup__course-bottom">
+									<button class="training-popup__course-btn" type="button" data-course-toggle>
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-plus"></use>
+										</svg>
+										<span>ADD COURSE</span>
+									</button>
+								</div>
+							</div>
+							<!-- Card 5 -->
+							<div class="training-popup__course">
+								<div class="training-popup__course-top">
+									<div class="training-popup__course-head">
+										<div class="training-popup__course-tags">
+											<span class="tag">EMAILS</span>
+											<span class="tag">PHISHING</span>
+										</div>
+										<svg class="training-popup__course-info" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-info"></use>
+										</svg>
+									</div>
+									<h4 class="training-popup__course-title">Data Protection Regulations</h4>
+									<p class="training-popup__course-desc">An overview of global data protection laws, including GDPR and CCPA, and how they impact...</p>
+								</div>
+								<div class="training-popup__course-bottom">
+									<button class="training-popup__course-btn" type="button" data-course-toggle>
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-plus"></use>
+										</svg>
+										<span>ADD COURSE</span>
+									</button>
+								</div>
+							</div>
+							<!-- Card 6 — ADDED -->
+							<div class="training-popup__course">
+								<div class="training-popup__course-top">
+									<div class="training-popup__course-head">
+										<div class="training-popup__course-tags">
+											<span class="tag">EMAILS</span>
+											<span class="tag">PHISHING</span>
+										</div>
+										<svg class="training-popup__course-info" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-info"></use>
+										</svg>
+									</div>
+									<h4 class="training-popup__course-title">Data Protection Regulations</h4>
+									<p class="training-popup__course-desc">An overview of global data protection laws, including GDPR and CCPA, and how they impact...</p>
+								</div>
+								<div class="training-popup__course-bottom">
+									<button class="training-popup__course-btn is-added" type="button" data-course-toggle>
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-check"></use>
+										</svg>
+										<span>ADDED</span>
+									</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="training-popup__footer">
+							<button class="training-popup__update-btn btn btn--primary" type="button">
+								<svg width="20" height="20">
+									<use xlink:href="img/icons/icons.svg#svg-check-rounded"></use>
+								</svg>
+								UPDATE COURSES
+							</button>
+						</div>
+					</div>
+
+					<div class="training-popup__sidebar">
+						<h3 class="training-popup__sidebar-title">Training Schedule</h3>
+						<!-- Stage 1 -->
+						<div class="training-popup__stage">
+							<span class="training-popup__stage-label">STAGE 1</span>
+							<ul class="training-popup__stage-list">
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Phishing Attacks</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Data Breaches</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+							</ul>
+						</div>
+						<!-- Stage 2 -->
+						<div class="training-popup__stage">
+							<span class="training-popup__stage-label">STAGE 2</span>
+							<ul class="training-popup__stage-list">
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Ransomware Threats</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Cybersecurity Threats</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Resilience training</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+							</ul>
+						</div>
+						<!-- Stage 3 -->
+						<div class="training-popup__stage">
+							<span class="training-popup__stage-label">STAGE 3</span>
+							<ul class="training-popup__stage-list">
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Cybersecurity Essentials</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Phishing Defence Strategies</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Ethical Hacking Essentials</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+							</ul>
+						</div>
+						<!-- Stage 4 -->
+						<div class="training-popup__stage">
+							<span class="training-popup__stage-label">STAGE 4</span>
+							<ul class="training-popup__stage-list">
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Cloud Security</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Response Planning</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+								<li class="training-popup__stage-item">
+									<span class="training-popup__stage-name">Pen Testing</span>
+									<button class="training-popup__stage-menu" type="button">
+										<svg width="20" height="20">
+											<use xlink:href="img/icons/icons.svg#svg-dots"></use>
+										</svg>
+									</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20260331200847"></script>
+	<script src="js/app.min.js?_v=20260408072340"></script>
 </body>
 
 </html>

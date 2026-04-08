@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260331200847">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260408072340">
 </head>
 
 <body>
@@ -231,7 +231,7 @@
 		</div>
 
 		<main class="page business-home">
-			<div class="business-home__container">
+			<div class="business-home__container business-home__container--small">
 				<div class="business-home__inner">
 					<div class="business-home__content">
 						<section class="business-home__hero welcome-hero">
@@ -310,11 +310,12 @@
 											<span class="course-card__tag tag">PHISHING</span>
 										</div>
 										<h3 class="course-card__title">Phishing Attacks</h3>
-										<p class="course-card__desc">This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.</p>
+										<p class="course-card__desc">This lesson is based on the cyber attack on Ascension Healthcare and <br> demonstrates the wide-reaching implications of phishing.</p>
 									</div>
 									<div class="course-card__status">
-										<svg class="course-card__status-icon" width="40" height="40">
-											<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+										<svg class="course-card__status-icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
+											<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+											<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
 										</svg>
 										<div class="course-card__status-info">
 											<span class="course-card__status-label">PROGRESS</span>
@@ -323,7 +324,7 @@
 									</div>
 									<a href="#" class="course-card__btn btn btn--sm">
 										START
-										<svg width="12" height="8">
+										<svg width="24" height="24">
 											<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 										</svg>
 									</a>
@@ -338,11 +339,12 @@
 											<span class="course-card__tag tag">RANSOMWARE</span>
 										</div>
 										<h3 class="course-card__title">Ransomware Incidents</h3>
-										<p class="course-card__desc">This lesson covers ransomware attacks affecting critical infrastructure and importance of incident response strategies.</p>
+										<p class="course-card__desc">This lesson covers ransomware attacks affecting critical infrastructure and <br> importance of incident response strategies.</p>
 									</div>
 									<div class="course-card__status">
-										<svg class="course-card__status-icon" width="40" height="40">
-											<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+										<svg class="course-card__status-icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
+											<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+											<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
 										</svg>
 										<div class="course-card__status-info">
 											<span class="course-card__status-label">PROGRESS</span>
@@ -351,7 +353,7 @@
 									</div>
 									<a href="#" class="course-card__btn btn btn--sm">
 										START
-										<svg width="12" height="8">
+										<svg width="24" height="24">
 											<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 										</svg>
 									</a>
@@ -367,11 +369,12 @@
 											<span class="course-card__tag tag">SECURITY</span>
 										</div>
 										<h3 class="course-card__title">Data Breaches</h3>
-										<p class="course-card__desc">This lesson covers ransomware attacks affecting critical infrastructure and importance of incident response strategies.</p>
+										<p class="course-card__desc">This lesson covers ransomware attacks affecting critical infrastructure and <br> importance of incident response strategies.</p>
 									</div>
 									<div class="course-card__status">
-										<svg class="course-card__status-icon" width="40" height="40">
-											<use xlink:href="img/icons/icons.svg#svg-progress-circle"></use>
+										<svg class="course-card__status-icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
+											<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+											<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
 										</svg>
 										<div class="course-card__status-info">
 											<span class="course-card__status-label">PROGRESS</span>
@@ -380,7 +383,7 @@
 									</div>
 									<a href="#" class="course-card__btn btn btn--sm">
 										START
-										<svg width="12" height="8">
+										<svg width="24" height="24">
 											<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 										</svg>
 									</a>
@@ -475,7 +478,7 @@
 						<section class="risk-card box-style">
 							<h2 class="business-home__section-title">Personal Risk Score</h2>
 							<div class="risk-card__chart">
-								<div class="risk-score" data-risk-score data-risk-value="1.5" data-risk-total="5">
+								<div class="risk-score" data-risk-score data-risk-server-rendered data-risk-value="1.5" data-risk-total="5">
 									<div class="risk-score__gauge">
 										<svg class="risk-score__semicircle" width="290" height="145" viewBox="0 0 290 145" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M247.089 53.5402C250.368 50.6067 250.663 45.5549 247.553 42.4432C244.446 39.3347 239.395 39.6201 236.459 42.8902L210.781 71.4854C208.881 73.6014 209.069 76.8481 211.079 78.8597C213.087 80.8691 216.329 81.0593 218.446 79.1651L247.089 53.5402Z" fill="#E7E6E4" />
@@ -533,7 +536,7 @@
 											</svg>
 										</div>
 										<span class="actions-list__text">Run a baseline assessment</span>
-										<input type="radio" class="radio__input" name="action-2">
+										<input type="radio" class="radio__input" name="action-1">
 									</label>
 									<label class="actions-list__item">
 										<span class="actions-list__num">3</span>
@@ -543,22 +546,20 @@
 											</svg>
 										</div>
 										<span class="actions-list__text">Identify compliance and regulatory requirements</span>
-										<input type="radio" class="radio__input" name="action-3">
+										<input type="radio" class="radio__input" name="action-1">
 									</label>
 								</div>
 							</div>
 						</section>
 
-						<section class="badges-card box-style">
-							<h2 class="business-home__section-title">Badges</h2>
+						<section class="badges-card card">
+							<h2 class="business-home__section-title badges-card__title">Badges</h2>
 							<div class="badges-card__grid">
 								<div class="badges-card__item">
 									<div class="badges-card__icon">
 										<img src="img/business-home/badges/bug.svg" alt="Badge">
 										<div class="badges-card__lock">
-											<svg width="20" height="20">
-												<use xlink:href="img/icons/icons.svg#svg-lock"></use>
-											</svg>
+											<img src="img/business-home/badges/badge-1.svg" alt="Badge">
 										</div>
 									</div>
 								</div>
@@ -566,9 +567,7 @@
 									<div class="badges-card__icon">
 										<img src="img/business-home/badges/cyber-security.svg" alt="Badge">
 										<div class="badges-card__lock">
-											<svg width="20" height="20">
-												<use xlink:href="img/icons/icons.svg#svg-lock"></use>
-											</svg>
+											<img src="img/business-home/badges/badge-2.svg" alt="Badge">
 										</div>
 									</div>
 								</div>
@@ -576,13 +575,17 @@
 									<div class="badges-card__icon">
 										<img src="img/business-home/badges/fishing.svg" alt="Badge">
 										<div class="badges-card__lock">
-											<svg width="20" height="20">
-												<use xlink:href="img/icons/icons.svg#svg-lock"></use>
-											</svg>
+											<img src="img/business-home/badges/badge-3.svg" alt="Badge">
 										</div>
 									</div>
 								</div>
 							</div>
+							<a href="#" class="badges-card__btn">
+								View All
+								<svg width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+								</svg>
+							</a>
 						</section>
 
 						<section class="leaderboard-unlock box-style">
@@ -652,9 +655,43 @@
 				</ul>
 			</div>
 		</footer>
+
+		<!-- Badge Popup -->
+		<div class="badge-popup" data-badge-popup>
+			<div class="badge-popup__overlay" data-badge-popup-close></div>
+			<div class="badge-popup__wrapper">
+				<div class="badge-popup__card">
+					<div class="badge-popup__badge">
+						<picture><source srcset="img/business-home/popup/popup-badge.webp" type="image/webp"><img src="img/business-home/popup/popup-badge.png" alt="Learned Unlocked Badge" width="147" height="165"></picture>
+					</div>
+					<div class="badge-popup__body">
+						<span class="badge-popup__label">achievement unlocked</span>
+						<div class="badge-popup__content">
+							<div class="badge-popup__text">
+								<h2 class="badge-popup__title">You just earned a <span>badge!</span></h2>
+								<p class="badge-popup__desc">Congrats on taking the first step to building a stronger cybersecurity culture.</p>
+							</div>
+							<button class="badge-popup__share" type="button">
+								<span>share</span>
+								<svg width="16" height="16">
+									<use xlink:href="img/icons/icons.svg#svg-link-alt"></use>
+								</svg>
+							</button>
+						</div>
+						<span class="badge-popup__separator separator"></span>
+						<button class="badge-popup__close-btn btn btn--primary" type="button" data-badge-popup-close>CLOSE</button>
+					</div>
+				</div>
+				<button class="badge-popup__x" type="button" data-badge-popup-close aria-label="Close popup">
+					<svg width="24" height="24">
+						<use xlink:href="img/icons/icons.svg#svg-close"></use>
+					</svg>
+				</button>
+			</div>
+		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20260331200847"></script>
+	<script src="js/app.min.js?_v=20260408072340"></script>
 </body>
 
 </html>

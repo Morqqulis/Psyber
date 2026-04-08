@@ -26035,6 +26035,160 @@
                 }
                 if (bannerClose && banner) handleRemoveClass(banner, "is-active");
             });
+            const badgePopup = document.querySelector("[data-badge-popup]");
+            if (badgePopup) {
+                const openBadgePopup = () => {
+                    handleAddClass(badgePopup, "is-visible");
+                    handleAddClass(document.documentElement, "lock");
+                };
+                const closeBadgePopup = () => {
+                    handleRemoveClass(badgePopup, "is-visible");
+                    handleRemoveClass(document.documentElement, "lock");
+                };
+                badgePopup.querySelectorAll("[data-badge-popup-close]").forEach(btn => {
+                    btn.addEventListener("click", closeBadgePopup);
+                });
+                document.addEventListener("keydown", e => {
+                    if (e.key === "Escape" && badgePopup.classList.contains("is-visible")) closeBadgePopup();
+                });
+                window.openBadgePopup = openBadgePopup;
+                document.querySelectorAll("[data-badge-popup-open]").forEach(trigger => {
+                    trigger.addEventListener("click", openBadgePopup);
+                });
+            }
+            const feedbackPopup = document.querySelector("[data-feedback-popup]");
+            if (feedbackPopup) {
+                const openFeedbackPopup = () => {
+                    handleAddClass(feedbackPopup, "is-visible");
+                    handleAddClass(document.documentElement, "lock");
+                };
+                const closeFeedbackPopup = () => {
+                    handleRemoveClass(feedbackPopup, "is-visible");
+                    handleRemoveClass(document.documentElement, "lock");
+                };
+                feedbackPopup.querySelectorAll("[data-feedback-popup-close]").forEach(btn => {
+                    btn.addEventListener("click", closeFeedbackPopup);
+                });
+                document.addEventListener("keydown", e => {
+                    if (e.key === "Escape" && feedbackPopup.classList.contains("is-visible")) closeFeedbackPopup();
+                });
+                window.openFeedbackPopup = openFeedbackPopup;
+                document.querySelectorAll("[data-feedback-popup-open]").forEach(trigger => {
+                    trigger.addEventListener("click", openFeedbackPopup);
+                });
+            }
+            const activatePopup = document.querySelector("[data-activate-popup]");
+            if (activatePopup) {
+                const openActivatePopup = () => {
+                    handleAddClass(activatePopup, "is-visible");
+                    handleAddClass(document.documentElement, "lock");
+                };
+                const closeActivatePopup = () => {
+                    handleRemoveClass(activatePopup, "is-visible");
+                    handleRemoveClass(document.documentElement, "lock");
+                };
+                activatePopup.querySelectorAll("[data-activate-popup-close]").forEach(btn => {
+                    btn.addEventListener("click", closeActivatePopup);
+                });
+                document.addEventListener("keydown", e => {
+                    if (e.key === "Escape" && activatePopup.classList.contains("is-visible")) closeActivatePopup();
+                });
+                window.openActivatePopup = openActivatePopup;
+                document.querySelectorAll("[data-activate-popup-open]").forEach(trigger => {
+                    trigger.addEventListener("click", openActivatePopup);
+                });
+            }
+            const trainingPopup = document.querySelector("[data-training-popup]");
+            if (trainingPopup) {
+                const openTrainingPopup = () => {
+                    handleAddClass(trainingPopup, "is-visible");
+                    handleAddClass(document.documentElement, "lock");
+                };
+                const closeTrainingPopup = () => {
+                    handleRemoveClass(trainingPopup, "is-visible");
+                    handleRemoveClass(document.documentElement, "lock");
+                };
+                trainingPopup.querySelectorAll("[data-training-popup-close]").forEach(btn => {
+                    btn.addEventListener("click", closeTrainingPopup);
+                });
+                document.addEventListener("keydown", e => {
+                    if (e.key === "Escape" && trainingPopup.classList.contains("is-visible")) closeTrainingPopup();
+                });
+                window.openTrainingPopup = openTrainingPopup;
+                document.querySelectorAll("[data-training-popup-open]").forEach(trigger => {
+                    trigger.addEventListener("click", openTrainingPopup);
+                });
+                trainingPopup.querySelectorAll("[data-course-toggle]").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        const isAdded = btn.classList.contains("is-added");
+                        const svg = btn.querySelector("svg use");
+                        const span = btn.querySelector("span");
+                        if (isAdded) {
+                            handleRemoveClass(btn, "is-added");
+                            if (svg) svg.setAttribute("xlink:href", svg.getAttribute("xlink:href").replace("#svg-check", "#svg-plus"));
+                            if (span) span.textContent = "ADD COURSE";
+                        } else {
+                            handleAddClass(btn, "is-added");
+                            if (svg) svg.setAttribute("xlink:href", svg.getAttribute("xlink:href").replace("#svg-plus", "#svg-check"));
+                            if (span) span.textContent = "ADDED";
+                        }
+                    });
+                });
+            }
+            const importPopup = document.querySelector("[data-import-popup]");
+            if (importPopup) {
+                const importCard = importPopup.querySelector("[data-import-card]");
+                const uploadScreen = importPopup.querySelector('[data-import-screen="upload"]');
+                const previewScreen = importPopup.querySelector('[data-import-screen="preview"]');
+                const fileInput = importPopup.querySelector("[data-import-file]");
+                const chooseBtn = importPopup.querySelector("[data-import-choose]");
+                const dropzone = importPopup.querySelector("[data-import-dropzone]");
+                const resetToUpload = () => {
+                    if (uploadScreen) handleRemoveClass(uploadScreen, "import-popup__screen--hidden");
+                    if (previewScreen) handleAddClass(previewScreen, "import-popup__screen--hidden");
+                    if (importCard) handleRemoveClass(importCard, "is-preview");
+                };
+                const showPreview = () => {
+                    if (uploadScreen) handleAddClass(uploadScreen, "import-popup__screen--hidden");
+                    if (previewScreen) handleRemoveClass(previewScreen, "import-popup__screen--hidden");
+                    if (importCard) handleAddClass(importCard, "is-preview");
+                };
+                const openImportPopup = () => {
+                    resetToUpload();
+                    handleAddClass(importPopup, "is-visible");
+                    handleAddClass(document.documentElement, "lock");
+                };
+                const closeImportPopup = () => {
+                    handleRemoveClass(importPopup, "is-visible");
+                    handleRemoveClass(document.documentElement, "lock");
+                };
+                importPopup.querySelectorAll("[data-import-popup-close]").forEach(btn => {
+                    btn.addEventListener("click", closeImportPopup);
+                });
+                document.addEventListener("keydown", e => {
+                    if (e.key === "Escape" && importPopup.classList.contains("is-visible")) closeImportPopup();
+                });
+                if (chooseBtn && fileInput) chooseBtn.addEventListener("click", () => fileInput.click());
+                if (dropzone) {
+                    dropzone.addEventListener("dragover", e => {
+                        e.preventDefault();
+                        handleAddClass(dropzone, "is-dragover");
+                    });
+                    dropzone.addEventListener("dragleave", () => {
+                        handleRemoveClass(dropzone, "is-dragover");
+                    });
+                    dropzone.addEventListener("drop", e => {
+                        e.preventDefault();
+                        handleRemoveClass(dropzone, "is-dragover");
+                    });
+                }
+                const importConfirm = importPopup.querySelector("[data-import-confirm]");
+                if (importConfirm) importConfirm.addEventListener("click", showPreview);
+                window.openImportPopup = openImportPopup;
+                document.querySelectorAll("[data-import-popup-open]").forEach(trigger => {
+                    trigger.addEventListener("click", openImportPopup);
+                });
+            }
             document.addEventListener("click", e => {
                 const tabTrigger = e.target.closest("[data-tab-trigger]");
                 if (tabTrigger) {
@@ -27000,6 +27154,7 @@
                 this.paths = Array.from(root.querySelectorAll(".risk-score__semicircle path"));
                 this.valueEl = root.querySelector(".risk-score__value");
                 this.badgeEl = root.querySelector(".risk-score__badge");
+                this.serverRendered = root.hasAttribute("data-risk-server-rendered");
                 const scoreCard = root.closest(".score-card") || root.closest("[data-risk-card]");
                 if (scoreCard) {
                     this.levelLabelEl = scoreCard.querySelector("[data-risk-level-label]");
@@ -27019,12 +27174,14 @@
                     const position = SVG_INDEX_TO_POSITION[svgIndex];
                     if (position < activeCount) path.setAttribute("fill", SEGMENT_COLORS[position]); else path.setAttribute("fill", INACTIVE_COLOR);
                 });
-                if (this.valueEl) this.valueEl.textContent = this.value % 1 === 0 ? this.value.toString() : this.value.toFixed(1);
                 this.root.dataset.riskValue = String(this.value);
+                if (this.serverRendered) return;
+                if (this.valueEl) this.valueEl.textContent = this.value % 1 === 0 ? this.value.toString() : this.value.toFixed(1);
                 const levelInfo = getLevelByScore(this.value);
                 this.setLevel(levelInfo.level, levelInfo.name);
             }
             setLevel(levelNumber, levelName) {
+                if (this.serverRendered) return;
                 const badgeText = `Level ${levelNumber} – ${levelName}`;
                 if (this.badgeEl) this.badgeEl.textContent = badgeText;
                 if (this.levelLabelEl) this.levelLabelEl.textContent = `LEVEL ${levelNumber}`;
@@ -27044,6 +27201,49 @@
             });
             return instances;
         }
+        const RADIUS = 17;
+        const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+        const COLOR_AZURE = "#50A5A8";
+        const COLOR_LANGERINE = "#F56751";
+        const COLOR_GRAY = "#E8E1CE";
+        function getProgressColor(value) {
+            if (value >= 100) return COLOR_AZURE;
+            if (value > 0) return COLOR_LANGERINE;
+            return COLOR_GRAY;
+        }
+        function renderCircle(svg) {
+            const raw = parseFloat(svg.dataset.progress) || 0;
+            const value = Math.min(100, Math.max(0, raw));
+            const offset = CIRCUMFERENCE * (1 - value / 100);
+            const fill = svg.querySelector(".progress-circle-fill");
+            if (!fill) return;
+            fill.style.strokeDasharray = CIRCUMFERENCE;
+            fill.style.strokeDashoffset = offset;
+            svg.style.color = getProgressColor(value);
+        }
+        function observeCircles() {
+            const observer = new MutationObserver(mutations => {
+                for (const m of mutations) {
+                    if (m.type === "attributes" && m.attributeName === "data-progress") renderCircle(m.target);
+                    if (m.type === "childList") for (const node of m.addedNodes) {
+                        if (node.nodeType !== Node.ELEMENT_NODE) continue;
+                        if (node.hasAttribute("data-progress-circle")) renderCircle(node);
+                        node.querySelectorAll?.("[data-progress-circle]").forEach(renderCircle);
+                    }
+                }
+            });
+            observer.observe(document.body, {
+                attributes: true,
+                attributeFilter: [ "data-progress" ],
+                childList: true,
+                subtree: true
+            });
+        }
+        function initProgressCircles() {
+            const circles = document.querySelectorAll("[data-progress-circle]");
+            circles.forEach(renderCircle);
+            observeCircles();
+        }
         document.addEventListener("DOMContentLoaded", () => {
             initHealthCheck();
             initBusinessQuestions();
@@ -27057,6 +27257,7 @@
             initAvatarOnboarding();
             initBsProfile();
             initRiskScores();
+            initProgressCircles();
         });
         window["FLS"] = true;
         isWebp();

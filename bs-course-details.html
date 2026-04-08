@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260331200847">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260408072340">
 </head>
 
 <body>
@@ -388,9 +388,85 @@
 				</ul>
 			</div>
 		</footer>
+
+		<!-- Course Feedback Popup -->
+		<div class="feedback-popup" data-feedback-popup>
+			<div class="feedback-popup__overlay" data-feedback-popup-close></div>
+			<div class="feedback-popup__wrapper">
+				<div class="feedback-popup__card">
+					<div class="feedback-popup__header">
+						<div class="feedback-popup__icon">
+							<svg width="48" height="48">
+								<use xlink:href="img/bs-course-details/questions.svg"></use>
+							</svg>
+						</div>
+						<h2 class="feedback-popup__title">After completing this module, how confident do you feel in identifying a phishing email?</h2>
+					</div>
+					<div class="feedback-popup__scale">
+						<div class="feedback-popup__labels">
+							<span>Not very confident</span>
+							<span>Very confident</span>
+						</div>
+						<div class="feedback-popup__options">
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">1</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="1">
+							</label>
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">2</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="2">
+							</label>
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">3</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="3">
+							</label>
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">4</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="4">
+							</label>
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">5</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="5">
+							</label>
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">6</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="6">
+							</label>
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">7</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="7">
+							</label>
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">8</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="8">
+							</label>
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">9</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="9">
+							</label>
+							<label class="feedback-popup__option">
+								<span class="feedback-popup__number">10</span>
+								<input type="radio" class="feedback-popup__radio" name="confidence" value="10">
+							</label>
+						</div>
+					</div>
+					<button class="feedback-popup__submit" type="button" data-feedback-popup-close>
+						<span>Send your answer</span>
+						<svg width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+						</svg>
+					</button>
+				</div>
+				<button class="feedback-popup__x" type="button" data-feedback-popup-close aria-label="Close popup">
+					<svg width="24" height="24">
+						<use xlink:href="img/icons/icons.svg#svg-close"></use>
+					</svg>
+				</button>
+			</div>
+		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20260331200847"></script>
+	<script src="js/app.min.js?_v=20260408072340"></script>
 </body>
 
 </html>

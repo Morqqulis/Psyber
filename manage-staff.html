@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260331200847">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260408072340">
 </head>
 
 <body>
@@ -298,7 +298,7 @@
 									</div>
 								</div>
 								<div class="manage-staff__btns">
-									<button type="button" class="btn btn--primary manage-staff__btn">
+									<button type="button" class="btn btn--primary manage-staff__btn" data-import-popup-open>
 										<svg width="20" height="20">
 											<use xlink:href="img/icons/icons.svg#svg-user-add"></use>
 										</svg>
@@ -539,9 +539,140 @@
 				</ul>
 			</div>
 		</footer>
+
+		<!-- Import Staff Popup -->
+		<div class="import-popup" data-import-popup>
+			<div class="import-popup__overlay" data-import-popup-close></div>
+			<div class="import-popup__card" data-import-card>
+				<!-- Screen 1: Upload -->
+				<div class="import-popup__screen" data-import-screen="upload">
+					<div class="import-popup__header">
+						<div class="import-popup__title-row">
+							<div class="import-popup__title-block">
+								<h2 class="import-popup__title">Add/Import <span>Your Staff</span></h2>
+								<p class="import-popup__subtitle">upload a CSV or Excel file to quickly add multiple staff members</p>
+							</div>
+							<button class="import-popup__x" type="button" data-import-popup-close aria-label="Close popup">
+								<svg width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-close"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="import-popup__dropzone" data-import-dropzone>
+							<div class="import-popup__dropzone-icon">
+								<svg width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-upload"></use>
+								</svg>
+							</div>
+							<p class="import-popup__dropzone-text">
+								Drag and drop your file or <button type="button" class="import-popup__choose" data-import-choose>Choose File</button>
+							</p>
+							<p class="import-popup__dropzone-hint">.CSV .XLSX or .XLS file , up to 500 items</p>
+							<input type="file" class="import-popup__file-input" data-import-file accept=".csv,.xlsx,.xls" hidden>
+						</div>
+						<div class="import-popup__actions">
+							<button class="import-popup__cancel-btn" type="button" data-import-popup-close>
+								<span>CANCEL</span>
+							</button>
+							<button class="import-popup__import-btn" type="button" data-import-confirm>
+								<svg width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-check-rounded"></use>
+								</svg>
+								<span>IMPORT</span>
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Screen 2: Data Preview -->
+				<div class="import-popup__screen import-popup__screen--hidden" data-import-screen="preview">
+					<div class="import-popup__header">
+						<div class="import-popup__title-row">
+							<h2 class="import-popup__title">Add/Import <span>Your Staff</span></h2>
+							<button class="import-popup__x" type="button" data-import-popup-close aria-label="Close popup">
+								<svg width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-close"></use>
+								</svg>
+							</button>
+						</div>
+						<div class="import-popup__toolbar">
+							<div class="import-popup__toolbar-left">
+								<div class="import-popup__pill-btn">
+									<span>IMPORT YOUR STAFF</span>
+									<svg width="20" height="20">
+										<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
+									</svg>
+								</div>
+								<button class="import-popup__download-btn" type="button">
+									<svg width="20" height="20">
+										<use xlink:href="img/icons/icons.svg#svg-download-2"></use>
+									</svg>
+									<span>DOWNLOAD</span>
+								</button>
+							</div>
+							<button class="import-popup__confirm-btn" type="button" data-import-popup-close>
+								<svg width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-check-rounded"></use>
+								</svg>
+								<span>CONFIRM</span>
+							</button>
+						</div>
+						<div class="import-popup__preview-table">
+							<div class="import-popup__table-head">
+								<div class="import-popup__table-cell import-popup__table-cell--name">Name</div>
+								<div class="import-popup__table-cell import-popup__table-cell--email">Email</div>
+								<div class="import-popup__table-cell import-popup__table-cell--dept">Department</div>
+							</div>
+							<div class="import-popup__table-body">
+								<div class="import-popup__table-row">
+									<div class="import-popup__table-cell import-popup__table-cell--name">
+										<picture><source srcset="img/common/avatars/avatar-1.webp" type="image/webp"><img src="img/common/avatars/avatar-1.jpg" alt="Avatar" class="import-popup__avatar"></picture>
+										<span>Kristin Watson</span>
+									</div>
+									<div class="import-popup__table-cell import-popup__table-cell--email">liam.schultz@company.com</div>
+									<div class="import-popup__table-cell import-popup__table-cell--dept">Admin (Owner)</div>
+								</div>
+								<div class="import-popup__table-row">
+									<div class="import-popup__table-cell import-popup__table-cell--name">
+										<picture><source srcset="img/common/avatars/avatar-3.webp" type="image/webp"><img src="img/common/avatars/avatar-3.jpg" alt="Avatar" class="import-popup__avatar"></picture>
+										<span>Olivia Chen</span>
+									</div>
+									<div class="import-popup__table-cell import-popup__table-cell--email">olivia.chen@company.com</div>
+									<div class="import-popup__table-cell import-popup__table-cell--dept">Admin</div>
+								</div>
+								<div class="import-popup__table-row">
+									<div class="import-popup__table-cell import-popup__table-cell--name">
+										<picture><source srcset="img/common/avatars/avatar-4.webp" type="image/webp"><img src="img/common/avatars/avatar-4.jpg" alt="Avatar" class="import-popup__avatar"></picture>
+										<span>Benjamin Carter</span>
+									</div>
+									<div class="import-popup__table-cell import-popup__table-cell--email">benjamin.carter@company.com</div>
+									<div class="import-popup__table-cell import-popup__table-cell--dept">Admin</div>
+								</div>
+								<div class="import-popup__table-row">
+									<div class="import-popup__table-cell import-popup__table-cell--name">
+										<picture><source srcset="img/common/avatars/avatar-2.webp" type="image/webp"><img src="img/common/avatars/avatar-2.jpg" alt="Avatar" class="import-popup__avatar"></picture>
+										<span>Sophia Rodriguez</span>
+									</div>
+									<div class="import-popup__table-cell import-popup__table-cell--email">sophia.rodriguez@company.com</div>
+									<div class="import-popup__table-cell import-popup__table-cell--dept">Admin</div>
+								</div>
+								<div class="import-popup__table-row">
+									<div class="import-popup__table-cell import-popup__table-cell--name">
+										<picture><source srcset="img/common/avatars/avatar-5.webp" type="image/webp"><img src="img/common/avatars/avatar-5.jpg" alt="Avatar" class="import-popup__avatar"></picture>
+										<span>Sophia Rodriguez</span>
+									</div>
+									<div class="import-popup__table-cell import-popup__table-cell--email">sophia.rodriguez@company.com</div>
+									<div class="import-popup__table-cell import-popup__table-cell--dept">Admin</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20260331200847"></script>
+	<script src="js/app.min.js?_v=20260408072340"></script>
 </body>
 
 </html>
