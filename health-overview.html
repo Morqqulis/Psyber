@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260408072340">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260511055410">
 </head>
 
 <body>
@@ -320,68 +320,115 @@
 									</div>
 								</section>
 
-								<!-- Actions Card -->
-								<section class="actions-card card" id="actions" style="margin-top: 32px;">
-									<header class="actions-card__header">
+								<!-- Recommendations Card -->
+								<section class="recommendations-card card" id="actions" style="margin-top: 32px;" data-recommendations data-recommendations-max="3">
+									<header class="recommendations-card__header">
 										<div class="benchmark-card__title-box">
-											<span class="benchmark-card__label">ACTIONS/TO-DOS</span>
+											<span class="benchmark-card__label">RECOMMENDATIONS</span>
 											<h2 class="benchmark-card__title">
-												Your actions for Level 2 - Compliant
+												Your recommendations for Level 2 - Compliant
 												<svg width="20" height="20">
 													<use xlink:href="img/icons/icons.svg#svg-info"></use>
 												</svg>
 											</h2>
 										</div>
-										<div class="actions-card__progress-box">
-											<div class="actions-card__progress-bar">
-												<div class="actions-card__progress-fill" style="width: 45%;"></div>
-											</div>
-											<span class="actions-card__progress-text">45% complete</span>
-										</div>
 									</header>
 									<hr class="separator">
-									<ul class="actions-card__list">
-										<li class="actions-card__item">
-											<div class="actions-card__item-icon">
-												<svg width="24" height="24" style="color: #f56751">
-													<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+									<ul class="recommendations-card__list" data-recommendations-list>
+										<li class="recommendations-card__item" data-recommendation data-recommendation-id="">
+											<button class="recommendations-card__check" type="button" data-recommendation-toggle aria-label="Mark as completed">
+												<svg class="recommendations-card__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="9" stroke="#5F5E5D" stroke-width="1.5" />
 												</svg>
-											</div>
-											<p class="actions-card__item-text">Adjust passing score</p>
-										</li>
-										<li class="actions-card__item">
-											<div class="actions-card__item-icon">
-												<svg width="24" height="24" style="color: #f56751">
-													<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+												<svg class="recommendations-card__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="10" fill="#F56751" />
+													<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 												</svg>
-											</div>
-											<p class="actions-card__item-text">Run a baseline assessment</p>
+											</button>
+											<p class="recommendations-card__item-text">Commission a dedicated cybersecurity briefing for your senior leadership team. Keep it focused on business impact and personal accountability — not technical detail. A 60-90 minute session with an external facilitator carries more weight than an internal one.</p>
 										</li>
-										<li class="actions-card__item">
-											<div class="actions-card__item-icon">
-												<svg width="24" height="24" style="color: #f56751">
-													<use xlink:href="img/icons/icons.svg#svg-circle-check"></use>
+										<li class="recommendations-card__item" data-recommendation data-recommendation-id="">
+											<button class="recommendations-card__check" type="button" data-recommendation-toggle aria-label="Mark as completed">
+												<svg class="recommendations-card__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="9" stroke="#5F5E5D" stroke-width="1.5" />
 												</svg>
-											</div>
-											<p class="actions-card__item-text">Identify compliance and regulatory requirements</p>
+												<svg class="recommendations-card__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="10" fill="#F56751" />
+													<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</svg>
+											</button>
+											<p class="recommendations-card__item-text">Run a baseline human-risk assessment so you have a measurable starting point. Survey staff on awareness, run a controlled phishing simulation, and capture the results — these become the benchmark every future improvement is measured against.</p>
 										</li>
-										<li class="actions-card__item">
-											<div class="actions-card__item-icon actions-card__item-icon--pending"></div>
-											<p class="actions-card__item-text">Secure leadership buy-in</p>
+										<li class="recommendations-card__item" data-recommendation data-recommendation-id="">
+											<button class="recommendations-card__check" type="button" data-recommendation-toggle aria-label="Mark as completed">
+												<svg class="recommendations-card__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="9" stroke="#5F5E5D" stroke-width="1.5" />
+												</svg>
+												<svg class="recommendations-card__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="10" fill="#F56751" />
+													<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</svg>
+											</button>
+											<p class="recommendations-card__item-text">Identify the compliance and regulatory requirements that apply to your industry and jurisdiction (Privacy Act, Essential Eight, ISO 27001, GDPR, etc.). Map each obligation to an owner inside the business so nothing sits unassigned.</p>
 										</li>
-										<li class="actions-card__item">
-											<div class="actions-card__item-icon actions-card__item-icon--pending"></div>
-											<p class="actions-card__item-text">Communicate early wins</p>
+										<li class="recommendations-card__item" data-recommendation data-recommendation-id="">
+											<button class="recommendations-card__check" type="button" data-recommendation-toggle aria-label="Mark as completed">
+												<svg class="recommendations-card__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="9" stroke="#5F5E5D" stroke-width="1.5" />
+												</svg>
+												<svg class="recommendations-card__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="10" fill="#F56751" />
+													<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</svg>
+											</button>
+											<p class="recommendations-card__item-text">Secure leadership buy-in by giving the executive team a one-page summary of the current human-risk posture and what an improved program would look like in 90 days. Ask for explicit sponsorship — a named exec, a budget line, and time on the agenda.</p>
 										</li>
-										<li class="actions-card__item">
-											<div class="actions-card__item-icon actions-card__item-icon--pending"></div>
-											<p class="actions-card__item-text">Create a starter plan</p>
+										<li class="recommendations-card__item" data-recommendation data-recommendation-id="">
+											<button class="recommendations-card__check" type="button" data-recommendation-toggle aria-label="Mark as completed">
+												<svg class="recommendations-card__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="9" stroke="#5F5E5D" stroke-width="1.5" />
+												</svg>
+												<svg class="recommendations-card__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="10" fill="#F56751" />
+													<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</svg>
+											</button>
+											<p class="recommendations-card__item-text">Communicate early wins across the organisation — phishing-report counts going up, time-to-report going down, training completion rates climbing. Visible progress in the first 60 days is what keeps momentum and budget alive.</p>
 										</li>
-										<li class="actions-card__item">
-											<div class="actions-card__item-icon actions-card__item-icon--pending"></div>
-											<p class="actions-card__item-text">Assign a program owner</p>
+										<li class="recommendations-card__item" data-recommendation data-recommendation-id="">
+											<button class="recommendations-card__check" type="button" data-recommendation-toggle aria-label="Mark as completed">
+												<svg class="recommendations-card__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="9" stroke="#5F5E5D" stroke-width="1.5" />
+												</svg>
+												<svg class="recommendations-card__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="10" fill="#F56751" />
+													<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</svg>
+											</button>
+											<p class="recommendations-card__item-text">Create a starter plan that covers the next 90 days: who will be trained, on what topics, how often, and how success will be measured. Keep it on a single page so it stays usable rather than becoming shelfware.</p>
+										</li>
+										<li class="recommendations-card__item" data-recommendation data-recommendation-id="">
+											<button class="recommendations-card__check" type="button" data-recommendation-toggle aria-label="Mark as completed">
+												<svg class="recommendations-card__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="9" stroke="#5F5E5D" stroke-width="1.5" />
+												</svg>
+												<svg class="recommendations-card__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+													<circle cx="10" cy="10" r="10" fill="#F56751" />
+													<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+												</svg>
+											</button>
+											<p class="recommendations-card__item-text">Assign a named program owner who is accountable for cybersecurity culture — not just the CISO or IT Manager. This person owns the roadmap, the metrics, and the conversations with leadership about progress and obstacles.</p>
 										</li>
 									</ul>
+
+									<p class="recommendations-card__all-done" data-recommendations-all-done hidden>
+										You have completed all recommendations for your organisation's current Psyber Stage.
+									</p>
+
+									<button type="button" class="recommendations-card__toggle" data-recommendations-toggle hidden>
+										<span data-recommendations-toggle-show>View completed recommendations</span>
+										<span data-recommendations-toggle-hide hidden>Hide completed recommendations</span>
+									</button>
 								</section>
 							</div>
 
@@ -1181,7 +1228,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20260408072340"></script>
+	<script src="js/app.min.js?_v=20260511055410"></script>
 </body>
 
 </html>

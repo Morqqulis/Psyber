@@ -26035,6 +26035,107 @@
                 }
                 if (bannerClose && banner) handleRemoveClass(banner, "is-active");
             });
+            document.querySelectorAll("[data-recommendations]").forEach(card => {
+                const list = card.querySelector("[data-recommendations-list]");
+                const allDoneEl = card.querySelector("[data-recommendations-all-done]");
+                const toggleBtn = card.querySelector("[data-recommendations-toggle]");
+                const toggleShow = card.querySelector("[data-recommendations-toggle-show]");
+                const toggleHide = card.querySelector("[data-recommendations-toggle-hide]");
+                const max = parseInt(card.dataset.recommendationsMax, 10) || 3;
+                let completedRevealed = false;
+                if (!list) return;
+                const items = Array.from(list.querySelectorAll("[data-recommendation]"));
+                const refresh = () => {
+                    let visible = 0;
+                    items.forEach(item => {
+                        const isCompleted = item.classList.contains("is-completed");
+                        if (isCompleted) {
+                            if (completedRevealed) {
+                                item.classList.add("is-revealed");
+                                item.classList.remove("is-hidden");
+                            } else {
+                                item.classList.remove("is-revealed");
+                                item.classList.add("is-hidden");
+                            }
+                            return;
+                        }
+                        if (visible < max) {
+                            item.classList.remove("is-hidden", "is-revealed");
+                            visible++;
+                        } else {
+                            item.classList.add("is-hidden");
+                            item.classList.remove("is-revealed");
+                        }
+                    });
+                    const completedCount = items.filter(i => i.classList.contains("is-completed")).length;
+                    const incompleteCount = items.length - completedCount;
+                    if (allDoneEl) if (incompleteCount === 0) allDoneEl.removeAttribute("hidden"); else allDoneEl.setAttribute("hidden", "");
+                    if (toggleBtn) if (completedCount > 0) toggleBtn.removeAttribute("hidden"); else {
+                        toggleBtn.setAttribute("hidden", "");
+                        completedRevealed = false;
+                    }
+                    if (toggleShow && toggleHide) if (completedRevealed) {
+                        toggleShow.setAttribute("hidden", "");
+                        toggleHide.removeAttribute("hidden");
+                    } else {
+                        toggleShow.removeAttribute("hidden");
+                        toggleHide.setAttribute("hidden", "");
+                    }
+                };
+                items.forEach(item => {
+                    const btn = item.querySelector("[data-recommendation-toggle]");
+                    if (!btn) return;
+                    btn.addEventListener("click", e => {
+                        e.stopPropagation();
+                        item.classList.contains("is-completed");
+                        item.classList.toggle("is-completed");
+                        refresh();
+                    });
+                });
+                if (toggleBtn) toggleBtn.addEventListener("click", () => {
+                    completedRevealed = !completedRevealed;
+                    refresh();
+                });
+                refresh();
+            });
+            const actionPopup = document.querySelector("[data-action-popup]");
+            if (actionPopup) {
+                const nameEl = actionPopup.querySelector("[data-action-popup-name]");
+                const whyEl = actionPopup.querySelector("[data-action-popup-why]");
+                const howEl = actionPopup.querySelector("[data-action-popup-how]");
+                const completeBtn = actionPopup.querySelector("[data-action-popup-complete]");
+                let activeTrigger = null;
+                const openActionPopup = trigger => {
+                    activeTrigger = trigger;
+                    if (nameEl) nameEl.textContent = trigger.dataset.actionName || "";
+                    if (whyEl) whyEl.textContent = trigger.dataset.actionWhy || "";
+                    if (howEl) {
+                        howEl.innerHTML = "";
+                        const template = trigger.querySelector(".actions-list__how-template");
+                        if (template && "content" in template) howEl.appendChild(template.content.cloneNode(true));
+                    }
+                    handleAddClass(actionPopup, "is-visible");
+                    handleAddClass(document.documentElement, "lock");
+                };
+                const closeActionPopup = () => {
+                    handleRemoveClass(actionPopup, "is-visible");
+                    handleRemoveClass(document.documentElement, "lock");
+                    activeTrigger = null;
+                };
+                actionPopup.querySelectorAll("[data-action-popup-close]").forEach(btn => {
+                    btn.addEventListener("click", closeActionPopup);
+                });
+                if (completeBtn) completeBtn.addEventListener("click", () => {
+                    if (activeTrigger) handleAddClass(activeTrigger, "is-completed");
+                    closeActionPopup();
+                });
+                document.addEventListener("keydown", e => {
+                    if (e.key === "Escape" && actionPopup.classList.contains("is-visible")) closeActionPopup();
+                });
+                document.querySelectorAll("[data-action-trigger]").forEach(trigger => {
+                    trigger.addEventListener("click", () => openActionPopup(trigger));
+                });
+            }
             const badgePopup = document.querySelector("[data-badge-popup]");
             if (badgePopup) {
                 const openBadgePopup = () => {

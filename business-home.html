@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260408072340">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260511055410">
 </head>
 
 <body>
@@ -518,36 +518,62 @@
 							<div class="risk-card__actions actions-list">
 								<h3 class="actions-list__title">Your Top 3 Actions to Reduce Risk</h3>
 								<div class="actions-list__items">
-									<label class="actions-list__item">
+									<button type="button" class="actions-list__item" data-action-trigger data-action-id="" data-action-name="Change your email password to something unique that you have never used anywhere else" data-action-why="Your email is the master key to everything, whoever controls it can reset every other account you own. One unique password on one account is the most important first step.">
 										<span class="actions-list__num">1</span>
-										<div class="actions-list__icon">
-											<svg width="24" height="24">
-												<use xlink:href="img/icons/icons.svg#svg-target"></use>
+										<span class="actions-list__text">Change your email password</span>
+										<span class="actions-list__check" aria-hidden="true">
+											<svg class="actions-list__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none">
+												<circle cx="10" cy="10" r="9" stroke="#E8E1CE" stroke-width="1.5" />
 											</svg>
-										</div>
-										<span class="actions-list__text">Adjust passing score</span>
-										<input type="radio" class="radio__input" name="action-1">
-									</label>
-									<label class="actions-list__item">
+											<svg class="actions-list__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none">
+												<circle cx="10" cy="10" r="10" fill="#F56751" />
+												<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+										</span>
+										<template class="actions-list__how-template">
+											<p>Think of a passphrase — four random words strung together, for example "coffee-bridge-sunlight-forty."</p>
+											<p>Go to your email account settings and change your password to that passphrase.</p>
+											<p>Do not use this passphrase anywhere else — it is for this account only.</p>
+											<p>Write it down somewhere physically safe while you get used to it.</p>
+											<p>That is the whole action. One account, one unique password. Everything else builds from here.</p>
+										</template>
+									</button>
+									<button type="button" class="actions-list__item" data-action-trigger data-action-id="" data-action-name="Create one genuinely unique password for every important account" data-action-why="Reusing the same password means one breach unlocks every account. A unique password per service contains the damage of any single leak.">
 										<span class="actions-list__num">2</span>
-										<div class="actions-list__icon">
-											<svg width="24" height="24">
-												<use xlink:href="img/icons/icons.svg#svg-key"></use>
+										<span class="actions-list__text">Create one genuinely unique password</span>
+										<span class="actions-list__check" aria-hidden="true">
+											<svg class="actions-list__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none">
+												<circle cx="10" cy="10" r="9" stroke="#E8E1CE" stroke-width="1.5" />
 											</svg>
-										</div>
-										<span class="actions-list__text">Run a baseline assessment</span>
-										<input type="radio" class="radio__input" name="action-1">
-									</label>
-									<label class="actions-list__item">
+											<svg class="actions-list__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none">
+												<circle cx="10" cy="10" r="10" fill="#F56751" />
+												<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+										</span>
+										<template class="actions-list__how-template">
+											<p>Pick the next account that matters — banking, government, work — and give it its own passphrase.</p>
+											<p>Use four unrelated words you can remember; avoid pet names, birthdays, or anything tied to you publicly.</p>
+											<p>Update the password in that account's security settings, then sign back in to confirm it works.</p>
+										</template>
+									</button>
+									<button type="button" class="actions-list__item" data-action-trigger data-action-id="" data-action-name="Download Bitwarden and start storing your passwords there" data-action-why="A password manager removes the need to remember every unique password and keeps them encrypted in one place that only you can unlock.">
 										<span class="actions-list__num">3</span>
-										<div class="actions-list__icon">
-											<svg width="24" height="24">
-												<use xlink:href="img/icons/icons.svg#svg-chart-search"></use>
+										<span class="actions-list__text">Download Bitwarden</span>
+										<span class="actions-list__check" aria-hidden="true">
+											<svg class="actions-list__check-empty" width="20" height="20" viewBox="0 0 20 20" fill="none">
+												<circle cx="10" cy="10" r="9" stroke="#E8E1CE" stroke-width="1.5" />
 											</svg>
-										</div>
-										<span class="actions-list__text">Identify compliance and regulatory requirements</span>
-										<input type="radio" class="radio__input" name="action-1">
-									</label>
+											<svg class="actions-list__check-filled" width="20" height="20" viewBox="0 0 20 20" fill="none">
+												<circle cx="10" cy="10" r="10" fill="#F56751" />
+												<path d="M5.5 10.25l3 3 6-6.25" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+											</svg>
+										</span>
+										<template class="actions-list__how-template">
+											<p>Install Bitwarden from bitwarden.com on your phone and your computer's browser as an extension.</p>
+											<p>Create a single strong master passphrase — this is the only password you will ever need to remember from now on.</p>
+											<p>Add the accounts you just updated, then start saving new logins as you sign in to other services.</p>
+										</template>
+									</button>
 								</div>
 							</div>
 						</section>
@@ -656,6 +682,36 @@
 			</div>
 		</footer>
 
+		<!-- Action Popup -->
+		<div class="action-popup" data-action-popup>
+			<div class="action-popup__overlay" data-action-popup-close></div>
+			<div class="action-popup__wrapper">
+				<div class="action-popup__card">
+					<button class="action-popup__close" type="button" data-action-popup-close aria-label="Close popup">
+						<svg width="24" height="24">
+							<use xlink:href="img/icons/icons.svg#svg-close"></use>
+						</svg>
+					</button>
+					<span class="action-popup__label">PSYBER RECOMMENDED ACTION</span>
+					<h2 class="action-popup__title" data-action-popup-name></h2>
+					<div class="action-popup__block action-popup__block--why">
+						<span class="action-popup__block-title">WHY?</span>
+						<p class="action-popup__block-text" data-action-popup-why></p>
+					</div>
+					<div class="action-popup__block action-popup__block--how">
+						<span class="action-popup__block-title">HOW TO?</span>
+						<div class="action-popup__block-text action-popup__block-text--how" data-action-popup-how></div>
+					</div>
+					<button class="action-popup__complete btn btn--primary" type="button" data-action-popup-complete>
+						<svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+							<path d="M5 10.5l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+						I've completed this action
+					</button>
+				</div>
+			</div>
+		</div>
+
 		<!-- Badge Popup -->
 		<div class="badge-popup" data-badge-popup>
 			<div class="badge-popup__overlay" data-badge-popup-close></div>
@@ -691,7 +747,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20260408072340"></script>
+	<script src="js/app.min.js?_v=20260511055410"></script>
 </body>
 
 </html>
