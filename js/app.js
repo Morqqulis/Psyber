@@ -26035,69 +26035,112 @@
                 }
                 if (bannerClose && banner) handleRemoveClass(banner, "is-active");
             });
-            document.querySelectorAll("[data-recommendations]").forEach(card => {
-                const list = card.querySelector("[data-recommendations-list]");
-                const allDoneEl = card.querySelector("[data-recommendations-all-done]");
-                const toggleBtn = card.querySelector("[data-recommendations-toggle]");
-                const toggleShow = card.querySelector("[data-recommendations-toggle-show]");
-                const toggleHide = card.querySelector("[data-recommendations-toggle-hide]");
-                const max = parseInt(card.dataset.recommendationsMax, 10) || 3;
-                let completedRevealed = false;
-                if (!list) return;
-                const items = Array.from(list.querySelectorAll("[data-recommendation]"));
-                const refresh = () => {
-                    let visible = 0;
-                    items.forEach(item => {
-                        const isCompleted = item.classList.contains("is-completed");
-                        if (isCompleted) {
-                            if (completedRevealed) {
-                                item.classList.add("is-revealed");
-                                item.classList.remove("is-hidden");
-                            } else {
-                                item.classList.remove("is-revealed");
-                                item.classList.add("is-hidden");
+            (function initRecommendations() {
+                function getCookie(name) {
+                    const m = document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)");
+                    return m ? decodeURIComponent(m.pop()) : "";
+                }
+                function getCsrfToken() {
+                    const meta = document.querySelector('meta[name="csrf-token"]');
+                    if (meta && meta.getAttribute("content")) return meta.getAttribute("content");
+                    return getCookie("csrftoken");
+                }
+                function initCard(card) {
+                    if (card.dataset.recommendationsInit === "1") return;
+                    card.dataset.recommendationsInit = "1";
+                    const list = card.querySelector("[data-recommendations-list]");
+                    if (!list) return;
+                    const allDoneEl = card.querySelector("[data-recommendations-all-done]");
+                    const toggleBtn = card.querySelector("[data-recommendations-toggle]");
+                    const toggleShow = card.querySelector("[data-recommendations-toggle-show]");
+                    const toggleHide = card.querySelector("[data-recommendations-toggle-hide]");
+                    const max = parseInt(card.dataset.recommendationsMax, 10) || 3;
+                    const endpoint = card.dataset.recommendationsEndpoint || "";
+                    const method = (card.dataset.recommendationsMethod || "POST").toUpperCase();
+                    let completedRevealed = false;
+                    function items() {
+                        return Array.from(list.querySelectorAll("[data-recommendation]"));
+                    }
+                    function refresh() {
+                        let visible = 0;
+                        const all = items();
+                        all.forEach(function(item) {
+                            const isCompleted = item.classList.contains("is-completed");
+                            if (isCompleted) {
+                                if (completedRevealed) {
+                                    item.classList.add("is-revealed");
+                                    item.classList.remove("is-hidden");
+                                } else {
+                                    item.classList.remove("is-revealed");
+                                    item.classList.add("is-hidden");
+                                }
+                                return;
                             }
-                            return;
+                            if (visible < max) {
+                                item.classList.remove("is-hidden", "is-revealed");
+                                visible++;
+                            } else {
+                                item.classList.add("is-hidden");
+                                item.classList.remove("is-revealed");
+                            }
+                        });
+                        const completedCount = all.filter(function(i) {
+                            return i.classList.contains("is-completed");
+                        }).length;
+                        const incompleteCount = all.length - completedCount;
+                        if (allDoneEl) if (incompleteCount === 0) allDoneEl.removeAttribute("hidden"); else allDoneEl.setAttribute("hidden", "");
+                        if (toggleBtn) if (completedCount > 0) toggleBtn.removeAttribute("hidden"); else {
+                            toggleBtn.setAttribute("hidden", "");
+                            completedRevealed = false;
                         }
-                        if (visible < max) {
-                            item.classList.remove("is-hidden", "is-revealed");
-                            visible++;
+                        if (toggleShow && toggleHide) if (completedRevealed) {
+                            toggleShow.setAttribute("hidden", "");
+                            toggleHide.removeAttribute("hidden");
                         } else {
-                            item.classList.add("is-hidden");
-                            item.classList.remove("is-revealed");
+                            toggleShow.removeAttribute("hidden");
+                            toggleHide.setAttribute("hidden", "");
                         }
-                    });
-                    const completedCount = items.filter(i => i.classList.contains("is-completed")).length;
-                    const incompleteCount = items.length - completedCount;
-                    if (allDoneEl) if (incompleteCount === 0) allDoneEl.removeAttribute("hidden"); else allDoneEl.setAttribute("hidden", "");
-                    if (toggleBtn) if (completedCount > 0) toggleBtn.removeAttribute("hidden"); else {
-                        toggleBtn.setAttribute("hidden", "");
-                        completedRevealed = false;
                     }
-                    if (toggleShow && toggleHide) if (completedRevealed) {
-                        toggleShow.setAttribute("hidden", "");
-                        toggleHide.removeAttribute("hidden");
-                    } else {
-                        toggleShow.removeAttribute("hidden");
-                        toggleHide.setAttribute("hidden", "");
+                    function persist(item, completed) {
+                        if (!endpoint) return Promise.resolve();
+                        const id = encodeURIComponent(item.dataset.recommendationId || "");
+                        const url = endpoint.indexOf("<id>") !== -1 ? endpoint.replace("<id>", id) : endpoint.replace(/\/?$/, "/") + id + "/";
+                        return fetch(url, {
+                            method,
+                            credentials: "same-origin",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "X-CSRFToken": getCsrfToken(),
+                                "X-Requested-With": "XMLHttpRequest"
+                            },
+                            body: JSON.stringify({
+                                completed
+                            })
+                        }).then(function(res) {
+                            if (!res.ok) throw new Error("HTTP " + res.status);
+                        });
                     }
-                };
-                items.forEach(item => {
-                    const btn = item.querySelector("[data-recommendation-toggle]");
-                    if (!btn) return;
-                    btn.addEventListener("click", e => {
-                        e.stopPropagation();
-                        item.classList.contains("is-completed");
+                    list.addEventListener("click", function(e) {
+                        const btn = e.target.closest("[data-recommendation-toggle]");
+                        if (!btn) return;
+                        const item = btn.closest("[data-recommendation]");
+                        if (!item) return;
+                        const willBeCompleted = !item.classList.contains("is-completed");
                         item.classList.toggle("is-completed");
                         refresh();
+                        persist(item, willBeCompleted).catch(function() {
+                            item.classList.toggle("is-completed");
+                            refresh();
+                        });
                     });
-                });
-                if (toggleBtn) toggleBtn.addEventListener("click", () => {
-                    completedRevealed = !completedRevealed;
+                    if (toggleBtn) toggleBtn.addEventListener("click", function() {
+                        completedRevealed = !completedRevealed;
+                        refresh();
+                    });
                     refresh();
-                });
-                refresh();
-            });
+                }
+                document.querySelectorAll("[data-recommendations]").forEach(initCard);
+            })();
             const actionPopup = document.querySelector("[data-action-popup]");
             if (actionPopup) {
                 const nameEl = actionPopup.querySelector("[data-action-popup-name]");
