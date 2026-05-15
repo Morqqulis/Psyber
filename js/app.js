@@ -26058,12 +26058,36 @@
                     const endpoint = card.dataset.recommendationsEndpoint || "";
                     const method = (card.dataset.recommendationsMethod || "POST").toUpperCase();
                     let completedRevealed = false;
+                    let initialized = false;
                     function items() {
                         return Array.from(list.querySelectorAll("[data-recommendation]"));
                     }
+                    function animateIn(item) {
+                        const gapPx = parseFloat(getComputedStyle(list).rowGap) || 0;
+                        item.style.transition = "none";
+                        item.style.opacity = "0";
+                        item.style.overflow = "hidden";
+                        item.style.height = "0px";
+                        if (gapPx > 0) item.style.marginTop = "-" + gapPx + "px";
+                        void item.offsetHeight;
+                        const targetHeight = item.scrollHeight;
+                        item.style.transition = "";
+                        void item.offsetHeight;
+                        item.style.height = targetHeight + "px";
+                        item.style.marginTop = "";
+                        item.style.opacity = "";
+                        setTimeout(function() {
+                            item.style.height = "";
+                            item.style.overflow = "";
+                        }, 400);
+                    }
                     function refresh() {
-                        let visible = 0;
                         const all = items();
+                        const wasHidden = new WeakMap;
+                        all.forEach(function(item) {
+                            wasHidden.set(item, item.classList.contains("is-hidden"));
+                        });
+                        let visible = 0;
                         all.forEach(function(item) {
                             const isCompleted = item.classList.contains("is-completed");
                             if (isCompleted) {
@@ -26084,6 +26108,11 @@
                                 item.classList.remove("is-revealed");
                             }
                         });
+                        if (initialized) all.forEach(function(item) {
+                            const nowVisible = !item.classList.contains("is-hidden") && !item.classList.contains("is-completed") && !item.classList.contains("is-completing");
+                            if (wasHidden.get(item) && nowVisible) animateIn(item);
+                        });
+                        initialized = true;
                         const completedCount = all.filter(function(i) {
                             return i.classList.contains("is-completed");
                         }).length;
@@ -26120,16 +26149,62 @@
                             if (!res.ok) throw new Error("HTTP " + res.status);
                         });
                     }
+                    const REWARD_HOLD_MS = 700;
+                    const FADE_MS = 400;
+                    function completeWithAnimation(item) {
+                        if (item.dataset.completing === "1") return;
+                        item.dataset.completing = "1";
+                        item.classList.add("is-completing");
+                        const persistPromise = persist(item, true);
+                        let rolledBack = false;
+                        const holdTimer = setTimeout(function() {
+                            if (rolledBack) return;
+                            const startHeight = item.offsetHeight;
+                            const gapPx = parseFloat(getComputedStyle(list).rowGap) || 0;
+                            item.style.height = startHeight + "px";
+                            void item.offsetHeight;
+                            item.classList.add("is-fading-out");
+                            item.style.height = "0px";
+                            if (gapPx > 0) item.style.marginTop = "-" + gapPx + "px";
+                            const fadeTimer = setTimeout(function() {
+                                if (rolledBack) return;
+                                item.classList.remove("is-completing", "is-fading-out");
+                                item.classList.add("is-completed");
+                                item.style.height = "";
+                                item.style.marginTop = "";
+                                delete item.dataset.completing;
+                                refresh();
+                            }, FADE_MS);
+                            item.dataset.fadeTimer = String(fadeTimer);
+                        }, REWARD_HOLD_MS);
+                        item.dataset.holdTimer = String(holdTimer);
+                        persistPromise.catch(function() {
+                            rolledBack = true;
+                            clearTimeout(parseInt(item.dataset.holdTimer, 10));
+                            clearTimeout(parseInt(item.dataset.fadeTimer, 10));
+                            item.classList.remove("is-completing", "is-fading-out");
+                            item.style.height = "";
+                            item.style.marginTop = "";
+                            delete item.dataset.completing;
+                            delete item.dataset.holdTimer;
+                            delete item.dataset.fadeTimer;
+                            refresh();
+                        });
+                    }
                     list.addEventListener("click", function(e) {
                         const btn = e.target.closest("[data-recommendation-toggle]");
                         if (!btn) return;
                         const item = btn.closest("[data-recommendation]");
                         if (!item) return;
-                        const willBeCompleted = !item.classList.contains("is-completed");
-                        item.classList.toggle("is-completed");
+                        const isCompleted = item.classList.contains("is-completed");
+                        if (!isCompleted) {
+                            completeWithAnimation(item);
+                            return;
+                        }
+                        item.classList.remove("is-completed");
                         refresh();
-                        persist(item, willBeCompleted).catch(function() {
-                            item.classList.toggle("is-completed");
+                        persist(item, false).catch(function() {
+                            item.classList.add("is-completed");
                             refresh();
                         });
                     });

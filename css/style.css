@@ -11263,11 +11263,35 @@ h6 {
       -ms-flex-align: start;
           align-items: flex-start;
   gap: 0.75rem;
+  -webkit-transition: opacity .4s ease,height .4s ease,margin-top .4s ease;
+  transition: opacity .4s ease,height .4s ease,margin-top .4s ease;
 }
 
 .recommendations-card__item.is-hidden,
 .recommendations-card__item.is-completed {
   display: none;
+}
+
+.recommendations-card__item.is-completing .recommendations-card__check-empty {
+  display: none;
+}
+
+.recommendations-card__item.is-completing .recommendations-card__check-filled {
+  display: block;
+  -webkit-animation: recommendations-card-check-pop .35s ease-out;
+          animation: recommendations-card-check-pop .35s ease-out;
+}
+
+.recommendations-card__item.is-completing .recommendations-card__item-text {
+  opacity: .6;
+  -webkit-transition: opacity .25s ease;
+  transition: opacity .25s ease;
+}
+
+.recommendations-card__item.is-fading-out {
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
 }
 
 .recommendations-card__item.is-completed.is-revealed {
@@ -11286,6 +11310,40 @@ h6 {
 
 .recommendations-card__item.is-completed.is-revealed .recommendations-card__item-text {
   opacity: .6;
+}
+
+@-webkit-keyframes recommendations-card-check-pop {
+  0% {
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+  }
+
+  60% {
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes recommendations-card-check-pop {
+  0% {
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+  }
+
+  60% {
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 .recommendations-card__check {
