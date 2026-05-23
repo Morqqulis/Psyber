@@ -28098,6 +28098,30 @@
             circles.forEach(renderCircle);
             observeCircles();
         }
+        const PRICE_SELECTORS = [ ".plan-card__price", ".plan-info__price", ".sign-up-price" ];
+        function formatNumeric(raw) {
+            const num = Number(raw);
+            if (!Number.isFinite(num)) return null;
+            const hasDecimals = raw.includes(".");
+            return new Intl.NumberFormat("en-US", {
+                minimumFractionDigits: hasDecimals ? 2 : 0,
+                maximumFractionDigits: hasDecimals ? 2 : 0
+            }).format(num);
+        }
+        function formatPriceText(text) {
+            return text.replace(/(\d+(?:\.\d+)?)/, match => {
+                const formatted = formatNumeric(match);
+                return formatted == null ? match : formatted;
+            });
+        }
+        const initFormatPrices = () => {
+            const nodes = document.querySelectorAll(PRICE_SELECTORS.join(","));
+            nodes.forEach(el => {
+                const original = el.textContent.trim();
+                if (!/\d/.test(original)) return;
+                el.textContent = formatPriceText(original);
+            });
+        };
         document.addEventListener("DOMContentLoaded", () => {
             initHealthCheck();
             initBusinessQuestions();
@@ -28112,6 +28136,7 @@
             initBsProfile();
             initRiskScores();
             initProgressCircles();
+            initFormatPrices();
         });
         window["FLS"] = true;
         isWebp();

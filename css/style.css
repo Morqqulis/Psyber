@@ -32,7 +32,7 @@ body {
 }
 
 body {
-  background: linear-gradient(181deg, #FBE7DA -25.65%, #F9F7F2 17.01%),#f9f7f2;
+  background: #f9f7f2;
   color: #5f5e5d;
   font-family: "Apfel Grotezk";
   font-weight: 400;
@@ -14468,6 +14468,10 @@ h6 {
       overscroll-behavior: none;
   -ms-touch-action: none;
       touch-action: none;
+}
+
+.header__modal-trigger {
+  display: none;
 }
 
 .wrapper {
