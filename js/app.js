@@ -28238,6 +28238,35 @@
             });
             syncIndustry();
         };
+        const formatMoney = value => {
+            const hasFraction = Math.round(value * 100) % 100 !== 0;
+            return new Intl.NumberFormat("en-US", {
+                minimumFractionDigits: hasFraction ? 2 : 0,
+                maximumFractionDigits: 2
+            }).format(value);
+        };
+        const initBillingToggle = () => {
+            const toggle = document.querySelector("[data-billing-toggle]");
+            if (!toggle) return;
+            const input = toggle.querySelector("[data-billing-switch]");
+            if (!input) return;
+            const prices = document.querySelectorAll("[data-price]");
+            function apply(isYearly) {
+                toggle.classList.toggle("is-yearly", isYearly);
+                prices.forEach(price => {
+                    const monthly = parseFloat(price.dataset.priceMonthly);
+                    const annual = parseFloat(price.dataset.priceAnnual);
+                    if (Number.isNaN(monthly) || Number.isNaN(annual)) return;
+                    const value = isYearly ? annual / 12 : monthly;
+                    price.textContent = "$" + formatMoney(value);
+                    const desc = price.closest(".plan-card__desc");
+                    const caption = desc && desc.querySelector("[data-price-caption]");
+                    if (caption) caption.textContent = isYearly ? "per month / billed annually" : "per month / billed monthly";
+                });
+            }
+            input.addEventListener("change", () => apply(input.checked));
+            apply(input.checked);
+        };
         document.addEventListener("DOMContentLoaded", () => {
             initHealthCheck();
             initBusinessQuestions();
@@ -28254,6 +28283,7 @@
             initProgressCircles();
             initFormatPrices();
             initOnboardingForm();
+            initBillingToggle();
         });
         window["FLS"] = true;
         isWebp();

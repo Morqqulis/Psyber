@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260526040154">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260526050145">
 </head>
 
 <body>
@@ -57,15 +57,16 @@
 						<div class="sign-up__top">
 							<h1 class="sign-up__title title">
 								Welcome to <span>Psyber</span> <br />
-								What plan is right for you
+								Pick Your Plan
 							</h1>
-							<div class="sign-up__desc">
-								<span>Monthly</span>
+							<div class="sign-up__desc" data-billing-toggle>
+								<span class="sign-up__period sign-up__period--monthly">Monthly</span>
 								<div class="sign-up__switch switch">
 									<label class="switch__label" for="switch"></label>
-									<input class="switch__input" type="checkbox" id="switch" />
+									<input class="switch__input" type="checkbox" id="switch" data-billing-switch />
 								</div>
-								<span>Yearly (Save 20%)</span>
+								<span class="sign-up__period sign-up__period--yearly">Yearly</span>
+								<span class="sign-up__save">Save 20%</span>
 							</div>
 						</div>
 
@@ -74,10 +75,6 @@
 							<div class="sign-up__card plan-card">
 								<div class="plan-card__header">
 									<span class="plan-card__heading">Ignite</span>
-									<div class="plan-card__desc">
-										<span class="plan-card__price">$XX</span>
-										<p class="plan-card__text">per month / billed annually</p>
-									</div>
 									<div class="plan-card__select select select--rounded">
 										<select id="ignite-select">
 											<option value="1-10">1-10 users</option>
@@ -91,6 +88,16 @@
 											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
 										</svg>
 									</div>
+									<div class="plan-card__desc">
+										<span class="plan-card__price" data-price data-price-monthly="99" data-price-annual="950">$99</span>
+										<p class="plan-card__text" data-price-caption>per month / billed monthly</p>
+									</div>
+									<a href="sign-up-details.html" class="plan-card__btn btn btn--primary">
+										Start a free trial
+										<svg class="btn__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
 								</div>
 								<span class="plan-card__separator separator"></span>
 								<div class="plan-card__body sign-up-list">
@@ -115,22 +122,12 @@
 											<span>Feature security</span>
 										</li>
 									</ul>
-									<a href="sign-up-details.html" class="plan-card__btn btn btn--primary">
-										Get started
-										<svg class="btn__icon" width="24" height="24">
-											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
-										</svg>
-									</a>
 								</div>
 							</div>
 
 							<div class="sign-up__card plan-card">
 								<div class="plan-card__header">
 									<span class="plan-card__heading">Pulse</span>
-									<div class="plan-card__desc">
-										<span class="plan-card__price">$XX</span>
-										<p class="plan-card__text">per month / billed annually</p>
-									</div>
 									<div class="plan-card__select select select--rounded">
 										<select id="pulse-select">
 											<option value="1-70" selected>1-70 users</option>
@@ -142,6 +139,16 @@
 											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
 										</svg>
 									</div>
+									<div class="plan-card__desc">
+										<span class="plan-card__price" data-price data-price-monthly="799" data-price-annual="7670">$799</span>
+										<p class="plan-card__text" data-price-caption>per month / billed monthly</p>
+									</div>
+									<a href="sign-up-details.html" class="plan-card__btn btn btn--primary">
+										Start a free trial
+										<svg class="btn__icon" width="24" height="24">
+											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+										</svg>
+									</a>
 								</div>
 								<span class="plan-card__separator separator"></span>
 								<div class="plan-card__body sign-up-list">
@@ -172,34 +179,37 @@
 											<span>Branding in the player</span>
 										</li>
 									</ul>
-									<a href="sign-up-details.html" class="plan-card__btn btn btn--primary">
-										Get started
-										<svg class="btn__icon" width="24" height="24">
-											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
-										</svg>
-									</a>
 								</div>
 							</div>
 
 							<div class="sign-up__card plan-card">
 								<div class="plan-card__header">
 									<span class="plan-card__heading">Enterprise</span>
-									<div class="plan-card__desc">
-										<span class="plan-card__price">Need more?</span>
-										<a href="#" class="plan-card__link">Request Annual Plan</a>
-									</div>
-									<div class="plan-card__select select select--rounded">
-										<select id="enterprise-select">
-											<option value="1000+" selected>1000+ users</option>
-											<option value="1100+">1100+ users</option>
-											<option value="1200+">1200+ users</option>
-											<option value="1300+">1300+ users</option>
-											<option value="1400+">1400+ users</option>
-											<option value="1500+">1500+ users</option>
+									<div class="plan-card__select plan-card__select--static select select--rounded">
+										<select id="enterprise-select" disabled aria-disabled="true" tabindex="-1">
+											<option value="200+" selected>Starts at 200+ users</option>
 										</select>
 										<svg class="select__icon">
 											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
 										</svg>
+									</div>
+									<div class="plan-card__desc">
+										<span class="plan-card__price">Need more?</span>
+										<a href="#" class="plan-card__link">Request Annual Plan</a>
+									</div>
+									<div class="plan-card__actions">
+										<button class="plan-card__btn btn btn--primary" type="button">
+											contact sales
+											<svg class="btn__icon" width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+											</svg>
+										</button>
+										<a href="#" class="plan-card__btn btn btn--outline">
+											book a demo
+											<svg class="btn__icon" width="24" height="24">
+												<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
+											</svg>
+										</a>
 									</div>
 								</div>
 								<span class="plan-card__separator separator"></span>
@@ -243,12 +253,6 @@
 											<span>Feature security</span>
 										</li>
 									</ul>
-									<button class="plan-card__btn btn btn--outline" type="button">
-										contact sales
-										<svg class="btn__icon" width="24" height="24">
-											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
-										</svg>
-									</button>
 								</div>
 							</div>
 
@@ -294,7 +298,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20260526040154"></script>
+	<script src="js/app.min.js?_v=20260526050145"></script>
 </body>
 
 </html>

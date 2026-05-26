@@ -1840,8 +1840,31 @@ h6 {
   gap: 0.75rem;
 }
 
-.sign-up__desc span:first-child {
+.sign-up__desc.is-yearly .sign-up__period--monthly {
+  font-weight: 400;
+}
+
+.sign-up__desc.is-yearly .sign-up__period--yearly {
   font-weight: 600;
+}
+
+.sign-up__period--monthly {
+  font-weight: 600;
+}
+
+.sign-up__period--yearly {
+  font-weight: 400;
+}
+
+.sign-up__save {
+  padding: 0.25rem 0.625rem;
+  border-radius: 6.25rem;
+  background-color: rgba(80,165,168,.14);
+  color: #50a5a8;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .sign-up__cards {
@@ -1939,6 +1962,27 @@ h6 {
   gap: 0.25rem;
 }
 
+.plan-card__select--static select {
+  opacity: 1;
+  color: #1a1918;
+  background-color: #fff;
+  cursor: default;
+}
+
+.plan-card__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.plan-card__actions .btn {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding-inline: 1rem;
+}
+
 .plan-card__body {
   display: -ms-grid;
   display: grid;
@@ -1984,15 +2028,17 @@ h6 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   gap: 0.5rem;
   color: rgba(26,25,24,.7);
 }
 
 .sign-up-list__check {
   color: #50a5a8;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .sign-up-heading,
@@ -17516,6 +17562,13 @@ h6 {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     gap: 0.5rem;
+  }
+
+  .plan-card__actions {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 
   .payment-form__row {
