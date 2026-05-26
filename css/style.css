@@ -2030,6 +2030,23 @@ h6 {
   width: 100%;
 }
 
+.onboarding-form__item[hidden] {
+  display: none;
+}
+
+.onboarding-form .input._form-error,
+.onboarding-form select._form-error {
+  border-color: #e5484d;
+  -webkit-box-shadow: 0 0 0 2px rgba(229,72,77,.18);
+          box-shadow: 0 0 0 2px rgba(229,72,77,.18);
+}
+
+.onboarding-form__error {
+  color: #e5484d;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+}
+
 .onboarding-form__label {
   line-height: 1.2;
   font-size: 1rem;
@@ -2625,8 +2642,6 @@ h6 {
 .health-check__loading-icon img {
   width: 100%;
   height: 100%;
-  -webkit-animation: rotate-center 2s linear infinite;
-          animation: rotate-center 2s linear infinite;
 }
 
 .health-check__loading-title {
@@ -8496,8 +8511,6 @@ h6 {
 }
 
 .business-quiz__loading-icon img {
-  -webkit-animation: rotate-center 2s linear infinite;
-          animation: rotate-center 2s linear infinite;
   width: 100%;
   height: 100%;
 }

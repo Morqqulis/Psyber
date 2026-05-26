@@ -28122,6 +28122,122 @@
                 el.textContent = formatPriceText(original);
             });
         };
+        const SUBSECTORS = {
+            charities: [ "Community services", "Aged care", "Disability services", "Animal welfare", "Arts and culture", "International aid", "Religious organisations" ],
+            construction: [ "Residential building", "Commercial construction", "Civil and infrastructure", "Electrical and plumbing", "Project management", "Property development" ],
+            education: [ "Primary and secondary (K-12)", "Higher education (universities)", "Vocational and TAFE", "Early childhood", "Private tutoring and coaching", "EdTech" ],
+            finance: [ "Banking", "Insurance", "Superannuation", "Financial planning and advice", "Accounting", "Mortgage broking", "Fintech" ],
+            healthcare: [ "Hospitals and health systems", "General practice (GP clinics)", "Allied health", "Aged care", "Mental health services", "Pathology and diagnostics", "Telehealth" ],
+            legal: [ "Commercial law", "Family law", "Criminal law", "Conveyancing", "Employment law", "In-house legal (corporate)" ],
+            "local-government": [ "Council administration", "Planning and development", "Community services", "Infrastructure and works", "Libraries and recreation" ],
+            manufacturing: [ "Food and beverage", "Pharmaceuticals", "Automotive", "Electronics", "Textiles", "Industrial equipment" ],
+            mining: [ "Coal", "Iron ore and metals", "Oil and gas", "Exploration", "Mining services and contracting" ],
+            retail: [ "Supermarkets and grocery", "Fashion and apparel", "Electronics", "Pharmacy", "E-commerce", "Hospitality and food service" ],
+            technology: [ "SaaS and software", "IT services and MSPs", "Cybersecurity", "Hardware", "Telecommunications", "AI and data" ]
+        };
+        const slugify = label => label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+        const initOnboardingForm = () => {
+            const form = document.querySelector("[data-onboarding-form]");
+            if (!form) return;
+            const industry = form.querySelector("[data-industry]");
+            const subsectorField = form.querySelector("[data-subsector-field]");
+            const subsector = form.querySelector("[data-subsector]");
+            const otherField = form.querySelector("[data-other-field]");
+            const otherInput = form.querySelector("[data-other-input]");
+            const show = el => el && el.removeAttribute("hidden");
+            const hide = el => el && el.setAttribute("hidden", "");
+            function populateSubsectors(value) {
+                if (subsector.dataset.populatedFor === value) return;
+                const previous = subsector.value;
+                const list = SUBSECTORS[value] || [];
+                subsector.innerHTML = '<option disabled value="">Select a sub-sector</option>';
+                list.forEach(label => {
+                    const opt = document.createElement("option");
+                    opt.value = slugify(label);
+                    opt.textContent = label;
+                    subsector.appendChild(opt);
+                });
+                const match = list.find(label => slugify(label) === previous);
+                subsector.value = match ? previous : "";
+                subsector.dataset.populatedFor = value;
+            }
+            function syncIndustry() {
+                const value = industry.value;
+                if (value === "other") {
+                    hide(subsectorField);
+                    subsector.required = false;
+                    show(otherField);
+                    otherInput.required = true;
+                } else if (value) {
+                    populateSubsectors(value);
+                    show(subsectorField);
+                    subsector.required = true;
+                    hide(otherField);
+                    otherInput.required = false;
+                    otherInput.value = "";
+                } else {
+                    hide(subsectorField);
+                    subsector.required = false;
+                    hide(otherField);
+                    otherInput.required = false;
+                }
+            }
+            function setError(control, message) {
+                control.classList.add("_form-error");
+                const item = control.closest(".onboarding-form__item");
+                if (!item) return;
+                let msg = item.querySelector(".onboarding-form__error");
+                if (!msg) {
+                    msg = document.createElement("span");
+                    msg.className = "onboarding-form__error";
+                    item.appendChild(msg);
+                }
+                msg.textContent = message;
+            }
+            function clearError(control) {
+                control.classList.remove("_form-error");
+                const item = control.closest(".onboarding-form__item");
+                const msg = item && item.querySelector(".onboarding-form__error");
+                if (msg) msg.remove();
+            }
+            function validateControl(control) {
+                const value = control.value.trim();
+                if (!value) {
+                    setError(control, "This field is required.");
+                    return false;
+                }
+                if (control.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    setError(control, "Enter a valid email address.");
+                    return false;
+                }
+                clearError(control);
+                return true;
+            }
+            function activeControls() {
+                return Array.from(form.querySelectorAll("input, select")).filter(el => el.required && el.offsetParent !== null);
+            }
+            industry.addEventListener("change", () => {
+                syncIndustry();
+                clearError(industry);
+            });
+            form.addEventListener("input", e => {
+                if (e.target.matches("input, select")) clearError(e.target);
+            });
+            form.addEventListener("change", e => {
+                if (e.target.matches("select")) clearError(e.target);
+            });
+            form.addEventListener("submit", e => {
+                let firstInvalid = null;
+                activeControls().forEach(control => {
+                    if (!validateControl(control) && !firstInvalid) firstInvalid = control;
+                });
+                if (firstInvalid) {
+                    e.preventDefault();
+                    firstInvalid.focus();
+                }
+            });
+            syncIndustry();
+        };
         document.addEventListener("DOMContentLoaded", () => {
             initHealthCheck();
             initBusinessQuestions();
@@ -28137,6 +28253,7 @@
             initRiskScores();
             initProgressCircles();
             initFormatPrices();
+            initOnboardingForm();
         });
         window["FLS"] = true;
         isWebp();

@@ -10,7 +10,7 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260523043501">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260526040154">
 </head>
 
 <body>
@@ -66,7 +66,7 @@
 						</div>
 
 						<div class="sign-up__inner">
-							<form class="sign-up__form onboarding-form" action="sign-up-payment.html">
+							<form class="sign-up__form onboarding-form" action="sign-up-payment.html" data-onboarding-form novalidate>
 								<div class="onboarding-form__item">
 									<label class="onboarding-form__label" for="business-input">
 										Business Name
@@ -75,13 +75,20 @@
 								</div>
 
 								<div class="onboarding-form__item">
-									<label class="onboarding-form__label" for="business-industry">What's your industry?</label>
+									<label class="onboarding-form__label" for="business-industry">Industry</label>
 									<div class="onboarding-form__select select">
-										<select name="business-industry" id="business-industry" required>
-											<option value="construction" selected>Construction</option>
+										<select name="business-industry" id="business-industry" required data-industry>
+											<option disabled selected value="">Select your industry</option>
+											<option value="charities">Charities and Not-For-Profits</option>
+											<option value="construction">Construction</option>
 											<option value="education">Education</option>
 											<option value="finance">Finance</option>
 											<option value="healthcare">Healthcare</option>
+											<option value="legal">Legal</option>
+											<option value="local-government">Local Government</option>
+											<option value="manufacturing">Manufacturing</option>
+											<option value="mining">Mining</option>
+											<option value="retail">Retail</option>
 											<option value="technology">Technology</option>
 											<option value="other">Other</option>
 										</select>
@@ -89,52 +96,28 @@
 											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
 										</svg>
 									</div>
-									<div class="onboarding-form__desc">
-										<svg class="onboarding-form__info" width="20" height="20">
-											<use xlink:href="img/icons/icons.svg#svg-info"></use>
-										</svg>
-										<p>Make sure this is correct as it will be hard to change later!</p>
-									</div>
 								</div>
 
-								<div class="onboarding-form__item">
-									<label class="onboarding-form__label" for="business-sub-sector">Choose a sub-sector for your main industry?</label>
+								<div class="onboarding-form__item" data-subsector-field hidden>
+									<label class="onboarding-form__label" for="business-sub-sector">Choose a sub-sector for your industry</label>
 									<div class="onboarding-form__select select">
-										<select name="business-sub-sector" id="business-sub-sector" required>
+										<select name="business-sub-sector" id="business-sub-sector" data-subsector>
 											<option disabled selected value="">Select a sub-sector</option>
-											<option value="general-construction">General construction</option>
-											<option value="education">Education</option>
-											<option value="finance">Finance</option>
-											<option value="healthcare">Healthcare</option>
-											<option value="technology">Technology</option>
-											<option value="other">Other</option>
 										</select>
 										<svg class="select__icon" width="24" height="24">
 											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
 										</svg>
-									</div>
-									<div class="onboarding-form__desc">
-										<svg class="onboarding-form__info" width="20" height="20">
-											<use xlink:href="img/icons/icons.svg#svg-info"></use>
-										</svg>
-										<p>This will help refine your course selection.</p>
 									</div>
 								</div>
 
+								<div class="onboarding-form__item" data-other-field hidden>
+									<label class="onboarding-form__label" for="business-other-industry">Please describe your industry</label>
+									<input class="onboarding-form__input input" type="text" id="business-other-industry" name="business-other-industry" placeholder="Describe your industry" data-other-input>
+								</div>
+
 								<div class="onboarding-form__item">
-									<label class="onboarding-form__label" for="business-position">Position/Role</label>
-									<div class="onboarding-form__select select">
-										<select name="business-position" id="business-position" required>
-											<option disabled selected value="">Select your position or role</option>
-											<option value="ceo">CEO</option>
-											<option value="manager">Manager</option>
-											<option value="employee">Employee</option>
-											<option value="other">Other</option>
-										</select>
-										<svg class="select__icon" width="24" height="24">
-											<use xlink:href="img/icons/icons.svg#svg-chevron-down"></use>
-										</svg>
-									</div>
+									<label class="onboarding-form__label" for="business-role">Role</label>
+									<input class="onboarding-form__input input" type="text" id="business-role" name="business-role" required placeholder="Enter your role">
 								</div>
 
 								<div class="onboarding-form__row">
@@ -150,12 +133,12 @@
 
 								<div class="onboarding-form__row">
 									<div class="onboarding-form__item">
-										<label class="onboarding-form__label" for="business-contact-number">Contact number</label>
-										<input class="onboarding-form__input input" type="text" id="business-contact-number" name="business-contact-number" required placeholder="Your contact number...">
-									</div>
-									<div class="onboarding-form__item">
 										<label class="onboarding-form__label" for="business-email">Email</label>
 										<input class="onboarding-form__input input" type="email" id="business-email" name="business-email" required placeholder="Your email address...">
+									</div>
+									<div class="onboarding-form__item">
+										<label class="onboarding-form__label" for="business-contact-number">Contact number</label>
+										<input class="onboarding-form__input input" type="text" id="business-contact-number" name="business-contact-number" required placeholder="Your contact number...">
 									</div>
 								</div>
 
@@ -266,7 +249,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20260523043501"></script>
+	<script src="js/app.min.js?_v=20260526040154"></script>
 </body>
 
 </html>
