@@ -28095,11 +28095,11 @@
         }
         const RADIUS = 17;
         const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
-        const COLOR_AZURE = "#50A5A8";
+        const COLOR_GREEN = "#5BAA6F";
         const COLOR_LANGERINE = "#F56751";
         const COLOR_GRAY = "#E8E1CE";
         function getProgressColor(value) {
-            if (value >= 100) return COLOR_AZURE;
+            if (value >= 100) return COLOR_GREEN;
             if (value > 0) return COLOR_LANGERINE;
             return COLOR_GRAY;
         }
