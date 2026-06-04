@@ -27119,6 +27119,7 @@
             if (progressContainer) progressContainer.style.transition = "opacity 0.3s ease";
             const els = {
                 progressSpans: progressContainer ? progressContainer.querySelectorAll("[data-quiz-progress]") : [],
+                image: quizContainer.querySelector("[data-quiz-image]"),
                 category: quizContainer.querySelector("[data-quiz-category]"),
                 question: quizContainer.querySelector("[data-quiz-question]"),
                 options: quizContainer.querySelector("[data-quiz-options]"),
@@ -27581,36 +27582,10 @@
                     updateButtons();
                 }
             });
-            let _progressCurrent = 0;
-            let _progressTarget = 0;
-            let _progressFrame = null;
-            function applyLoaderProgress(ratio) {
-                const offset = 64 * (1 - ratio);
-                document.querySelectorAll("[data-progress-fill]").forEach(fill => {
-                    fill.setAttribute("transform", `translate(0 ${offset})`);
-                });
-            }
-            function setLoaderProgress(ratio) {
-                _progressTarget = Math.max(0, Math.min(1, ratio));
-                if (_progressFrame) return;
-                const tick = () => {
-                    const diff = _progressTarget - _progressCurrent;
-                    if (Math.abs(diff) < .002) {
-                        _progressCurrent = _progressTarget;
-                        applyLoaderProgress(_progressCurrent);
-                        _progressFrame = null;
-                        return;
-                    }
-                    _progressCurrent += diff * .18;
-                    applyLoaderProgress(_progressCurrent);
-                    _progressFrame = requestAnimationFrame(tick);
-                };
-                _progressFrame = requestAnimationFrame(tick);
-            }
             function renderStep(index) {
                 const q = questions[index];
                 if (!q) return;
-                setLoaderProgress((index + 1) / questions.length);
+                if (q.image && els.image) els.image.src = q.image;
                 if (els.count) els.count.textContent = q.numberDisplay;
                 if (els.category && q.category) els.category.textContent = q.category.toUpperCase();
                 if (els.question) els.question.textContent = q.question;
