@@ -26888,6 +26888,30 @@
                 document.querySelectorAll("[data-badge-popup-open]").forEach(trigger => {
                     trigger.addEventListener("click", openBadgePopup);
                 });
+                const shareBtn = badgePopup.querySelector(".badge-popup__share");
+                if (shareBtn) {
+                    const shareLabel = shareBtn.querySelector("span");
+                    shareBtn.addEventListener("click", async () => {
+                        const title = badgePopup.querySelector(".badge-popup__title")?.textContent?.trim() || "I earned a Psyber badge!";
+                        const url = window.location.origin + window.location.pathname;
+                        try {
+                            if (navigator.share) await navigator.share({
+                                title,
+                                url
+                            }); else if (navigator.clipboard) {
+                                await navigator.clipboard.writeText(url);
+                                if (shareLabel) {
+                                    const original = shareLabel.textContent;
+                                    shareLabel.textContent = "copied!";
+                                    setTimeout(() => {
+                                        shareLabel.textContent = original;
+                                    }, 1500);
+                                }
+                            }
+                        } catch {}
+                    });
+                }
+                window.openBadgePopup = openBadgePopup;
             }
             const certPopup = document.querySelector("[data-cert-popup]");
             if (certPopup) {
@@ -27095,7 +27119,6 @@
             if (progressContainer) progressContainer.style.transition = "opacity 0.3s ease";
             const els = {
                 progressSpans: progressContainer ? progressContainer.querySelectorAll("[data-quiz-progress]") : [],
-                image: quizContainer.querySelector("[data-quiz-image]"),
                 category: quizContainer.querySelector("[data-quiz-category]"),
                 question: quizContainer.querySelector("[data-quiz-question]"),
                 options: quizContainer.querySelector("[data-quiz-options]"),
@@ -27558,10 +27581,36 @@
                     updateButtons();
                 }
             });
+            let _progressCurrent = 0;
+            let _progressTarget = 0;
+            let _progressFrame = null;
+            function applyLoaderProgress(ratio) {
+                const offset = 64 * (1 - ratio);
+                document.querySelectorAll("[data-progress-fill]").forEach(fill => {
+                    fill.setAttribute("transform", `translate(0 ${offset})`);
+                });
+            }
+            function setLoaderProgress(ratio) {
+                _progressTarget = Math.max(0, Math.min(1, ratio));
+                if (_progressFrame) return;
+                const tick = () => {
+                    const diff = _progressTarget - _progressCurrent;
+                    if (Math.abs(diff) < .002) {
+                        _progressCurrent = _progressTarget;
+                        applyLoaderProgress(_progressCurrent);
+                        _progressFrame = null;
+                        return;
+                    }
+                    _progressCurrent += diff * .18;
+                    applyLoaderProgress(_progressCurrent);
+                    _progressFrame = requestAnimationFrame(tick);
+                };
+                _progressFrame = requestAnimationFrame(tick);
+            }
             function renderStep(index) {
                 const q = questions[index];
                 if (!q) return;
-                if (q.image && els.image) els.image.src = q.image;
+                setLoaderProgress((index + 1) / questions.length);
                 if (els.count) els.count.textContent = q.numberDisplay;
                 if (els.category && q.category) els.category.textContent = q.category.toUpperCase();
                 if (els.question) els.question.textContent = q.question;
@@ -27803,6 +27852,32 @@
                     value: 5
                 } ]
             } ];
+            let _progressCurrent = 0;
+            let _progressTarget = 0;
+            let _progressFrame = null;
+            function applyLoaderProgress(ratio) {
+                const offset = 64 * (1 - ratio);
+                document.querySelectorAll("[data-progress-fill]").forEach(fill => {
+                    fill.setAttribute("transform", `translate(0 ${offset})`);
+                });
+            }
+            function setLoaderProgress(ratio) {
+                _progressTarget = Math.max(0, Math.min(1, ratio));
+                if (_progressFrame) return;
+                const tick = () => {
+                    const diff = _progressTarget - _progressCurrent;
+                    if (Math.abs(diff) < .002) {
+                        _progressCurrent = _progressTarget;
+                        applyLoaderProgress(_progressCurrent);
+                        _progressFrame = null;
+                        return;
+                    }
+                    _progressCurrent += diff * .18;
+                    applyLoaderProgress(_progressCurrent);
+                    _progressFrame = requestAnimationFrame(tick);
+                };
+                _progressFrame = requestAnimationFrame(tick);
+            }
             renderStep(state.currentStep);
             els.nextBtn.addEventListener("click", () => {
                 const q = questions[state.currentStep];
@@ -27811,21 +27886,8 @@
                     state.currentStep++;
                     renderStep(state.currentStep);
                 } else {
-                    if (quizContainer) {
-                        quizContainer.classList.add("is-loading");
-                        setTimeout(() => {
-                            quizContainer.classList.remove("is-loading");
-                            quizContainer.classList.add("is-result");
-                            const headBtn = document.querySelector("[data-header-dashboard]");
-                            if (headBtn) {
-                                headBtn.classList.remove("hidden");
-                                setTimeout(() => {
-                                    headBtn.style.opacity = "1";
-                                    headBtn.style.pointerEvents = "all";
-                                }, 50);
-                            }
-                        }, 500);
-                    }
+                    setLoaderProgress(1);
+                    window.location.href = "business-home.html?welcome=1";
                     console.log("Business Finished", state.answers);
                 }
             });
@@ -27844,6 +27906,7 @@
             function renderStep(index) {
                 const q = questions[index];
                 if (!q) return;
+                setLoaderProgress((index + 1) / questions.length);
                 if (els.count) els.count.textContent = `${index + 1}/${questions.length}`;
                 if (els.category && q.category) els.category.textContent = q.category.toUpperCase();
                 if (els.question) els.question.textContent = q.question;
@@ -28267,6 +28330,99 @@
             input.addEventListener("change", () => apply(input.checked));
             apply(input.checked);
         };
+        const URL_FLAG = "welcome";
+        const wait = ms => new Promise(r => setTimeout(r, ms));
+        function revealItemsInOrder(selector, baseDelayMs) {
+            const nodes = Array.from(document.querySelectorAll(selector)).sort((a, b) => {
+                const oa = parseInt(a.dataset.welcomeOrder || "0", 10);
+                const ob = parseInt(b.dataset.welcomeOrder || "0", 10);
+                return oa - ob;
+            });
+            nodes.forEach((el, idx) => {
+                setTimeout(() => el.classList.add("is-revealed"), idx * baseDelayMs);
+            });
+            return nodes.length * baseDelayMs;
+        }
+        function animateRiskScore(instance, root) {
+            if (!instance || !root) return Promise.resolve();
+            const target = parseFloat(root.dataset.riskValue ?? "0");
+            if (!Number.isFinite(target) || target <= 0) return Promise.resolve();
+            const wasServerRendered = root.hasAttribute("data-risk-server-rendered");
+            if (wasServerRendered) {
+                root.removeAttribute("data-risk-server-rendered");
+                instance.serverRendered = false;
+            }
+            instance.setValue(0);
+            const duration = 1600;
+            const start = performance.now();
+            return new Promise(resolve => {
+                function tick(now) {
+                    const t = Math.min(1, (now - start) / duration);
+                    const eased = 1 - Math.pow(1 - t, 3);
+                    instance.setValue(target * eased);
+                    if (t < 1) requestAnimationFrame(tick); else resolve();
+                }
+                requestAnimationFrame(tick);
+            });
+        }
+        function cleanUrl() {
+            const url = new URL(window.location.href);
+            url.searchParams.delete(URL_FLAG);
+            window.history.replaceState({}, "", url.toString());
+        }
+        const initFirstTimeDashboard = ({riskScoreInstances} = {}) => {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get(URL_FLAG) !== "1") return;
+            (async () => {
+                const sidebarDuration = revealItemsInOrder('[data-welcome-step="sidebar"]', 160);
+                await wait(sidebarDuration + 80);
+                const scoreRoot = document.querySelector("[data-welcome-score] [data-risk-score]");
+                const scoreInstance = scoreRoot && riskScoreInstances && riskScoreInstances.get(scoreRoot);
+                const gaugePromise = animateRiskScore(scoreInstance, scoreRoot);
+                await wait(350);
+                const mainDuration = revealItemsInOrder('[data-welcome-step="main"]', 140);
+                await wait(mainDuration + 120);
+                await gaugePromise;
+                if (typeof window.openBadgePopup === "function") window.openBadgePopup();
+                cleanUrl();
+            })();
+        };
+        function findTextNode(el) {
+            return Array.from(el.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+        }
+        function flashLabel(el, msg, ms = 1500) {
+            const node = findTextNode(el);
+            if (!node) return;
+            const original = node.textContent;
+            node.textContent = " " + msg;
+            setTimeout(() => {
+                node.textContent = original;
+            }, ms);
+        }
+        async function handleShareClick(e, el, getTitle) {
+            e.preventDefault();
+            const title = getTitle(el);
+            const url = window.location.origin + window.location.pathname;
+            try {
+                if (navigator.share) await navigator.share({
+                    title,
+                    url
+                }); else if (navigator.clipboard) {
+                    await navigator.clipboard.writeText(url);
+                    flashLabel(el, "Copied!");
+                }
+            } catch {}
+        }
+        function getCertificateTitle(el) {
+            const item = el.closest(".bs-certificates__item");
+            const name = item?.querySelector(".bs-certificates__name")?.textContent?.trim();
+            return name ? `I just earned my "${name}" on Psyber!` : "My Psyber certificate";
+        }
+        const initShareButtons = () => {
+            document.querySelectorAll(".bs-certificates__share").forEach(el => {
+                el.addEventListener("click", e => handleShareClick(e, el, getCertificateTitle));
+            });
+        };
         document.addEventListener("DOMContentLoaded", () => {
             initHealthCheck();
             initBusinessQuestions();
@@ -28279,11 +28435,15 @@
             initTags();
             initAvatarOnboarding();
             initBsProfile();
-            initRiskScores();
+            const riskScoreInstances = initRiskScores();
             initProgressCircles();
             initFormatPrices();
             initOnboardingForm();
             initBillingToggle();
+            initFirstTimeDashboard({
+                riskScoreInstances
+            });
+            initShareButtons();
         });
         window["FLS"] = true;
         isWebp();

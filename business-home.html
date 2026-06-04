@@ -8,12 +8,19 @@
 	<!-- <meta http-equiv="Content-Security-Policy"
          content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
 
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260530193319">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260604094640">
 </head>
 
 <body>
+	<!-- Tag <html> with .is-first-time BEFORE the body paints so the welcome
+        CSS hides the animated containers from the very first frame (no flash). -->
+	<script>
+		if (window.location.search.indexOf('welcome=1') >= 0) {
+			document.documentElement.classList.add('is-first-time')
+		}
+	</script>
 	<div class="wrapper">
 		<header class="header" aria-labelledby="header">
 			<div class="header__container">
@@ -23,7 +30,7 @@
 				<nav class="header__nav">
 					<ul class="header__list">
 						<li class="header__item">
-							<a href="/business-home.html" class="header__link">
+							<a href="/business-home.html" class="header__link header__link--active">
 								<svg class="header__icon" width="24" height="24">
 									<use xlink:href="img/icons/icons.svg#svg-home"></use>
 								</svg>
@@ -31,7 +38,7 @@
 							</a>
 						</li>
 						<li class="header__item">
-							<a href="/training.html" class="header__link">
+							<a href="/bs-training.html" class="header__link">
 								<svg class="header__icon" width="24" height="24">
 									<use xlink:href="img/icons/icons.svg#svg-book-alt"></use>
 								</svg>
@@ -39,7 +46,7 @@
 							</a>
 						</li>
 						<li class="header__item">
-							<a href="/leaderboard.html" class="header__link">
+							<a href="/bs-leaderboard.html" class="header__link">
 								<svg class="header__icon" width="24" height="24">
 									<use xlink:href="img/icons/icons.svg#svg-flag"></use>
 								</svg>
@@ -47,7 +54,7 @@
 							</a>
 						</li>
 						<li class="header__item">
-							<a href="/report.html" class="header__link">
+							<a href="/bs-certificates.html" class="header__link">
 								<svg class="header__icon" width="24" height="24">
 									<use xlink:href="img/icons/icons.svg#svg-roll-alt"></use>
 								</svg>
@@ -185,56 +192,13 @@
 				</div>
 			</div>
 		</header>
-		<div class="banner is-active" data-banner>
-			<div class="banner__container banner__container--small">
-				<div class="banner__slider swiper">
-					<div class="banner__wrapper swiper-wrapper">
-						<div class="banner__slide swiper-slide">
-							<div class="banner__content">
-								<span class="banner__badge">Hey there!</span>
-								<p class="banner__text">
-									You haven’t added any learning staff to your business account.
-									<a href="#" class="banner__link">
-										Add/Invite them now
-										<svg width="16" height="16">
-											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
-										</svg>
-									</a>
-								</p>
-							</div>
-						</div>
-						<div class="banner__slide swiper-slide">
-							<div class="banner__content">
-								<span class="banner__badge">Hey there!</span>
-								<p class="banner__text">
-									You haven’t added any learning staff to your business account.
-									<a href="#" class="banner__link">
-										Add/Invite them now
-										<svg width="16" height="16">
-											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
-										</svg>
-									</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="banner__actions">
-					<div class="banner__pagination" data-da=".banner__slider, 566.98"></div>
-					<button class="banner__close" type="button" data-banner-close data-da=".banner__slider, 566.98">
-						<svg class="banner__close-icon" width="16" height="16">
-							<use xlink:href="img/icons/icons.svg#svg-close-small"></use>
-						</svg>
-					</button>
-				</div>
-			</div>
-		</div>
+
 
 		<main class="page business-home">
 			<div class="business-home__container business-home__container--small">
 				<div class="business-home__inner">
 					<div class="business-home__content">
-						<section class="business-home__hero welcome-hero">
+						<section class="business-home__hero welcome-hero" data-welcome-step="main" data-welcome-order="1">
 							<div class="business-home__avatar">
 								<picture><source srcset="img/business-home/avatar.webp" type="image/webp"><img src="img/business-home/avatar.png" alt="Jessica" width="100" height="100"></picture>
 							</div>
@@ -244,7 +208,7 @@
 							</div>
 						</section>
 
-						<section class="business-home__overview overview-dashboard box-style">
+						<section class="business-home__overview overview-dashboard box-style" data-welcome-step="main" data-welcome-order="2">
 							<h2 class="business-home__section-title">Overview</h2>
 							<div class="business-home__overview-grid">
 								<div class="business-home__overview-card">
@@ -286,7 +250,7 @@
 							</div>
 						</section>
 
-						<section class="business-home__training box-style">
+						<section class="business-home__training box-style" data-welcome-step="main" data-welcome-order="3" data-pending-courses>
 							<header class="business-home__section-header">
 								<div class="business-home__section-title-group">
 									<span class="business-home__overview-sub">Stage 1</span>
@@ -391,10 +355,10 @@
 							</div>
 						</section>
 
-						<section class="business-home__recommended">
+						<section class="business-home__recommended" data-welcome-step="main" data-welcome-order="4">
 							<header class="recommended-header">
 								<h2 class="business-home__section-title">PSR Recommended Courses</h2>
-								<span class="recommended-header__subtitle">(Based on your Personal Risk Score)</span>
+								<span class="recommended-header__subtitle">(Based on your Security Score)</span>
 							</header>
 							<div class="business-home__recommended-grid">
 								<article class="recommended-card box-style">
@@ -475,8 +439,8 @@
 					</div>
 
 					<aside class="business-home__sidebar">
-						<section class="risk-card box-style">
-							<h2 class="business-home__section-title">Personal Risk Score</h2>
+						<section class="risk-card box-style" data-welcome-step="sidebar" data-welcome-order="1" data-welcome-score>
+							<h2 class="business-home__section-title">Your Security Score</h2>
 							<div class="risk-card__chart">
 								<div class="risk-score" data-risk-score data-risk-server-rendered data-risk-value="1.5" data-risk-total="5">
 									<div class="risk-score__gauge">
@@ -507,11 +471,11 @@
 										<span class="risk-score__value">1.5</span>
 									</div>
 									<div class="risk-score__meta">
-										<span class="risk-score__label">Low</span>
+										<span class="risk-score__label">Level 1</span>
 										<div class="risk-score__level">
 											<span class="risk-score__badge">Level 1 – Unaware</span>
 										</div>
-										<span class="risk-score__label">High</span>
+										<span class="risk-score__label">Level 4</span>
 									</div>
 								</div>
 							</div>
@@ -578,12 +542,11 @@
 							</div>
 						</section>
 
-						<section class="badges-card card">
+						<section class="badges-card card" data-welcome-step="sidebar" data-welcome-order="2">
 							<h2 class="business-home__section-title badges-card__title">Badges</h2>
 							<div class="badges-card__grid">
 								<div class="badges-card__item">
 									<div class="badges-card__icon">
-										<img src="img/business-home/badges/bug.svg" alt="Badge">
 										<div class="badges-card__lock">
 											<img src="img/business-home/badges/badge-1.svg" alt="Badge">
 										</div>
@@ -591,7 +554,6 @@
 								</div>
 								<div class="badges-card__item">
 									<div class="badges-card__icon">
-										<img src="img/business-home/badges/cyber-security.svg" alt="Badge">
 										<div class="badges-card__lock">
 											<img src="img/business-home/badges/badge-2.svg" alt="Badge">
 										</div>
@@ -599,9 +561,57 @@
 								</div>
 								<div class="badges-card__item">
 									<div class="badges-card__icon">
-										<img src="img/business-home/badges/fishing.svg" alt="Badge">
 										<div class="badges-card__lock">
 											<img src="img/business-home/badges/badge-3.svg" alt="Badge">
+										</div>
+									</div>
+								</div>
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<div class="badges-card__lock">
+											<img src="img/business-home/badges/badge-4.svg" alt="Badge">
+										</div>
+									</div>
+								</div>
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<div class="badges-card__lock">
+											<img src="img/business-home/badges/badge-5.svg" alt="Badge">
+										</div>
+									</div>
+								</div>
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<div class="badges-card__lock">
+											<img src="img/business-home/badges/badge-6.svg" alt="Badge">
+										</div>
+									</div>
+								</div>
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<div class="badges-card__lock">
+											<img src="img/business-home/badges/badge-7.svg" alt="Badge">
+										</div>
+									</div>
+								</div>
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<div class="badges-card__lock">
+											<img src="img/business-home/badges/badge-8.svg" alt="Badge">
+										</div>
+									</div>
+								</div>
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<div class="badges-card__lock">
+											<img src="img/business-home/badges/badge-9.svg" alt="Badge">
+										</div>
+									</div>
+								</div>
+								<div class="badges-card__item">
+									<div class="badges-card__icon">
+										<div class="badges-card__lock">
+											<img src="img/business-home/badges/badge-10.svg" alt="Badge">
 										</div>
 									</div>
 								</div>
@@ -614,7 +624,7 @@
 							</a>
 						</section>
 
-						<section class="leaderboard-unlock box-style">
+						<section class="leaderboard-unlock box-style" data-welcome-step="sidebar" data-welcome-order="3">
 							<div class="leaderboard-unlock__header">
 								<h2 class="leaderboard-unlock__title">Unlock Leaderboard</h2>
 								<p class="leaderboard-unlock__desc">Complete the courses to start competing</p>
@@ -724,14 +734,14 @@
 			<div class="badge-popup__wrapper">
 				<div class="badge-popup__card">
 					<div class="badge-popup__badge">
-						<picture><source srcset="img/business-home/popup/popup-badge.webp" type="image/webp"><img src="img/business-home/popup/popup-badge.png" alt="Learned Unlocked Badge" width="147" height="165"></picture>
+						<img src="img/badges/ignited-learner.svg" alt="Ignited Learner Badge" width="147" height="165">
 					</div>
 					<div class="badge-popup__body">
 						<span class="badge-popup__label">achievement unlocked</span>
 						<div class="badge-popup__content">
 							<div class="badge-popup__text">
-								<h2 class="badge-popup__title">You just earned a <span>badge!</span></h2>
-								<p class="badge-popup__desc">Congrats on taking the first step to building a stronger cybersecurity culture.</p>
+								<h2 class="badge-popup__title">You're an <span>Ignited Learner!</span></h2>
+								<p class="badge-popup__desc">Just by signing up you've taken the first step. Your training journey starts here — let's keep that spark going.</p>
 							</div>
 							<button class="badge-popup__share" type="button">
 								<span>share</span>
@@ -753,7 +763,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.min.js?_v=20260530193319"></script>
+	<script src="js/app.min.js?_v=20260604094640"></script>
 </body>
 
 </html>

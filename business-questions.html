@@ -8,9 +8,9 @@
 	<!-- <meta http-equiv="Content-Security-Policy"
          content="default-src 'self' data: blob:; font-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob:; img-src 'self' data: blob: https:; connect-src 'self' ws: wss:"> -->
 
-	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260530193319">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260604094640">
 </head>
 
 <body>
@@ -34,25 +34,75 @@
 		</header>
 
 		<main class="page">
+			<!-- Shared SVG defs for the progress loader. Include ONCE per page that uses
+     the lotus progress loader, so both panels reference the same clipPath/
+     gradient (no duplicate-ID conflicts). -->
+			<svg width="0" height="0" style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true" focusable="false">
+				<defs>
+					<clipPath id="psyber-lotus-shared">
+						<path d="M1.07422 40.5127C-5.12277 14.9397 16.4149 -5.73208 41.7471 1.43848C64.7464 7.94775 71.2712 38.5829 54.9092 54.9258H54.9121C38.167 71.6538 6.84793 64.3338 1.07422 40.5127ZM56.9941 25.9355C54.0512 12.0144 42.0376 3.86271 27.9648 4.77441H27.9619C0.150349 6.57209 -1.34112 49.9751 24.7139 57.8359C46.7603 64.4886 61.4892 47.2027 56.9941 25.9355ZM48.0068 36.3271C48.3092 35.7291 48.9947 35.4385 49.6338 35.6396H49.6367L50.7139 35.9824C51.4164 36.2039 51.8254 36.9458 51.6182 37.6533C48.4304 48.5026 35.9645 54.6116 25.2148 50.792C19.1964 48.77 14.1509 43.6877 12.3828 37.6504C12.1785 36.9429 12.5875 36.2039 13.29 35.9824C13.6442 35.8731 14.0275 35.7489 14.376 35.6396C15.0151 35.4386 15.7006 35.7291 16.0029 36.3242C19.0611 42.3328 25.2406 46.4491 32.0049 46.3916C38.7691 46.4462 44.9544 42.3414 48.0068 36.3271ZM32.5117 19.7197C33.2401 19.7198 33.8422 20.2891 33.877 21.0166C34.0785 25.3396 34.2159 29.9393 34.334 34.4004C34.357 35.2978 35.5241 35.6227 36.0107 34.8691C37.367 32.7724 38.7601 30.6263 39.9033 28.9121C40.8133 27.5344 41.729 26.168 42.6562 24.8047C43.0652 24.2036 43.8751 24.0314 44.4971 24.4082L45.3867 24.9492C46.0056 25.326 46.2272 26.1194 45.8818 26.7578C43.198 31.7338 40.1516 37.0727 37.3555 41.9365C35.8723 45.1233 28.0996 45.1577 26.752 41.8213H26.749L23.6396 36.3789C21.7938 33.1259 19.9626 29.864 18.1484 26.5908C17.7915 25.9494 18.01 25.1384 18.6406 24.7588L19.4902 24.25C20.118 23.8705 20.9357 24.0545 21.3359 24.6699C23.5129 27.9978 25.7903 31.5418 27.9961 35.002C28.4799 35.7582 29.6518 35.4325 29.6748 34.5352C29.7497 31.6676 29.8336 28.6589 29.9229 26.2832C29.9833 24.5317 30.0551 22.7769 30.1357 21.0225C30.1705 20.2949 30.7726 19.7197 31.5039 19.7197H32.5117Z" />
+					</clipPath>
+					<linearGradient id="psyber-water-shared" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0" stop-color="#F8765C" />
+						<stop offset="1" stop-color="#EF5C44" />
+					</linearGradient>
+				</defs>
+			</svg>
+
 			<section class="business-quiz" data-quiz="business">
 				<div class="business-quiz__container">
 					<!-- Questions Screen -->
 					<div class="business-quiz__body business-quiz__body--quiz" data-quiz-main>
-						<!-- Left Side (Intro placeholder) -->
+						<!-- Left Side: progress-driven lotus + survey copy -->
 						<div class="business-quiz__intro">
 							<div class="business-quiz__intro-icon">
-								<!-- Psyber water-fill loader. Animation lives inside the SVG (SMIL), so it plays
-     even inside <img>. Keep the contextual wrapper around this include for sizing. -->
-								<img class="loader" src="img/health/loading.svg" alt="Loading" width="80" height="80">
+								<!-- Psyber lotus, water-style fill driven by progress.
+     Requires loader-progress-defs.htm included ONCE on the page (provides the
+     shared clipPath + gradient). Multiple instances are safe — they all
+     reference the same defs.
+
+     - Pale silhouette is the empty state.
+     - Water rises via the SVG transform attribute on [data-progress-fill];
+       JS sets translate(0 N) where N = 64 * (1 - progressRatio).
+     - Three wave layers drift horizontally (SMIL) for the water feel. -->
+								<svg class="loader-progress" data-loader-progress xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Setup progress" style="display: block;">
+
+									<!-- Empty silhouette (warm tan, matches mockup) -->
+									<path fill="#D5C8A8" d="M1.07422 40.5127C-5.12277 14.9397 16.4149 -5.73208 41.7471 1.43848C64.7464 7.94775 71.2712 38.5829 54.9092 54.9258H54.9121C38.167 71.6538 6.84793 64.3338 1.07422 40.5127ZM56.9941 25.9355C54.0512 12.0144 42.0376 3.86271 27.9648 4.77441H27.9619C0.150349 6.57209 -1.34112 49.9751 24.7139 57.8359C46.7603 64.4886 61.4892 47.2027 56.9941 25.9355ZM48.0068 36.3271C48.3092 35.7291 48.9947 35.4385 49.6338 35.6396H49.6367L50.7139 35.9824C51.4164 36.2039 51.8254 36.9458 51.6182 37.6533C48.4304 48.5026 35.9645 54.6116 25.2148 50.792C19.1964 48.77 14.1509 43.6877 12.3828 37.6504C12.1785 36.9429 12.5875 36.2039 13.29 35.9824C13.6442 35.8731 14.0275 35.7489 14.376 35.6396C15.0151 35.4386 15.7006 35.7291 16.0029 36.3242C19.0611 42.3328 25.2406 46.4491 32.0049 46.3916C38.7691 46.4462 44.9544 42.3414 48.0068 36.3271ZM32.5117 19.7197C33.2401 19.7198 33.8422 20.2891 33.877 21.0166C34.0785 25.3396 34.2159 29.9393 34.334 34.4004C34.357 35.2978 35.5241 35.6227 36.0107 34.8691C37.367 32.7724 38.7601 30.6263 39.9033 28.9121C40.8133 27.5344 41.729 26.168 42.6562 24.8047C43.0652 24.2036 43.8751 24.0314 44.4971 24.4082L45.3867 24.9492C46.0056 25.326 46.2272 26.1194 45.8818 26.7578C43.198 31.7338 40.1516 37.0727 37.3555 41.9365C35.8723 45.1233 28.0996 45.1577 26.752 41.8213H26.749L23.6396 36.3789C21.7938 33.1259 19.9626 29.864 18.1484 26.5908C17.7915 25.9494 18.01 25.1384 18.6406 24.7588L19.4902 24.25C20.118 23.8705 20.9357 24.0545 21.3359 24.6699C23.5129 27.9978 25.7903 31.5418 27.9961 35.002C28.4799 35.7582 29.6518 35.4325 29.6748 34.5352C29.7497 31.6676 29.8336 28.6589 29.9229 26.2832C29.9833 24.5317 30.0551 22.7769 30.1357 21.0225C30.1705 20.2949 30.7726 19.7197 31.5039 19.7197H32.5117Z" />
+
+									<!-- Water clipped to the lotus -->
+									<g clip-path="url(#psyber-lotus-shared)">
+										<!-- Vertical level set by JS via the SVG transform attribute -->
+										<g data-progress-fill transform="translate(0 64)">
+
+											<!-- Back wave: translucent, faster -->
+											<g opacity="0.35">
+												<animateTransform attributeName="transform" type="translate" dur="2.1s" repeatCount="indefinite" values="0 0; -32 0" calcMode="linear" />
+												<path fill="#F56751" d="M-64 1 q 8 -6 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 L 128 92 L -64 92 Z" />
+											</g>
+
+											<!-- Mid wave: translucent, opposite drift -->
+											<g opacity="0.55">
+												<animateTransform attributeName="transform" type="translate" dur="2.7s" repeatCount="indefinite" values="-32 0; 0 0" calcMode="linear" />
+												<path fill="#F56751" d="M-64 0 q 8 -5 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 L 128 92 L -64 92 Z" />
+											</g>
+
+											<!-- Front wave: brand gradient, slow, phase-offset -->
+											<g>
+												<animateTransform attributeName="transform" type="translate" dur="3.4s" repeatCount="indefinite" values="-16 0; -48 0" calcMode="linear" />
+												<path fill="url(#psyber-water-shared)" d="M-64 2 q 8 -5 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 L 128 92 L -64 92 Z" />
+												<!-- Light crest highlight -->
+												<path fill="none" stroke="#FFD9CC" stroke-width="1.1" stroke-linecap="round" opacity="0.7" d="M-64 2 q 8 -5 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0 t 16 0" />
+											</g>
+										</g>
+									</g>
+								</svg>
 
 							</div>
 							<h2 class="business-quiz__intro-title">Loading...</h2>
-							<div class="business-quiz__subtitle">
-								<p>This will take a few minutes.</p>
-								<p>We’ve created a short survey to kick off.</p>
-							</div>
 							<div class="business-quiz__intro-text">
-								<p>Your answers help us tailor your learning experience. Be honest — this isn’t a test. It’s your starting point.</p>
+								<p>We're setting up your account.</p>
+								<p>To make your learning experience relevant to you, we have a few short questions. Answer honestly, your responses are private and are never shared with your organisation.</p>
 							</div>
 						</div>
 
@@ -87,172 +137,179 @@
 						</div>
 					</div>
 
-					<!-- Loading Screen (Initially Hidden) -->
-					<div class="business-quiz__loading">
-						<div class="business-quiz__loading-icon">
-							<!-- Psyber water-fill loader. Animation lives inside the SVG (SMIL), so it plays
+					<!-- DISABLED: "Calculating your results" intermediate screen.
+                    Per client (2026-06-03) the post-survey flow goes straight to
+                    the dashboard with a first-time animation. Kept in <template>
+                    for reference; not rendered. Remove the wrapper to restore. -->
+					<template data-legacy-loading-screen>
+						<div class="business-quiz__loading">
+							<div class="business-quiz__loading-icon">
+								<!-- Psyber water-fill loader. Animation lives inside the SVG (SMIL), so it plays
      even inside <img>. Keep the contextual wrapper around this include for sizing. -->
-							<img class="loader" src="img/health/loading.svg" alt="Loading" width="80" height="80">
+								<img class="loader" src="img/health/loading.svg" alt="Loading" width="80" height="80">
 
+							</div>
+							<h2 class="business-quiz__loading-title">Calculating your results</h2>
+							<p class="business-quiz__loading-desc">Don't refresh the page</p>
 						</div>
-						<h2 class="business-quiz__loading-title">Calculating your results</h2>
-						<p class="business-quiz__loading-desc">Don’t refresh the page</p>
-					</div>
+					</template>
 
-					<!-- Result Screen (Initially Hidden, shown via JS) -->
-					<div class="business-quiz__result">
-						<div class="business-quiz__result-left">
-							<div class="business-quiz__result-card card">
-								<h2 class="business-quiz__result-title">Personal Risk <span>Score</span></h2>
-								<div class="business-quiz__result-chart">
-									<div class="risk-score" data-risk-score data-risk-server-rendered data-risk-value="1.5" data-risk-total="5">
-										<div class="risk-score__gauge">
-											<svg class="risk-score__semicircle" width="290" height="145" viewBox="0 0 290 145" fill="none" xmlns="http://www.w3.org/2000/svg">
-												<path d="M247.089 53.5402C250.368 50.6067 250.663 45.5549 247.553 42.4432C244.446 39.3347 239.395 39.6201 236.459 42.8902L210.781 71.4854C208.881 73.6014 209.069 76.8481 211.079 78.8597C213.087 80.8691 216.329 81.0593 218.446 79.1651L247.089 53.5402Z" fill="#E7E6E4" />
-												<path d="M259.072 68.9902C262.733 66.5504 263.737 61.5872 261.098 58.0672C258.462 54.5508 253.426 54.1231 250.056 56.9445L220.585 81.6221C218.405 83.4477 218.131 86.687 219.836 88.9624C221.54 91.2356 224.722 91.8834 227.086 90.3079L259.072 68.9902Z" fill="#E7E6E4" />
-												<path d="M268.74 85.9773C272.71 84.0825 274.405 79.3075 272.293 75.4495C270.182 71.595 265.261 70.464 261.526 72.7799L228.842 93.0465C226.431 94.5411 225.702 97.6987 227.064 100.186C228.425 102.672 231.476 103.765 234.033 102.544L268.74 85.9773Z" fill="#E7E6E4" />
-												<path d="M275.884 104.161C280.083 102.853 282.441 98.3634 280.901 94.2444C279.362 90.1283 274.654 88.3157 270.628 90.0768L235.372 105.498C232.783 106.631 231.614 109.637 232.604 112.283C233.593 114.929 236.449 116.446 239.145 115.606L275.884 104.161Z" fill="#E7E6E4" />
-												<path d="M280.349 123.177C284.69 122.484 287.666 118.37 286.732 114.074C285.799 109.78 281.401 107.322 277.165 108.489L240.054 118.712C237.334 119.461 235.748 122.254 236.347 125.011C236.945 127.767 239.552 129.685 242.337 129.24L280.349 123.177Z" fill="#E7E6E4" />
-												<path d="M282.043 142.643C286.438 142.576 289.968 138.918 289.659 134.534C289.35 130.15 285.352 127.098 280.991 127.646L242.816 132.444C240.006 132.797 238.027 135.33 238.226 138.154C238.425 140.978 240.741 143.272 243.572 143.229L282.043 142.643Z" fill="#E7E6E4" />
-												<path d="M142.743 7.96148C142.676 3.56445 139.017 0.0328619 134.63 0.34148C130.243 0.650143 127.188 4.65184 127.737 9.0156L132.536 47.1435C132.89 49.9546 135.424 51.9353 138.25 51.7364C141.077 51.5375 143.372 49.2192 143.329 46.3858L142.743 7.96148Z" fill="#E7E6E4" />
-												<path d="M162.294 9.04856C162.846 4.68288 159.754 0.674475 155.365 0.360088C150.975 0.0456822 147.343 3.57223 147.266 7.97226L146.595 46.3403C146.544 49.2007 148.825 51.5459 151.678 51.7503C154.532 51.9547 157.123 49.9587 157.482 47.1203L162.294 9.04856Z" fill="#E7E6E4" />
-												<path d="M181.475 12.8658C182.641 8.62465 180.188 4.22749 175.889 3.2966C171.592 2.36611 167.467 5.33905 166.773 9.68075L160.708 47.6299C160.261 50.4284 162.203 53.0508 164.973 53.6507C167.741 54.2503 170.531 52.6516 171.282 49.9202L181.475 12.8658Z" fill="#E7E6E4" />
-												<path d="M199.903 19.3837C201.666 15.3531 199.858 10.6441 195.735 9.10799C191.615 7.57294 187.12 9.93079 185.814 14.1288L174.39 50.8459C173.551 53.5418 175.08 56.399 177.726 57.3849C180.369 58.3701 183.36 57.1982 184.491 54.6134L199.903 19.3837Z" fill="#E7E6E4" />
-												<path d="M217.206 28.4733C219.528 24.7362 218.404 19.8115 214.544 17.7007C210.686 15.5918 205.908 17.2846 204.014 21.2514L187.441 55.9467C186.223 58.4982 187.319 61.5456 189.8 62.9023C192.279 64.2578 195.419 63.5299 196.91 61.1304L217.206 28.4733Z" fill="#E7E6E4" />
-												<path d="M233.039 39.9405C235.87 36.5719 235.452 31.5327 231.932 28.8932C228.415 26.2563 223.451 27.2529 221.008 30.9076L199.652 62.8668C198.075 65.2258 198.723 68.4065 200.993 70.1086C203.26 71.8091 206.487 71.5378 208.31 69.3679L233.039 39.9405Z" fill="#E7E6E4" />
-												<path d="M123.263 9.65068C122.57 5.30847 118.456 2.33292 114.158 3.26527C109.859 4.19802 107.398 8.6005 108.568 12.8413L118.793 49.9062C119.544 52.6265 122.338 54.2133 125.095 53.6149C127.854 53.0162 129.775 50.4065 129.329 47.6188L123.263 9.65068Z" fill="#E7E6E4" />
-												<path d="M104.233 14.1065C102.924 9.90923 98.435 7.55177 94.3158 9.08959C90.1938 10.6285 88.379 15.3423 90.1444 19.3724L105.57 54.5867C106.704 57.1749 109.709 58.3434 112.356 57.3549C115.005 56.3658 116.525 53.5061 115.683 50.8068L104.233 14.1065Z" fill="#E7E6E4" />
-												<path d="M86.0343 21.2416C84.1382 17.2752 79.3662 15.5805 75.5087 17.6893C71.6478 19.8 70.5154 24.7282 72.8367 28.4662L93.1115 61.1153C94.607 63.5235 97.7624 64.2524 100.25 62.8924C102.739 61.5312 103.834 58.4753 102.61 55.9154L86.0343 21.2416Z" fill="#E7E6E4" />
-												<path d="M69.032 30.8994C66.5917 27.2433 61.6333 26.2404 58.1141 28.8743C54.5913 31.5108 54.1632 36.5535 56.9905 39.925L81.681 69.368C83.5067 71.5452 86.7427 71.8193 89.0174 70.1166C91.2944 68.4122 91.9432 65.2251 90.3642 62.8594L69.032 30.8994Z" fill="#E7E6E4" />
-												<path d="M53.567 42.8715C50.6341 39.5981 45.5884 39.3031 42.4774 42.4078C39.3632 45.5158 39.649 50.5721 42.9248 53.5093L71.5388 79.1659C73.654 81.0626 76.8965 80.8752 78.9072 78.8682C80.9201 76.8591 81.1107 73.6133 79.2129 71.4951L53.567 42.8715Z" fill="#E7E6E4" />
-												<path d="M39.9536 56.9097C36.587 54.0848 31.5547 54.5023 28.9156 58.0164C26.2738 61.5341 27.2715 66.5029 30.9308 68.9447L62.9158 90.2869C65.273 91.8597 68.449 91.2135 70.1505 88.9475C71.8537 86.6792 71.5822 83.4493 69.4093 81.626L39.9536 56.9097Z" fill="#E7E6E4" />
-												<path d="M28.4757 72.7321C24.7418 70.415 19.8241 71.5376 17.7133 75.3919C15.6006 79.2496 17.2947 84.0307 21.2646 85.9241L55.9927 102.487C58.5415 103.703 61.5843 102.608 62.9406 100.131C64.2981 97.6524 63.5699 94.5098 61.1683 93.0195L28.4757 72.7321Z" fill="#E7E6E4" />
-												<path d="M19.3782 90.024C15.3514 88.265 10.6488 90.071 9.11235 94.1878C7.57483 98.3074 9.93339 102.804 14.1326 104.109L50.889 115.528C53.5817 116.364 56.4349 114.838 57.4207 112.196C58.4072 109.552 57.235 106.561 54.6493 105.431L19.3782 90.024Z" fill="#E7E6E4" />
-												<path d="M12.8556 108.44C8.61854 107.276 4.22649 109.727 3.29512 114.021C2.36335 118.317 5.33595 122.441 9.67695 123.134L47.6704 129.197C50.4658 129.643 53.085 127.703 53.6849 124.937C54.2851 122.169 52.6866 119.38 49.9558 118.63L12.8556 108.44Z" fill="#E7E6E4" />
-												<path d="M0.354981 134.535C0.669637 130.148 4.6754 127.058 9.03847 127.609L47.1573 132.42C49.9934 132.778 51.9879 135.367 51.7834 138.218C51.5788 141.07 49.2354 143.348 46.377 143.298L7.96103 142.627C3.56431 142.55 0.0403466 138.921 0.354981 134.535Z" fill="#E7E6E4" />
-											</svg>
-											<span class="risk-score__value">1.5</span>
-										</div>
-										<div class="risk-score__meta">
-											<span class="risk-score__label">Low</span>
-											<div class="risk-score__level">
-												<span class="risk-score__badge">Level 1 – Unaware</span>
+					<!-- DISABLED: legacy "Thanks Tim" result screen (Risk Score + Top 3 Actions + Recommended Courses). -->
+					<template data-legacy-result-screen>
+						<div class="business-quiz__result">
+							<div class="business-quiz__result-left">
+								<div class="business-quiz__result-card card">
+									<h2 class="business-quiz__result-title">Personal Risk <span>Score</span></h2>
+									<div class="business-quiz__result-chart">
+										<div class="risk-score" data-risk-score data-risk-server-rendered data-risk-value="1.5" data-risk-total="5">
+											<div class="risk-score__gauge">
+												<svg class="risk-score__semicircle" width="290" height="145" viewBox="0 0 290 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M247.089 53.5402C250.368 50.6067 250.663 45.5549 247.553 42.4432C244.446 39.3347 239.395 39.6201 236.459 42.8902L210.781 71.4854C208.881 73.6014 209.069 76.8481 211.079 78.8597C213.087 80.8691 216.329 81.0593 218.446 79.1651L247.089 53.5402Z" fill="#E7E6E4" />
+													<path d="M259.072 68.9902C262.733 66.5504 263.737 61.5872 261.098 58.0672C258.462 54.5508 253.426 54.1231 250.056 56.9445L220.585 81.6221C218.405 83.4477 218.131 86.687 219.836 88.9624C221.54 91.2356 224.722 91.8834 227.086 90.3079L259.072 68.9902Z" fill="#E7E6E4" />
+													<path d="M268.74 85.9773C272.71 84.0825 274.405 79.3075 272.293 75.4495C270.182 71.595 265.261 70.464 261.526 72.7799L228.842 93.0465C226.431 94.5411 225.702 97.6987 227.064 100.186C228.425 102.672 231.476 103.765 234.033 102.544L268.74 85.9773Z" fill="#E7E6E4" />
+													<path d="M275.884 104.161C280.083 102.853 282.441 98.3634 280.901 94.2444C279.362 90.1283 274.654 88.3157 270.628 90.0768L235.372 105.498C232.783 106.631 231.614 109.637 232.604 112.283C233.593 114.929 236.449 116.446 239.145 115.606L275.884 104.161Z" fill="#E7E6E4" />
+													<path d="M280.349 123.177C284.69 122.484 287.666 118.37 286.732 114.074C285.799 109.78 281.401 107.322 277.165 108.489L240.054 118.712C237.334 119.461 235.748 122.254 236.347 125.011C236.945 127.767 239.552 129.685 242.337 129.24L280.349 123.177Z" fill="#E7E6E4" />
+													<path d="M282.043 142.643C286.438 142.576 289.968 138.918 289.659 134.534C289.35 130.15 285.352 127.098 280.991 127.646L242.816 132.444C240.006 132.797 238.027 135.33 238.226 138.154C238.425 140.978 240.741 143.272 243.572 143.229L282.043 142.643Z" fill="#E7E6E4" />
+													<path d="M142.743 7.96148C142.676 3.56445 139.017 0.0328619 134.63 0.34148C130.243 0.650143 127.188 4.65184 127.737 9.0156L132.536 47.1435C132.89 49.9546 135.424 51.9353 138.25 51.7364C141.077 51.5375 143.372 49.2192 143.329 46.3858L142.743 7.96148Z" fill="#E7E6E4" />
+													<path d="M162.294 9.04856C162.846 4.68288 159.754 0.674475 155.365 0.360088C150.975 0.0456822 147.343 3.57223 147.266 7.97226L146.595 46.3403C146.544 49.2007 148.825 51.5459 151.678 51.7503C154.532 51.9547 157.123 49.9587 157.482 47.1203L162.294 9.04856Z" fill="#E7E6E4" />
+													<path d="M181.475 12.8658C182.641 8.62465 180.188 4.22749 175.889 3.2966C171.592 2.36611 167.467 5.33905 166.773 9.68075L160.708 47.6299C160.261 50.4284 162.203 53.0508 164.973 53.6507C167.741 54.2503 170.531 52.6516 171.282 49.9202L181.475 12.8658Z" fill="#E7E6E4" />
+													<path d="M199.903 19.3837C201.666 15.3531 199.858 10.6441 195.735 9.10799C191.615 7.57294 187.12 9.93079 185.814 14.1288L174.39 50.8459C173.551 53.5418 175.08 56.399 177.726 57.3849C180.369 58.3701 183.36 57.1982 184.491 54.6134L199.903 19.3837Z" fill="#E7E6E4" />
+													<path d="M217.206 28.4733C219.528 24.7362 218.404 19.8115 214.544 17.7007C210.686 15.5918 205.908 17.2846 204.014 21.2514L187.441 55.9467C186.223 58.4982 187.319 61.5456 189.8 62.9023C192.279 64.2578 195.419 63.5299 196.91 61.1304L217.206 28.4733Z" fill="#E7E6E4" />
+													<path d="M233.039 39.9405C235.87 36.5719 235.452 31.5327 231.932 28.8932C228.415 26.2563 223.451 27.2529 221.008 30.9076L199.652 62.8668C198.075 65.2258 198.723 68.4065 200.993 70.1086C203.26 71.8091 206.487 71.5378 208.31 69.3679L233.039 39.9405Z" fill="#E7E6E4" />
+													<path d="M123.263 9.65068C122.57 5.30847 118.456 2.33292 114.158 3.26527C109.859 4.19802 107.398 8.6005 108.568 12.8413L118.793 49.9062C119.544 52.6265 122.338 54.2133 125.095 53.6149C127.854 53.0162 129.775 50.4065 129.329 47.6188L123.263 9.65068Z" fill="#E7E6E4" />
+													<path d="M104.233 14.1065C102.924 9.90923 98.435 7.55177 94.3158 9.08959C90.1938 10.6285 88.379 15.3423 90.1444 19.3724L105.57 54.5867C106.704 57.1749 109.709 58.3434 112.356 57.3549C115.005 56.3658 116.525 53.5061 115.683 50.8068L104.233 14.1065Z" fill="#E7E6E4" />
+													<path d="M86.0343 21.2416C84.1382 17.2752 79.3662 15.5805 75.5087 17.6893C71.6478 19.8 70.5154 24.7282 72.8367 28.4662L93.1115 61.1153C94.607 63.5235 97.7624 64.2524 100.25 62.8924C102.739 61.5312 103.834 58.4753 102.61 55.9154L86.0343 21.2416Z" fill="#E7E6E4" />
+													<path d="M69.032 30.8994C66.5917 27.2433 61.6333 26.2404 58.1141 28.8743C54.5913 31.5108 54.1632 36.5535 56.9905 39.925L81.681 69.368C83.5067 71.5452 86.7427 71.8193 89.0174 70.1166C91.2944 68.4122 91.9432 65.2251 90.3642 62.8594L69.032 30.8994Z" fill="#E7E6E4" />
+													<path d="M53.567 42.8715C50.6341 39.5981 45.5884 39.3031 42.4774 42.4078C39.3632 45.5158 39.649 50.5721 42.9248 53.5093L71.5388 79.1659C73.654 81.0626 76.8965 80.8752 78.9072 78.8682C80.9201 76.8591 81.1107 73.6133 79.2129 71.4951L53.567 42.8715Z" fill="#E7E6E4" />
+													<path d="M39.9536 56.9097C36.587 54.0848 31.5547 54.5023 28.9156 58.0164C26.2738 61.5341 27.2715 66.5029 30.9308 68.9447L62.9158 90.2869C65.273 91.8597 68.449 91.2135 70.1505 88.9475C71.8537 86.6792 71.5822 83.4493 69.4093 81.626L39.9536 56.9097Z" fill="#E7E6E4" />
+													<path d="M28.4757 72.7321C24.7418 70.415 19.8241 71.5376 17.7133 75.3919C15.6006 79.2496 17.2947 84.0307 21.2646 85.9241L55.9927 102.487C58.5415 103.703 61.5843 102.608 62.9406 100.131C64.2981 97.6524 63.5699 94.5098 61.1683 93.0195L28.4757 72.7321Z" fill="#E7E6E4" />
+													<path d="M19.3782 90.024C15.3514 88.265 10.6488 90.071 9.11235 94.1878C7.57483 98.3074 9.93339 102.804 14.1326 104.109L50.889 115.528C53.5817 116.364 56.4349 114.838 57.4207 112.196C58.4072 109.552 57.235 106.561 54.6493 105.431L19.3782 90.024Z" fill="#E7E6E4" />
+													<path d="M12.8556 108.44C8.61854 107.276 4.22649 109.727 3.29512 114.021C2.36335 118.317 5.33595 122.441 9.67695 123.134L47.6704 129.197C50.4658 129.643 53.085 127.703 53.6849 124.937C54.2851 122.169 52.6866 119.38 49.9558 118.63L12.8556 108.44Z" fill="#E7E6E4" />
+													<path d="M0.354981 134.535C0.669637 130.148 4.6754 127.058 9.03847 127.609L47.1573 132.42C49.9934 132.778 51.9879 135.367 51.7834 138.218C51.5788 141.07 49.2354 143.348 46.377 143.298L7.96103 142.627C3.56431 142.55 0.0403466 138.921 0.354981 134.535Z" fill="#E7E6E4" />
+												</svg>
+												<span class="risk-score__value">1.5</span>
 											</div>
-											<span class="risk-score__label">High</span>
+											<div class="risk-score__meta">
+												<span class="risk-score__label">Low</span>
+												<div class="risk-score__level">
+													<span class="risk-score__badge">Level 1 – Unaware</span>
+												</div>
+												<span class="risk-score__label">High</span>
+											</div>
 										</div>
+										<p>This is your Risk Score — it will increase as you complete your training.</p>
 									</div>
-									<p>This is your Risk Score — it will increase as you complete your training.</p>
-								</div>
-								<hr>
-								<div class="business-quiz__result-actions actions-list">
-									<h3 class="actions-list__title">Your Top 3 Actions to Reduce Risk</h3>
-									<div class="actions-list__items">
-										<div class="actions-list__item">
-											<span class="actions-list__num">1</span>
-											<div class="actions-list__icon">
-												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-target"></use>
-												</svg>
+									<hr>
+									<div class="business-quiz__result-actions actions-list">
+										<h3 class="actions-list__title">Your Top 3 Actions to Reduce Risk</h3>
+										<div class="actions-list__items">
+											<div class="actions-list__item">
+												<span class="actions-list__num">1</span>
+												<div class="actions-list__icon">
+													<svg width="24" height="24">
+														<use xlink:href="img/icons/icons.svg#svg-target"></use>
+													</svg>
+												</div>
+												<span class="actions-list__text">Adjust passing score</span>
+												<div class="actions-list__check is-checked">
+													<svg width="12" height="12">
+														<use xlink:href="img/icons/icons.svg#svg-check"></use>
+													</svg>
+												</div>
 											</div>
-											<span class="actions-list__text">Adjust passing score</span>
-											<div class="actions-list__check is-checked">
-												<svg width="12" height="12">
-													<use xlink:href="img/icons/icons.svg#svg-check"></use>
-												</svg>
+											<div class="actions-list__item">
+												<span class="actions-list__num">2</span>
+												<div class="actions-list__icon">
+													<svg width="24" height="24">
+														<use xlink:href="img/icons/icons.svg#svg-key"></use>
+													</svg>
+												</div>
+												<span class="actions-list__text">Run a baseline assessment</span>
+												<div class="actions-list__check">
+													<svg width="12" height="12">
+														<use xlink:href="img/icons/icons.svg#svg-check"></use>
+													</svg>
+												</div>
 											</div>
-										</div>
-										<div class="actions-list__item">
-											<span class="actions-list__num">2</span>
-											<div class="actions-list__icon">
-												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-key"></use>
-												</svg>
-											</div>
-											<span class="actions-list__text">Run a baseline assessment</span>
-											<div class="actions-list__check">
-												<svg width="12" height="12">
-													<use xlink:href="img/icons/icons.svg#svg-check"></use>
-												</svg>
-											</div>
-										</div>
-										<div class="actions-list__item">
-											<span class="actions-list__num">3</span>
-											<div class="actions-list__icon">
-												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-chart-search"></use>
-												</svg>
-											</div>
-											<span class="actions-list__text">Identify compliance and regulatory requirements</span>
-											<div class="actions-list__check">
-												<svg width="12" height="12">
-													<use xlink:href="img/icons/icons.svg#svg-check"></use>
-												</svg>
+											<div class="actions-list__item">
+												<span class="actions-list__num">3</span>
+												<div class="actions-list__icon">
+													<svg width="24" height="24">
+														<use xlink:href="img/icons/icons.svg#svg-chart-search"></use>
+													</svg>
+												</div>
+												<span class="actions-list__text">Identify compliance and regulatory requirements</span>
+												<div class="actions-list__check">
+													<svg width="12" height="12">
+														<use xlink:href="img/icons/icons.svg#svg-check"></use>
+													</svg>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<div class="business-quiz__result-right">
-							<div class="business-quiz__result-card card">
-								<div class="business-quiz__result-head">
-									<h2>Recommended Courses</h2>
-									<p>Your results are in, we've handpicked optional courses that will make the biggest difference for you and your family.</p>
+							<div class="business-quiz__result-right">
+								<div class="business-quiz__result-card card">
+									<div class="business-quiz__result-head">
+										<h2>Recommended Courses</h2>
+										<p>Your results are in, we've handpicked optional courses that will make the biggest difference for you and your family.</p>
+									</div>
+
+									<a class="business-quiz__courses">
+										<!-- Course 1 -->
+										<article class="business-quiz__course">
+											<a href="#" class="business-quiz__course-image">
+												<picture><source srcset="img/training/course-3.webp" type="image/webp"><img src="img/training/course-3.jpg" alt="Phishing Attacks"></picture>
+												<button class="play-btn">
+													<svg width="16" height="16">
+														<use xlink:href="img/icons/icons.svg#svg-play"></use>
+													</svg>
+												</button>
+											</a>
+											<div class="business-quiz__course-info">
+												<div class="business-quiz__course-tags">
+													<span class="tag">EMAILS</span>
+													<span class="tag">PHISHING</span>
+												</div>
+												<h3 class="business-quiz__course-title">Phishing Attacks</h3>
+												<p class="business-quiz__course-desc">This lesson is based on the cyber attack on Ascension...</p>
+											</div>
+										</article>
+
+										<!-- Course 2 -->
+										<article class="business-quiz__course">
+											<a href="#" class="business-quiz__course-image">
+												<picture><source srcset="img/training/course-2.webp" type="image/webp"><img src="img/training/course-2.jpg" alt="Ransomware Incidents"></picture>
+											</a>
+											<div class="business-quiz__course-info">
+												<div class="business-quiz__course-tags">
+													<span class="tag">PHISHING</span>
+												</div>
+												<h3 class="business-quiz__course-title">Ransomware Incidents</h3>
+												<p class="business-quiz__course-desc">This lesson covers ransomware attacks affecting critical infrastructure and incident response.</p>
+											</div>
+										</article>
+
+										<!-- Course 3 -->
+										<article class="business-quiz__course">
+											<a href="#" class="business-quiz__course-image">
+												<picture><source srcset="img/training/course-1.webp" type="image/webp"><img src="img/training/course-1.jpg" alt="Data Breaches"></picture>
+											</a>
+											<div class="business-quiz__course-info">
+												<div class="business-quiz__course-tags">
+													<span class="tag">EMAILS</span>
+													<span class="tag">PHISHING</span>
+												</div>
+												<h3 class="business-quiz__course-title">Data Breaches</h3>
+												<p class="business-quiz__course-desc">This lesson is based on the cyber attack on Ascension...</p>
+											</div>
+										</article>
 								</div>
-
-								<a class="business-quiz__courses">
-									<!-- Course 1 -->
-									<article class="business-quiz__course">
-										<a href="#" class="business-quiz__course-image">
-											<picture><source srcset="img/training/course-3.webp" type="image/webp"><img src="img/training/course-3.jpg" alt="Phishing Attacks"></picture>
-											<button class="play-btn">
-												<svg width="16" height="16">
-													<use xlink:href="img/icons/icons.svg#svg-play"></use>
-												</svg>
-											</button>
-										</a>
-										<div class="business-quiz__course-info">
-											<div class="business-quiz__course-tags">
-												<span class="tag">EMAILS</span>
-												<span class="tag">PHISHING</span>
-											</div>
-											<h3 class="business-quiz__course-title">Phishing Attacks</h3>
-											<p class="business-quiz__course-desc">This lesson is based on the cyber attack on Ascension...</p>
-										</div>
-									</article>
-
-									<!-- Course 2 -->
-									<article class="business-quiz__course">
-										<a href="#" class="business-quiz__course-image">
-											<picture><source srcset="img/training/course-2.webp" type="image/webp"><img src="img/training/course-2.jpg" alt="Ransomware Incidents"></picture>
-										</a>
-										<div class="business-quiz__course-info">
-											<div class="business-quiz__course-tags">
-												<span class="tag">PHISHING</span>
-											</div>
-											<h3 class="business-quiz__course-title">Ransomware Incidents</h3>
-											<p class="business-quiz__course-desc">This lesson covers ransomware attacks affecting critical infrastructure and incident response.</p>
-										</div>
-									</article>
-
-									<!-- Course 3 -->
-									<article class="business-quiz__course">
-										<a href="#" class="business-quiz__course-image">
-											<picture><source srcset="img/training/course-1.webp" type="image/webp"><img src="img/training/course-1.jpg" alt="Data Breaches"></picture>
-										</a>
-										<div class="business-quiz__course-info">
-											<div class="business-quiz__course-tags">
-												<span class="tag">EMAILS</span>
-												<span class="tag">PHISHING</span>
-											</div>
-											<h3 class="business-quiz__course-title">Data Breaches</h3>
-											<p class="business-quiz__course-desc">This lesson is based on the cyber attack on Ascension...</p>
-										</div>
-									</article>
 							</div>
 						</div>
-					</div>
+					</template>
 				</div>
 	</div>
 	</section>
@@ -282,7 +339,7 @@
 	</footer>
 	</div>
 
-	<script src="js/app.min.js?_v=20260530193319"></script>
+	<script src="js/app.min.js?_v=20260604094640"></script>
 </body>
 
 </html>
