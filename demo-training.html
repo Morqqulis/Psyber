@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Business Staff - Training Courses</title>
+	<title>Psyber - Demo Training Courses</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <meta http-equiv="Content-Security-Policy"
@@ -193,14 +193,18 @@
 				</div>
 			</div>
 		</header>
-		<main>
-			<div class="bs-profile">
-				<div class="bs-profile__container bs-profile__container--small">
+
+		<main class="page">
+			<div class="training">
+				<div class="training__container--small">
 					<!-- Sidebar -->
-					<aside class="bs-profile__aside aside" data-aside>
+					<aside class="dashboard__aside aside" data-aside>
 						<button class="aside__trigger" type="button" data-aside-trigger>
 							<span class="aside__trigger-text">
-								In this page
+								<svg class="aside__icon" width="24" height="24">
+									<use xlink:href="img/icons/icons.svg#svg-dashboard"></use>
+								</svg>
+								Dashboard
 							</span>
 							<svg class="aside__trigger-arrow" width="20" height="20">
 								<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
@@ -209,176 +213,118 @@
 						<div class="aside__dropdown" data-aside-dropdown>
 							<div class="aside__dropdown-inner">
 								<div class="aside__header">
-									<span class="aside__heading">In this page</span>
 									<ul class="aside__list">
 										<li class="aside__item">
-											<a href="#" class="aside__link aside__link--active">
-												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-line-up"></use>
+											<a href="index.html" class="aside__link">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-dashboard"></use>
 												</svg>
-												Overall Ranking
+												Dashboard
 											</a>
 										</li>
 										<li class="aside__item">
-											<a href="#" class="aside__link">
-												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-roll-alt"></use>
+											<a href="demo-training.html" class="aside__link aside__link--active">
+												<svg class="aside__icon" width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-training"></use>
 												</svg>
-												Last 7 days
-											</a>
-										</li>
-										<li class="aside__item">
-											<a href="#" class="aside__link">
-												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-calendar"></use>
-												</svg>
-												Last Month (30 days)
-											</a>
-										</li>
-										<li class="aside__item">
-											<a href="#" class="aside__link">
-												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-calendar"></use>
-												</svg>
-												Last 6 Months
-											</a>
-										</li>
-										<li class="aside__item">
-											<a href="#" class="aside__link">
-												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-roll-alt"></use>
-												</svg>
-												Last Year
+												Training Courses
 											</a>
 										</li>
 									</ul>
-								</div>
-
-								<div class="aside__footer">
-									<div class="aside__info">
-										<span class="aside__head">Has your data been <br> breached?</span>
-										<div class="aside__text">
-											<p>Visibility is the first layer of defence. PsyberWatch alerts you when your email or credentials appear in a data breach.</p>
-										</div>
-										<button class="aside__info-btn btn btn--outline btn--outline-dark" type="button">ACTIVATE PSYBERWATCH</button>
-									</div>
-									<a href="#" class="aside__footer-btn btn btn--outline">
-										<svg class="aside__icon" width="24" height="24">
-											<use xlink:href="img/icons/icons.svg#svg-like"></use>
-										</svg>
-										Leave Feedback
-										<svg class="aside__icon" width="24" height="24" style="margin-left:auto">
-											<use xlink:href="img/icons/icons.svg#svg-arrow"></use>
-										</svg>
-									</a>
 								</div>
 							</div>
 						</div>
 					</aside>
 
-					<!-- Main -->
-					<section class="bs-profile__main">
-						<h1 class="bs-profile__title title">Profile</h1>
-						<div class="bs-profile__content">
-							<div class="bs-profile__left card">
-								<h2 class="bs-profile__subtitle heading">Your Photo Profile</h2>
-								<div class="bs-profile__user">
-									<div class="bs-profile__avatar-wrapper">
-										<picture><source srcset="img/bs-profile/avatar.webp" type="image/webp"><img src="img/bs-profile/avatar.png" alt="Jessica Robinson" class="bs-profile__avatar" data-profile-avatar></picture>
-									</div>
-									<div class="bs-profile__user-info">
-										<h3 class="bs-profile__name">Jessica Robinson</h3>
-										<p class="bs-profile__dept">Human Resources</p>
-									</div>
-									<div class="bs-profile__actions">
-										<button class="bs-profile__btn btn btn--secondary btn--sm" type="button" data-profile-edit-photo-btn>
-											<svg width="20" height="20">
-												<use xlink:href="img/icons/icons.svg#svg-edit"></use>
-											</svg>
-											EDIT PHOTO
-										</button>
-										<button class="bs-profile__btn btn btn--outline btn--sm" style="opacity: 0.7;" type="button" data-profile-delete-photo-btn>DELETE</button>
-										<input type="file" id="profile-photo-input" accept="image/*" style="display: none;">
-									</div>
-								</div>
-							</div>
-
-							<div class="bs-profile__right card">
-								<h2 class="bs-profile__subtitle heading">Your Details</h2>
-								<div class="bs-profile__details">
-									<div class="bs-profile__row" data-profile-row>
-										<div class="bs-profile__item">
-											<span class="bs-profile__label">First name</span>
-											<div class="bs-profile__value-wrapper">
-												<span class="bs-profile__value" data-profile-value>Jessica</span>
-												<input type="text" class="bs-profile__input" data-profile-input>
-											</div>
-										</div>
-										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
-									</div>
-									<div class="separator"></div>
-									<div class="bs-profile__row" data-profile-row>
-										<div class="bs-profile__item">
-											<span class="bs-profile__label">Last name</span>
-											<div class="bs-profile__value-wrapper">
-												<span class="bs-profile__value" data-profile-value>Jessica</span>
-												<input type="text" class="bs-profile__input" data-profile-input>
-											</div>
-										</div>
-										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
-									</div>
-									<div class="separator"></div>
-									<div class="bs-profile__row" data-profile-row>
-										<div class="bs-profile__item">
-											<span class="bs-profile__label">Department</span>
-											<div class="bs-profile__value-wrapper">
-												<span class="bs-profile__value" data-profile-value>Human Resources</span>
-												<input type="text" class="bs-profile__input" data-profile-input>
-											</div>
-										</div>
-										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
-									</div>
-									<div class="separator"></div>
-									<div class="bs-profile__row" data-profile-row>
-										<div class="bs-profile__item">
-											<span class="bs-profile__label">Role</span>
-											<div class="bs-profile__value-wrapper">
-												<span class="bs-profile__value" data-profile-value>Analyst</span>
-												<input type="text" class="bs-profile__input" data-profile-input>
-											</div>
-										</div>
-										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
-									</div>
-									<div class="separator"></div>
-									<div class="bs-profile__row" data-profile-row>
-										<div class="bs-profile__item">
-											<span class="bs-profile__label">Contact number</span>
-											<div class="bs-profile__value-wrapper">
-												<span class="bs-profile__value" data-profile-value>+61455 555 555</span>
-												<input type="tel" class="bs-profile__input" data-profile-input>
-											</div>
-										</div>
-										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
-									</div>
-									<div class="separator"></div>
-									<div class="bs-profile__row" data-profile-row>
-										<div class="bs-profile__item">
-											<span class="bs-profile__label">Email</span>
-											<div class="bs-profile__value-wrapper">
-												<span class="bs-profile__value" data-profile-value>john.citizen@email.com</span>
-												<input type="email" class="bs-profile__input" data-profile-input>
-											</div>
-										</div>
-										<button class="bs-profile__edit-btn" type="button" data-profile-edit-btn>EDIT</button>
-									</div>
-								</div>
-							</div>
+					<!-- Center Content -->
+					<section class="training__section training-section">
+						<div class="training-section__header">
+							<h1 class="training-section__title title">Training <span>Courses</span></h1>
 						</div>
 
+						<!-- Flat course list (no stages, no search/filters/edit).
+                       Backend renders every course from the DB here, sorted alphabetically
+                       by title. Each <article> uses the same .training-card structure as
+                       the staff-facing pages, with the .training-card--demo modifier so the
+                       progress / due-date block is omitted. -->
+						<div class="training-section__content demo-training__list">
+
+							<!-- Course 1 (sample) -->
+							<article class="training-card training-card--demo">
+								<div class="training-card__image">
+									<picture><source srcset="img/training/course-1.webp" type="image/webp"><img src="img/training/course-1.jpg" alt="Data Breaches"></picture>
+								</div>
+								<div class="training-card__info">
+									<div class="training-card__tags">
+										<span class="tag">DATA BREACHES</span>
+										<span class="tag">SECURITY</span>
+									</div>
+									<h3 class="training-card__title">Data Breaches</h3>
+									<p class="training-card__desc">
+										This lesson covers the largest data breaches of the 21st century and how they could have been prevented.
+									</p>
+								</div>
+								<a href="demo-course-details.html" class="training-card__btn btn btn--primary btn--sm">
+									VIEW COURSE
+									<svg width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+									</svg>
+								</a>
+							</article>
+
+							<span class="separator"></span>
+
+							<!-- Course 2 (sample) -->
+							<article class="training-card training-card--demo">
+								<div class="training-card__image">
+									<picture><source srcset="img/training/course-3.webp" type="image/webp"><img src="img/training/course-3.jpg" alt="Phishing Attacks"></picture>
+								</div>
+								<div class="training-card__info">
+									<div class="training-card__tags">
+										<span class="tag">EMAILS</span>
+										<span class="tag">PHISHING</span>
+									</div>
+									<h3 class="training-card__title">Phishing Attacks</h3>
+									<p class="training-card__desc">
+										This lesson is based on the cyber attack on Ascension Healthcare and demonstrates the wide-reaching implications of phishing.
+									</p>
+								</div>
+								<a href="demo-course-details.html" class="training-card__btn btn btn--primary btn--sm">
+									VIEW COURSE
+									<svg width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+									</svg>
+								</a>
+							</article>
+
+							<span class="separator"></span>
+
+							<!-- Course 3 (sample) -->
+							<article class="training-card training-card--demo">
+								<div class="training-card__image">
+									<picture><source srcset="img/training/course-2.webp" type="image/webp"><img src="img/training/course-2.jpg" alt="Ransomware Incidents"></picture>
+								</div>
+								<div class="training-card__info">
+									<div class="training-card__tags">
+										<span class="tag">RANSOMWARE</span>
+									</div>
+									<h3 class="training-card__title">Ransomware Incidents</h3>
+									<p class="training-card__desc">
+										This lesson covers ransomware attacks affecting critical infrastructure and importance of incident response strategies.
+									</p>
+								</div>
+								<a href="demo-course-details.html" class="training-card__btn btn btn--primary btn--sm">
+									VIEW COURSE
+									<svg width="24" height="24">
+										<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+									</svg>
+								</a>
+							</article>
+
+						</div>
 					</section>
 				</div>
 			</div>
-
 		</main>
 
 		<footer class="footer">

@@ -28398,6 +28398,28 @@
                 el.addEventListener("click", e => handleShareClick(e, el, getCertificateTitle));
             });
         };
+        function updateStage(stage) {
+            const progressNodes = stage.querySelectorAll(".course-stage__list [data-progress]");
+            if (!progressNodes.length) return;
+            let sum = 0;
+            let count = 0;
+            progressNodes.forEach(node => {
+                const value = parseFloat(node.dataset.progress);
+                if (Number.isFinite(value)) {
+                    sum += Math.max(0, Math.min(100, value));
+                    count++;
+                }
+            });
+            if (!count) return;
+            const avg = Math.round(sum / count);
+            const fill = stage.querySelector(".course-stage__progress-fill");
+            if (fill) fill.style.width = avg + "%";
+            const valueEl = stage.querySelector(".course-stage__progress-value");
+            if (valueEl) valueEl.textContent = avg + "%";
+        }
+        const initStageProgress = () => {
+            document.querySelectorAll(".course-stage").forEach(updateStage);
+        };
         document.addEventListener("DOMContentLoaded", () => {
             initHealthCheck();
             initBusinessQuestions();
@@ -28419,6 +28441,7 @@
                 riskScoreInstances
             });
             initShareButtons();
+            initStageProgress();
         });
         window["FLS"] = true;
         isWebp();
