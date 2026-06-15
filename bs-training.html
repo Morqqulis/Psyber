@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Business Staff - Training Courses</title>
+	<title>Business Staff - My Training</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <meta http-equiv="Content-Security-Policy"
@@ -10,7 +10,7 @@
 
 	<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20260615200320">
+	<link rel="stylesheet" href="css/style.min.css?_v=20260615203253">
 </head>
 
 <body>
@@ -35,7 +35,7 @@
 								<svg class="header__icon" width="24" height="24">
 									<use xlink:href="img/icons/icons.svg#svg-book-alt"></use>
 								</svg>
-								Training Courses
+								Training
 							</a>
 						</li>
 						<li class="header__item">
@@ -188,12 +188,10 @@
 		<main>
 			<section class="bs-training">
 				<div class="bs-training__container">
-					<!-- Sidebar -->
+					<!-- Sidebar (anchor links to the 3 sections on the right) -->
 					<aside class="bs-training__aside aside" data-aside>
-						<button class="aside__trigger" type="button" data-aside-trigger>
-							<span class="aside__trigger-text">
-								In this page
-							</span>
+						<button class="aside__trigger" type="button" data-aside-trigger aria-label="Toggle sections">
+							<span class="aside__trigger-text">Current Training</span>
 							<svg class="aside__trigger-arrow" width="20" height="20">
 								<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
 							</svg>
@@ -201,10 +199,9 @@
 						<div class="aside__dropdown" data-aside-dropdown>
 							<div class="aside__dropdown-inner">
 								<div class="aside__header">
-									<span class="aside__heading">In this page</span>
 									<ul class="aside__list">
 										<li class="aside__item">
-											<a href="#" class="aside__link aside__link--active">
+											<a href="#current" class="aside__link aside__link--active">
 												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
 													<use xlink:href="img/icons/icons.svg#svg-light"></use>
 												</svg>
@@ -212,7 +209,7 @@
 											</a>
 										</li>
 										<li class="aside__item">
-											<a href="#" class="aside__link">
+											<a href="#upcoming" class="aside__link">
 												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
 													<use xlink:href="img/icons/icons.svg#svg-hourglass"></use>
 												</svg>
@@ -220,7 +217,7 @@
 											</a>
 										</li>
 										<li class="aside__item">
-											<a href="#" class="aside__link">
+											<a href="#completed" class="aside__link">
 												<svg class="aside__icon aside__icon--stroke" width="24" height="24">
 													<use xlink:href="img/icons/icons.svg#svg-done"></use>
 												</svg>
@@ -255,107 +252,91 @@
 					<!-- Main Content -->
 					<div class="bs-training__main">
 						<div class="bs-training__header">
-							<h1 class="bs-training__title title title--serif">Training <span>Courses</span></h1>
-							<div class="bs-training__actions">
-								<div class="bs-training__search search-form">
-									<button class="search-form__btn" type="button">
-										<svg width="24" height="24">
-											<use xlink:href="img/icons/icons.svg#svg-search"></use>
-										</svg>
-									</button>
-									<input type="text" class="search-form__input" placeholder="Search Courses" aria-label="Search Courses">
-								</div>
-
-								<span class="bs-training__line"></span>
-
-								<button class="bs-training__filter-btn filter-btn" type="button">
-									<svg width="20" height="20">
-										<use xlink:href="img/icons/icons.svg#svg-filters"></use>
-									</svg>
-									Filters
-								</button>
-
-								<div class="bs-training__select select select--rounded">
-									<select name="category">
-										<option value="all">All categories</option>
-										<option value="1">Category 1</option>
-										<option value="2">Category 2</option>
-									</select>
-									<svg class="select__icon" width="20" height="20">
-										<use xlink:href="img/icons/icons.svg#svg-arrow-down"></use>
-									</svg>
-								</div>
-							</div>
+							<h1 class="bs-training__title title title--serif">My <span>Training</span></h1>
+							<!-- Search / filters / category select intentionally hidden per client
+                          feedback (Trello: "Hide the search and filters on this page above
+                          the courses cards"). -->
 						</div>
 
-						<!-- Stages -->
+						<!-- ============================================================
+                       Course groups (Current / Upcoming / Completed).
+                       The sidebar links use #current / #upcoming / #completed
+                       as in-page anchors.
+                       ============================================================ -->
 						<div class="bs-training__stages">
-							<!-- Stage 1 -->
-							<section class="bs-training__stage card">
-								<div class="bs-training__stage-header">
-									<div class="bs-training__stage-info">
-										<span class="bs-training__stage-label">STAGE 1</span>
-										<h2 class="bs-training__stage-title">Current Courses</h2>
-									</div>
-									<div class="bs-training__stage-progress">
-										<div class="bs-training__progress-bar">
-											<div class="bs-training__progress-fill" style="width: 45%;"></div>
-										</div>
-										<span class="bs-training__progress-percent">45%</span>
-										<div class="bs-training__time-left">
-											<svg width="16" height="16">
-												<use xlink:href="img/icons/icons.svg#svg-time"></use>
-											</svg>
-											6 hours left
-										</div>
-									</div>
+							<!-- ============ Current Training ============ -->
+							<!--
+                        Each course is its OWN white card (class="card training-card"),
+                        no "Stage N" wrapper. Backend orders cards ascending by due date.
+
+                        STATUS LOGIC (status label + button text per progress %):
+                           0%                   Not Started        Start
+                           1-79%  (video only)  In Progress 40%    Continue
+                           80%    (video done)  In Progress 80%    Take Quiz
+                           81-99% (quiz tried)  In Progress 90%    Retry Quiz
+                           100%                 -> moves to Completed group below
+
+                        "modules complete" line above the cards is the cycle-wide count
+                        (e.g. "0 of 3 modules complete"), not just what's visible here.
+                     -->
+							<section id="current" class="bs-training__group">
+								<div class="bs-training__group-header">
+									<h2 class="bs-training__group-title">Current Training</h2>
+									<span class="bs-training__group-progress">0 of 3 modules complete</span>
 								</div>
-								<span class="separator"></span>
-								<div class="bs-training__cards">
-									<!-- Course 1 — 50% progress -->
-									<article class="bs-training__card training-card">
+
+								<div class="bs-training__cards bs-training__cards--separated">
+
+									<!-- Course A — Not Started (0%) -->
+									<article class="bs-training__card card training-card">
 										<div class="training-card__image">
 											<picture><source srcset="img/training/course-1.webp" type="image/webp"><img src="img/training/course-1.jpg" alt="Course Image"></picture>
 										</div>
 										<div class="training-card__info">
 											<div class="training-card__tags">
-												<span class="tag">DATA BREACHES</span>
-												<span class="tag">SECURITY</span>
+												<span class="tag">PHISHING</span>
+												<span class="tag">EMAILS</span>
 											</div>
-											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
+											<h3 class="training-card__title">Phishing Attacks</h3>
+											<p class="training-card__desc">Learn how phishing campaigns are built and how to spot the warning signs before clicking a malicious link.</p>
+											<div class="training-card__inline-meta">
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-time"></use>
+													</svg>
+													12 min
+												</span>
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+													</svg>
+													Due May 30, 2025
+												</span>
+											</div>
 										</div>
 										<div class="training-card__bottom">
 											<div class="training-card__meta">
 												<div class="training-card__progress">
-													<svg class="training-card__icon" data-progress-circle data-progress="50" width="40" height="40" viewBox="0 0 40 40">
+													<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
 														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
 														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
 													</svg>
 													<div class="training-card__progress-info">
-														<span class="training-card__progress-status">PROGRESS</span>
-														<span class="training-card__progress-value">50%</span>
-													</div>
-													<div class="training-card__date">
-														<svg width="12" height="12">
-															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-														</svg>
-														Due Date. May 30, 2025
+														<span class="training-card__progress-status">NOT STARTED</span>
 													</div>
 												</div>
 											</div>
 											<a href="#" class="training-card__btn btn btn--primary btn--sm">
-												VIEW INSIGHTS
+												START
 												<svg width="24" height="24">
 													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</a>
 										</div>
 									</article>
-									<span class="separator"></span>
 
-									<!-- Course 2 — 75% progress -->
-									<article class="bs-training__card training-card">
+									<!-- Course B — In Progress 40% (video started, not finished) -->
+									<article class="bs-training__card card training-card">
 										<div class="training-card__image">
 											<picture><source srcset="img/training/course-2.webp" type="image/webp"><img src="img/training/course-2.jpg" alt="Course Image"></picture>
 										</div>
@@ -365,91 +346,351 @@
 												<span class="tag">SECURITY</span>
 											</div>
 											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
+											<p class="training-card__desc">A walk-through of the largest data breaches of the last decade and the patterns that connect them.</p>
+											<div class="training-card__inline-meta">
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-time"></use>
+													</svg>
+													15 min
+												</span>
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+													</svg>
+													Due May 30, 2025
+												</span>
+											</div>
 										</div>
 										<div class="training-card__bottom">
 											<div class="training-card__meta">
 												<div class="training-card__progress">
-													<svg class="training-card__icon" data-progress-circle data-progress="75" width="40" height="40" viewBox="0 0 40 40">
+													<svg class="training-card__icon" data-progress-circle data-progress="40" width="40" height="40" viewBox="0 0 40 40">
 														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
 														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
 													</svg>
 													<div class="training-card__progress-info">
-														<span class="training-card__progress-status">PROGRESS</span>
-														<span class="training-card__progress-value">75%</span>
-													</div>
-													<div class="training-card__date">
-														<svg width="12" height="12">
-															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-														</svg>
-														Due Date. May 30, 2025
+														<span class="training-card__progress-status">IN PROGRESS</span>
+														<span class="training-card__progress-value">40%</span>
 													</div>
 												</div>
 											</div>
 											<a href="#" class="training-card__btn btn btn--primary btn--sm">
-												VIEW INSIGHTS
+												CONTINUE
 												<svg width="24" height="24">
 													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</a>
 										</div>
 									</article>
-									<span class="separator"></span>
 
-									<!-- Course 3 — 25% progress -->
-									<article class="bs-training__card training-card">
+									<!-- Course C — In Progress 80% (video done, hasn't started quiz) -->
+									<article class="bs-training__card card training-card">
 										<div class="training-card__image">
 											<picture><source srcset="img/training/course-3.webp" type="image/webp"><img src="img/training/course-3.jpg" alt="Course Image"></picture>
 										</div>
 										<div class="training-card__info">
 											<div class="training-card__tags">
-												<span class="tag">DATA BREACHES</span>
+												<span class="tag">RANSOMWARE</span>
 												<span class="tag">SECURITY</span>
 											</div>
-											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
+											<h3 class="training-card__title">Ransomware Incidents</h3>
+											<p class="training-card__desc">Real-world ransomware cases affecting critical infrastructure and the response strategies that worked.</p>
+											<div class="training-card__inline-meta">
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-time"></use>
+													</svg>
+													18 min
+												</span>
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+													</svg>
+													Due Jun 6, 2025
+												</span>
+											</div>
 										</div>
 										<div class="training-card__bottom">
 											<div class="training-card__meta">
 												<div class="training-card__progress">
-													<svg class="training-card__icon" data-progress-circle data-progress="25" width="40" height="40" viewBox="0 0 40 40">
+													<svg class="training-card__icon" data-progress-circle data-progress="80" width="40" height="40" viewBox="0 0 40 40">
 														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
 														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
 													</svg>
 													<div class="training-card__progress-info">
-														<span class="training-card__progress-status">PROGRESS</span>
-														<span class="training-card__progress-value">25%</span>
-													</div>
-													<div class="training-card__date">
-														<svg width="12" height="12">
-															<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
-														</svg>
-														Due Date. May 30, 2025
+														<span class="training-card__progress-status">IN PROGRESS</span>
+														<span class="training-card__progress-value">80%</span>
 													</div>
 												</div>
 											</div>
 											<a href="#" class="training-card__btn btn btn--primary btn--sm">
-												VIEW INSIGHTS
+												TAKE QUIZ
 												<svg width="24" height="24">
 													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
 											</a>
 										</div>
 									</article>
-									<span class="separator"></span>
 
-									<!-- Course 4 — Completed 100% -->
-									<article class="bs-training__card training-card">
+									<!-- Course D — In Progress 90% (quiz started / failed, retry) -->
+									<article class="bs-training__card card training-card">
 										<div class="training-card__image">
 											<picture><source srcset="img/training/course-4.webp" type="image/webp"><img src="img/training/course-4.jpg" alt="Course Image"></picture>
 										</div>
 										<div class="training-card__info">
 											<div class="training-card__tags">
-												<span class="tag">DATA BREACHES</span>
+												<span class="tag">SOCIAL ENGINEERING</span>
 												<span class="tag">SECURITY</span>
 											</div>
-											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting critical infrastructure and importance of incident response strategies.</p>
+											<h3 class="training-card__title">Social Engineering Basics</h3>
+											<p class="training-card__desc">How attackers manipulate trust to bypass technical controls, and the simple habits that keep you safe.</p>
+											<div class="training-card__inline-meta">
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-time"></use>
+													</svg>
+													10 min
+												</span>
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+													</svg>
+													Due Jun 12, 2025
+												</span>
+											</div>
+										</div>
+										<div class="training-card__bottom">
+											<div class="training-card__meta">
+												<div class="training-card__progress">
+													<svg class="training-card__icon" data-progress-circle data-progress="90" width="40" height="40" viewBox="0 0 40 40">
+														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
+													</svg>
+													<div class="training-card__progress-info">
+														<span class="training-card__progress-status">IN PROGRESS</span>
+														<span class="training-card__progress-value">90%</span>
+													</div>
+												</div>
+											</div>
+											<a href="#" class="training-card__btn btn btn--primary btn--sm">
+												RETRY QUIZ
+												<svg width="24" height="24">
+													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+												</svg>
+											</a>
+										</div>
+									</article>
+
+									<!--
+                              All-caught-up empty state. Backend swaps this in (and hides
+                              the cards above) when every Current module is at 100%.
+                              <div class="bs-training__empty">
+                                 <svg class="bs-training__empty-icon" width="56" height="56">
+                                    <use xlink:href="img/icons/icons.svg#svg-done"></use>
+                                 </svg>
+                                 <p class="bs-training__empty-text">
+                                    You're all caught up — check back soon when your next training cycle begins.
+                                 </p>
+                              </div>
+                           -->
+								</div>
+							</section>
+
+							<!-- ============ Upcoming Training ============ -->
+							<!--
+                        Future stages are released collectively, so they stay bundled
+                        per stage (one .card per stage) instead of being broken out.
+                        STAGE N labels removed per client feedback; stage title alone
+                        is enough context.
+                     -->
+							<section id="upcoming" class="bs-training__group">
+								<div class="bs-training__group-header">
+									<h2 class="bs-training__group-title">Upcoming Training</h2>
+								</div>
+
+								<div class="bs-training__stage card">
+									<div class="bs-training__stage-header">
+										<div class="bs-training__stage-info">
+											<span class="bs-training__stage-label"><span class="tag tag--locked">LOCKED</span></span>
+											<h3 class="bs-training__stage-title">AI Elements Courses</h3>
+										</div>
+									</div>
+									<span class="separator"></span>
+									<div class="bs-training__cards">
+										<article class="bs-training__card training-card">
+											<div class="training-card__image">
+												<picture><source srcset="img/training/course-5.webp" type="image/webp"><img src="img/training/course-5.jpg" alt="Course Image"></picture>
+											</div>
+											<div class="training-card__info">
+												<div class="training-card__tags">
+													<span class="tag">AI</span>
+													<span class="tag">SECURITY</span>
+												</div>
+												<h3 class="training-card__title">AI in Cybersecurity</h3>
+												<p class="training-card__desc">An intro to how AI is used by defenders and attackers, and what that means for your daily workflow.</p>
+												<div class="training-card__inline-meta">
+													<span class="training-card__inline-item">
+														<svg width="14" height="14">
+															<use xlink:href="img/icons/icons.svg#svg-time"></use>
+														</svg>
+														14 min
+													</span>
+												</div>
+											</div>
+											<div class="training-card__bottom">
+												<div class="training-card__meta">
+													<div class="training-card__progress">
+														<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
+															<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+															<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
+														</svg>
+														<div class="training-card__progress-info">
+															<span class="training-card__progress-status">NOT STARTED</span>
+														</div>
+													</div>
+												</div>
+												<a href="#" class="training-card__btn btn btn--primary btn--sm" aria-disabled="true">
+													LOCKED
+													<svg width="24" height="24">
+														<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+													</svg>
+												</a>
+											</div>
+										</article>
+										<span class="separator"></span>
+										<article class="bs-training__card training-card">
+											<div class="training-card__image">
+												<picture><source srcset="img/training/course-5.webp" type="image/webp"><img src="img/training/course-5.jpg" alt="Course Image"></picture>
+											</div>
+											<div class="training-card__info">
+												<div class="training-card__tags">
+													<span class="tag">AI</span>
+													<span class="tag">EMAILS</span>
+												</div>
+												<h3 class="training-card__title">Spotting AI-Generated Phishing</h3>
+												<p class="training-card__desc">Cues that give away machine-written phishing attempts and how to verify suspicious requests safely.</p>
+												<div class="training-card__inline-meta">
+													<span class="training-card__inline-item">
+														<svg width="14" height="14">
+															<use xlink:href="img/icons/icons.svg#svg-time"></use>
+														</svg>
+														11 min
+													</span>
+												</div>
+											</div>
+											<div class="training-card__bottom">
+												<div class="training-card__meta">
+													<div class="training-card__progress">
+														<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
+															<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+															<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
+														</svg>
+														<div class="training-card__progress-info">
+															<span class="training-card__progress-status">NOT STARTED</span>
+														</div>
+													</div>
+												</div>
+												<a href="#" class="training-card__btn btn btn--primary btn--sm" aria-disabled="true">
+													LOCKED
+													<svg width="24" height="24">
+														<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+													</svg>
+												</a>
+											</div>
+										</article>
+									</div>
+								</div>
+
+								<div class="bs-training__stage card">
+									<div class="bs-training__stage-header">
+										<div class="bs-training__stage-info">
+											<span class="bs-training__stage-label"><span class="tag tag--locked">LOCKED</span></span>
+											<h3 class="bs-training__stage-title">Phishing Courses</h3>
+										</div>
+									</div>
+									<span class="separator"></span>
+									<div class="bs-training__cards">
+										<article class="bs-training__card training-card">
+											<div class="training-card__image">
+												<picture><source srcset="img/training/course-6.webp" type="image/webp"><img src="img/training/course-6.jpg" alt="Course Image"></picture>
+											</div>
+											<div class="training-card__info">
+												<div class="training-card__tags">
+													<span class="tag">PHISHING</span>
+													<span class="tag">EMAILS</span>
+												</div>
+												<h3 class="training-card__title">Advanced Phishing Tactics</h3>
+												<p class="training-card__desc">Targeted phishing and credential-theft techniques and the signals that betray them.</p>
+												<div class="training-card__inline-meta">
+													<span class="training-card__inline-item">
+														<svg width="14" height="14">
+															<use xlink:href="img/icons/icons.svg#svg-time"></use>
+														</svg>
+														16 min
+													</span>
+												</div>
+											</div>
+											<div class="training-card__bottom">
+												<div class="training-card__meta">
+													<div class="training-card__progress">
+														<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
+															<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
+															<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
+														</svg>
+														<div class="training-card__progress-info">
+															<span class="training-card__progress-status">NOT STARTED</span>
+														</div>
+													</div>
+												</div>
+												<a href="#" class="training-card__btn btn btn--primary btn--sm" aria-disabled="true">
+													LOCKED
+													<svg width="24" height="24">
+														<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
+													</svg>
+												</a>
+											</div>
+										</article>
+									</div>
+								</div>
+							</section>
+
+							<!-- ============ Completed Training ============ -->
+							<!--
+                        Cards that hit 100% land here. "Review" replaces "View Insights".
+                     -->
+							<section id="completed" class="bs-training__group">
+								<div class="bs-training__group-header">
+									<h2 class="bs-training__group-title">Completed Training</h2>
+								</div>
+
+								<div class="bs-training__cards bs-training__cards--separated">
+
+									<article class="bs-training__card card training-card">
+										<div class="training-card__image">
+											<picture><source srcset="img/training/course-4.webp" type="image/webp"><img src="img/training/course-4.jpg" alt="Course Image"></picture>
+										</div>
+										<div class="training-card__info">
+											<div class="training-card__tags">
+												<span class="tag">CYBERSECURITY BASICS</span>
+												<span class="tag">SECURITY</span>
+											</div>
+											<h3 class="training-card__title">Cybersecurity Basics</h3>
+											<p class="training-card__desc">A foundational pass on the building blocks of personal and workplace cyber hygiene.</p>
+											<div class="training-card__inline-meta">
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-time"></use>
+													</svg>
+													12 min
+												</span>
+												<span class="training-card__inline-item">
+													<svg width="14" height="14">
+														<use xlink:href="img/icons/icons.svg#svg-info-white"></use>
+													</svg>
+													Completed May 14, 2025
+												</span>
+											</div>
 										</div>
 										<div class="training-card__bottom">
 											<div class="training-card__meta">
@@ -464,90 +705,8 @@
 													</div>
 												</div>
 											</div>
-											<a href="#" class="training-card__btn btn btn--invite btn--sm">
-												START QUIZ
-												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
-												</svg>
-											</a>
-										</div>
-									</article>
-								</div>
-							</section>
-
-							<!-- Stage 2 Locked -->
-							<section class="bs-training__stage card">
-								<div class="bs-training__stage-header">
-									<div class="bs-training__stage-info">
-										<span class="bs-training__stage-label">STAGE 2 <span class="tag tag--locked">LOCKED</span></span>
-										<h2 class="bs-training__stage-title">AI Elements Courses</h2>
-									</div>
-								</div>
-								<span class="separator"></span>
-								<div class="bs-training__cards">
-									<!-- Locked Course 1 -->
-									<article class="bs-training__card training-card">
-										<div class="training-card__image">
-											<picture><source srcset="img/training/course-5.webp" type="image/webp"><img src="img/training/course-5.jpg" alt="Course Image"></picture>
-										</div>
-										<div class="training-card__info">
-											<div class="training-card__tags">
-												<span class="tag">DATA BREACHES</span>
-												<span class="tag">SECURITY</span>
-											</div>
-											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
-										</div>
-										<div class="training-card__bottom">
-											<div class="training-card__meta">
-												<div class="training-card__progress">
-													<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
-														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
-														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
-													</svg>
-													<div class="training-card__progress-info">
-														<span class="training-card__progress-status">PROGRESS</span>
-														<span class="training-card__progress-value">0%</span>
-													</div>
-												</div>
-											</div>
-											<a href="#" class="training-card__btn btn btn--primary btn--sm">
-												START
-												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
-												</svg>
-											</a>
-										</div>
-									</article>
-									<span class="separator"></span>
-									<!-- Locked Course 2 -->
-									<article class="bs-training__card training-card">
-										<div class="training-card__image">
-											<picture><source srcset="img/training/course-5.webp" type="image/webp"><img src="img/training/course-5.jpg" alt="Course Image"></picture>
-										</div>
-										<div class="training-card__info">
-											<div class="training-card__tags">
-												<span class="tag">DATA BREACHES</span>
-												<span class="tag">SECURITY</span>
-											</div>
-											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
-										</div>
-										<div class="training-card__bottom">
-											<div class="training-card__meta">
-												<div class="training-card__progress">
-													<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
-														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
-														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
-													</svg>
-													<div class="training-card__progress-info">
-														<span class="training-card__progress-status">PROGRESS</span>
-														<span class="training-card__progress-value">0%</span>
-													</div>
-												</div>
-											</div>
-											<a href="#" class="training-card__btn btn btn--primary btn--sm">
-												START
+											<a href="#" class="training-card__btn btn btn--outline btn--sm">
+												REVIEW
 												<svg width="24" height="24">
 													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
 												</svg>
@@ -555,159 +714,6 @@
 										</div>
 									</article>
 
-									<span class="separator"></span>
-
-									<!-- Locked Course 3 -->
-									<article class="bs-training__card training-card">
-										<div class="training-card__image">
-											<picture><source srcset="img/training/course-5.webp" type="image/webp"><img src="img/training/course-5.jpg" alt="Course Image"></picture>
-										</div>
-										<div class="training-card__info">
-											<div class="training-card__tags">
-												<span class="tag">DATA BREACHES</span>
-												<span class="tag">SECURITY</span>
-											</div>
-											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
-										</div>
-										<div class="training-card__bottom">
-											<div class="training-card__meta">
-												<div class="training-card__progress">
-													<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
-														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
-														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
-													</svg>
-													<div class="training-card__progress-info">
-														<span class="training-card__progress-status">PROGRESS</span>
-														<span class="training-card__progress-value">0%</span>
-													</div>
-												</div>
-											</div>
-											<a href="#" class="training-card__btn btn btn--primary btn--sm">
-												START
-												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
-												</svg>
-											</a>
-										</div>
-									</article>
-								</div>
-							</section>
-
-							<!-- Stage 3 Locked -->
-							<section class="bs-training__stage card">
-								<div class="bs-training__stage-header">
-									<div class="bs-training__stage-info">
-										<span class="bs-training__stage-label">STAGE 3 <span class="tag tag--locked">LOCKED</span></span>
-										<h2 class="bs-training__stage-title">Phishing Courses</h2>
-									</div>
-								</div>
-								<span class="separator"></span>
-								<div class="bs-training__cards">
-									<!-- Locked Course 1 -->
-									<article class="bs-training__card training-card">
-										<div class="training-card__image">
-											<picture><source srcset="img/training/course-6.webp" type="image/webp"><img src="img/training/course-6.jpg" alt="Course Image"></picture>
-										</div>
-										<div class="training-card__info">
-											<div class="training-card__tags">
-												<span class="tag">DATA BREACHES</span>
-												<span class="tag">SECURITY</span>
-											</div>
-											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
-										</div>
-										<div class="training-card__bottom">
-											<div class="training-card__meta">
-												<div class="training-card__progress">
-													<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
-														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
-														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
-													</svg>
-													<div class="training-card__progress-info">
-														<span class="training-card__progress-status">PROGRESS</span>
-														<span class="training-card__progress-value">0%</span>
-													</div>
-												</div>
-											</div>
-											<a href="#" class="training-card__btn btn btn--primary btn--sm">
-												START
-												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
-												</svg>
-											</a>
-										</div>
-									</article>
-									<span class="separator"></span>
-									<!-- Locked Course 2 -->
-									<article class="bs-training__card training-card">
-										<div class="training-card__image">
-											<picture><source srcset="img/training/course-6.webp" type="image/webp"><img src="img/training/course-6.jpg" alt="Course Image"></picture>
-										</div>
-										<div class="training-card__info">
-											<div class="training-card__tags">
-												<span class="tag">DATA BREACHES</span>
-												<span class="tag">SECURITY</span>
-											</div>
-											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
-										</div>
-										<div class="training-card__bottom">
-											<div class="training-card__meta">
-												<div class="training-card__progress">
-													<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
-														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
-														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
-													</svg>
-													<div class="training-card__progress-info">
-														<span class="training-card__progress-status">PROGRESS</span>
-														<span class="training-card__progress-value">0%</span>
-													</div>
-												</div>
-											</div>
-											<a href="#" class="training-card__btn btn btn--primary btn--sm">
-												START
-												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
-												</svg>
-											</a>
-										</div>
-									</article>
-									<span class="separator"></span>
-									<!-- Locked Course 3 -->
-									<article class="bs-training__card training-card">
-										<div class="training-card__image">
-											<picture><source srcset="img/training/course-6.webp" type="image/webp"><img src="img/training/course-6.jpg" alt="Course Image"></picture>
-										</div>
-										<div class="training-card__info">
-											<div class="training-card__tags">
-												<span class="tag">DATA BREACHES</span>
-												<span class="tag">SECURITY</span>
-											</div>
-											<h3 class="training-card__title">Data Breaches</h3>
-											<p class="training-card__desc">This lesson covers ransomware attacks affecting ...</p>
-										</div>
-										<div class="training-card__bottom">
-											<div class="training-card__meta">
-												<div class="training-card__progress">
-													<svg class="training-card__icon" data-progress-circle data-progress="0" width="40" height="40" viewBox="0 0 40 40">
-														<circle class="progress-circle-bg" cx="20" cy="20" r="17" />
-														<circle class="progress-circle-fill" cx="20" cy="20" r="17" />
-													</svg>
-													<div class="training-card__progress-info">
-														<span class="training-card__progress-status">PROGRESS</span>
-														<span class="training-card__progress-value">0%</span>
-													</div>
-												</div>
-											</div>
-											<a href="#" class="training-card__btn btn btn--primary btn--sm">
-												START
-												<svg width="24" height="24">
-													<use xlink:href="img/icons/icons.svg#svg-arrow-alt-right"></use>
-												</svg>
-											</a>
-										</div>
-									</article>
 								</div>
 							</section>
 						</div>
@@ -780,7 +786,7 @@
 		</footer>
 	</div>
 
-	<script src="js/app.min.js?_v=20260615200320"></script>
+	<script src="js/app.min.js?_v=20260615203253"></script>
 </body>
 
 </html>

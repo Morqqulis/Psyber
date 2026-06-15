@@ -1670,6 +1670,41 @@ h6 {
   height: 1.5rem;
 }
 
+.training-card__inline-meta {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.training-card__inline-item {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.375rem;
+  opacity: .75;
+  color: #1a1918;
+  font-family: "DM Mono",monospace;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.training-card__inline-item svg {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
 [data-progress-circle] {
   color: #e8e1ce;
 }
@@ -12555,6 +12590,94 @@ h6 {
           flex-direction: column;
   gap: 1.5rem;
   margin-top: 1.5rem;
+}
+
+.bs-training__cards--separated {
+  margin-top: 0;
+  gap: 1.25rem;
+}
+
+.bs-training__cards--separated>.bs-training__card.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.bs-training__group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  scroll-margin-top: 1.5rem;
+}
+
+.bs-training__group-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  gap: 0.5rem 1rem;
+}
+
+.bs-training__group-title {
+  color: #1a1918;
+  font-family: "Apfel Grotezk";
+  font-weight: 500;
+  font-size: 1.375rem;
+  line-height: 1.2;
+}
+
+.bs-training__group-progress {
+  opacity: .7;
+  color: #1a1918;
+  font-family: "DM Mono",monospace;
+  font-size: 0.8125rem;
+  letter-spacing: 0.025rem;
+  text-transform: uppercase;
+}
+
+.bs-training__empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  padding: 3rem 1.5rem;
+  border-radius: 1.5rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 6px 12px 0 rgba(232,225,206,.44);
+          box-shadow: 0 6px 12px 0 rgba(232,225,206,.44);
+  text-align: center;
+}
+
+.bs-training__empty-icon {
+  color: #f56751;
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.bs-training__empty-text {
+  max-width: 26.25rem;
+  color: #1a1918;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .bs-training__certificate-card {
